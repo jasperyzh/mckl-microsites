@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/base",
+
+  "compilerOptions": {
+    // https://docs.astro.build/en/guides/aliases/
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"]
+    }
+  }
+}

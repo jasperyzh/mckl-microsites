@@ -1,0 +1,42 @@
+---
+const { content } = Astro.props;
+
+// const test = content.program
+// console.log(content.programme_code);
+---
+
+<div class="programme_box">
+  <h4>
+    {content.title}
+    {content.new_programme && <sup class="new">NEW</sup>}
+  </h4>
+  <ul>
+    {
+      content.code_kl && (
+        <li>
+          <b>KL</b>: {content.code_kl}
+        </li>
+      )
+    }
+    {
+      content.code_pg && (
+        <li>
+          <b>PG</b>: {content.code_pg}
+        </li>
+      )
+    }
+  </ul>
+  {content.note && <p>{content.note}</p>}
+  <p class="fw-bold">Intake: {content.intake}</p>
+</div>
+
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  sup.new {
+    color: red;
+    font-style: italic;
+  }
+</style>

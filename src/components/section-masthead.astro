@@ -1,0 +1,46 @@
+---
+const { bg_mobile, bg_desktop } = Astro.props;
+---
+
+<section
+  id="masthead"
+  class="masthead masthead__ratio masthead__bg position-relative d-flex align-items-center py-4"
+>
+  <picture class="masthead__picture">
+    <source media="(min-width: 768px)" srcset={bg_desktop} />
+    <img src={bg_mobile} alt="Background Image" />
+  </picture>
+
+  <slot />
+
+  <!-- <div class="masthead__scrollmore">
+      <general-masthead-scroll-more />
+    </div> -->
+</section>
+
+<style lang="scss">
+  .masthead__picture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .masthead__picture img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .masthead__ratio {
+    aspect-ratio: 1 /1;
+
+    @include media-breakpoint-up(md) {
+      aspect-ratio: 21/9;
+    }
+  }
+  .masthead__content--bg-white {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+</style>

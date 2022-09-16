@@ -1,0 +1,374 @@
+---
+import "@styles/style.scss";
+import { Debug } from "astro/components";
+// interface
+
+import img_logo from "@assets/logo/mckl-campuses-logo.png";
+import bg_desktop from "@assets/scholarship/bg_desktop.jpg";
+import bg_mobile from "@assets/scholarship/bg_mobile.jpg";
+// import img_logo from "@assets/logo/mckl-campuses-logo.png";
+
+import scholarship2023_award from "@assets/scholarship/awardscholarship2023.png";
+import scholarship2023_limited from "@assets/scholarship/limitedscholarship2023.png";
+import scholarship2023_scholarship from "@assets/scholarship/scholarshipscholarship2023.png";
+
+import scholarship100 from "@assets/scholarship/100-scholarship.png";
+
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import CardIcon from "@components/CardIcon.astro";
+import CardProgramme from "@components/CardProgramme.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+import SectionPartners from "@components/section-partners.astro";
+import SectionAboutmckl from "@components/section-aboutmckl.astro";
+
+import ZohoWebformScholarship from "@components/ZohoWebformScholarship.vue";
+import BsAccordion from "@components/BsAccordion.vue";
+
+// programmes
+// const programmes = await Astro.glob("../../programmes/*.md");
+import * as cambridge_a_level from "../../programmes/cambridge_a_level.md";
+import * as ausmat from "../../programmes/ausmat.md";
+
+import * as adtp from "../../programmes/adtp.md";
+import * as dece from "../../programmes/dece.md";
+import * as dsw from "../../programmes/dsw.md";
+import * as dcs from "../../programmes/dcs.md";
+import * as dit from "../../programmes/dit.md";
+import * as ddb from "../../programmes/ddb.md";
+import * as ddm from "../../programmes/ddm.md";
+import * as dft from "../../programmes/dft.md";
+
+import * as acca_fia from "../../programmes/acca_fia.md";
+import * as acca from "../../programmes/acca.md";
+
+import src_counselling from "@assets/scholarship/icon1-counselling.png";
+import src_scholarship from "@assets/scholarship/icon2-scholarship.png";
+import src_waiver from "@assets/scholarship/icon3-waiver.png";
+import src_career from "@assets/scholarship/icon4-career.png";
+const card_icons = [
+  {
+    title: "Personalised Counselling",
+    img_src: src_counselling,
+  },
+  {
+    title: "Scholarships &amp; Financial Aid*",
+    img_src: src_scholarship,
+  },
+  {
+    title: "50% Tuition Fee Waiver*",
+    img_src: src_waiver,
+  },
+  {
+    title: "Complimentary MCKL Career Test",
+    img_src: src_career,
+  },
+];
+
+import src_trackrecord1 from "@assets/icon/business-icon-1.png";
+import src_trackrecord2 from "@assets/logo/logo-acca_approved_learning_partner.svg";
+import src_trackrecord3 from "@assets/icon/business-icon-2.png";
+import src_trackrecord4 from "@assets/icon/business-icon-3.png";
+import src_trackrecord5 from "@assets/icon/business-icon-4.png";
+
+const card_track_records = [
+  {
+    img_src: src_trackrecord1,
+    title: "Globally Recognised",
+    desc: "Providing renowned professional pre-university and tertiary programmes.",
+  },
+  {
+    img_src: src_trackrecord2,
+    title: "Platinum Status ACCA",
+    desc: "The most prestigious level as Approved Learning Partner with the highest standards and proven record to sustain student pass rates.",
+  },
+  {
+    img_src: src_trackrecord3,
+    title: "Industry Revolution 4.0",
+    desc: "Operations & learning system in line with the IR 4.0 environment.",
+  },
+  {
+    img_src: src_trackrecord4,
+    title: "Microsoft Recognition",
+    desc: "Providing flexibility with 100% blended learning via Microsoft cloud learning system.",
+  },
+  {
+    img_src: src_trackrecord5,
+    title: "MCKL DNA",
+    desc: "Nurturing students with Character Formation and Service Learning programmes throughout their studies.",
+  },
+];
+
+const homepage_path = "/scholarship";
+const nav__items = [];
+---
+
+<div class="site-container">
+  <Header homepage_path={homepage_path} />
+
+  <SectionMasthead bg_mobile={bg_mobile} bg_desktop={bg_desktop}>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 offset-lg-1">
+          <div class="mt-5 mt-lg-0">
+            <h1 class="display-4 font-weight-bold">MCKL Scholarships</h1>
+            <p class="h4 font-weight-normal mb-4">
+              Wide Range of Scholarship and Financial Aid for You
+            </p>
+            <p>We are open for counselling. Book your appointment now!</p>
+            <ul class="text-left pl-5 ml-5 ml-md-0">
+              <li class="point">100% Fully Vaccinated</li>
+              <li class="point">Full Compliance to Safety Measures</li>
+              <li class="point">
+                On-campus Personalised Counselling Available
+              </li>
+            </ul>
+            <div
+              class="btn btn-primary btn-lg my-3"
+              style="pointer-events: none"
+            >
+              Applications for January 2023 Intake Open
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="registration"
+          class="col-lg-4 offset-lg-1 mt-5 p-4 masthead__content--bg-white"
+        >
+          <ZohoWebformScholarship client:idle />
+        </div>
+      </div>
+    </div>
+  </SectionMasthead>
+
+  <section
+    id="highlights"
+    class="highlights__z-index bg-primary pb-5 text-light"
+  >
+    <div class="scholarship2023__bg">
+      <div class="container">
+        <div class="row justify-content-center mb-4">
+          <div class="col-auto">
+            <img
+              width="580"
+              src={scholarship2023_award}
+              alt="MCKL Excellence Award Scholarship 2023"
+            />
+          </div>
+        </div>
+        <div
+          class="row justify-content-center row-cols-2"
+          style="margin-top: -4rem"
+        >
+          <div class="col-auto mb-3">
+            <img
+              class="img-fluid"
+              width="160"
+              src={scholarship2023_limited}
+              alt="MCKL Scholarship Limited Availability - Apply Today"
+            />
+          </div>
+          <div class="col-auto mb-3">
+            <img
+              class="img-fluid"
+              width="160"
+              src={scholarship2023_scholarship}
+              alt="MCKL Scholarship 100% Scholarship"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+          <div class="col">
+            <h2 class="text-secondary text-center">
+              <u>Application Deadline</u>
+            </h2>
+            <ul class="list-unstyled text-center">
+              <li>
+                Round 1 (January 2023 Intake) : <strong
+                  >5<sup>th</sup> DEC 2022</strong
+                >
+              </li>
+              <li>
+                Round 2 (June-August 2023 Intake) : <strong
+                  >1<sup>st</sup> MAY 2023</strong
+                >
+              </li>
+            </ul>
+            <p class="my-3 text-white text-center">
+              <small><i>*Terms & Conditions Apply.</i></small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center justify-content-lg-end">
+        <div class="col-auto highlights__scholarship-decor">
+          <figure>
+            <img src={scholarship100} alt="100% Scholarship with MCKL" />
+          </figure>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <h2 class="text-secondary mt-lg-5">MCKL Scholarships Highlight</h2>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 my-5 text-center">
+        {
+          card_icons.map((item) => (
+            <div class="col mb-4">
+              <CardIcon item={item} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class="row justify-content-center my-4 text-center text-light__heading"
+    >
+      <div class="col-lg-6">
+        <div
+          class="card d-inline-block bg-transparent border-secondary rounded-0"
+        >
+          <div class="card-body p-5">
+            <h3 class="card-title h5">
+              Scholarships & Financial Aid Available
+            </h3>
+            <ul class="list-unstyled">
+              <li>MCKL-Industry Scholarships</li>
+              <li>MCKL Discounts/Bursaries</li>
+              <li>MCKL Special Scholarships &amp; Financial Aid</li>
+              <li>Methodist Affiliated Scholarships</li>
+              <li>External Scholarships</li>
+              <li>MCKL Merit Scholarships</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <a
+          href={`${homepage_path}#masthead`}
+          class="btn btn-secondary"
+          style="position:relative; z-index: 10"
+          >Open for Application. Enquire Now!</a
+        >
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- programmes-offered -->
+<section id="programmes" class="py-5">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-3">
+      <div class="col-auto">
+        <h2>Programmes Offered in MCKL</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <BsAccordion
+          client:idle
+          accordion_items={[
+            { title: "Pre-University" },
+            { title: "Undergraduate Programme" },
+            { title: "Professional Accounting" },
+          ]}
+        >
+          <div slot="content-0">
+            <CardProgramme content={cambridge_a_level.frontmatter} />
+            <CardProgramme content={ausmat.frontmatter} />
+          </div>
+          <div slot="content-1">
+            <CardProgramme content={adtp.frontmatter} />
+            <CardProgramme content={dece.frontmatter} />
+            <CardProgramme content={dsw.frontmatter} />
+            <CardProgramme content={dcs.frontmatter} />
+            <CardProgramme content={dit.frontmatter} />
+            <CardProgramme content={ddb.frontmatter} />
+            <CardProgramme content={ddm.frontmatter} />
+            <CardProgramme content={dft.frontmatter} />
+          </div>
+          <div slot="content-2">
+            <CardProgramme content={acca_fia.frontmatter} />
+            <CardProgramme content={acca.frontmatter} />
+          </div>
+        </BsAccordion>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- partners -->
+<SectionPartners />
+
+<!-- about -->
+<SectionAboutmckl />
+
+<!-- track_record -->
+<section id="track_record" class="py-5 text-center">
+  <div class="container">
+    <div class="row row-cols-1 justify-content-center text-center">
+      <h3 class="h4">Over 39 years of Proven Track Record</h3>
+    </div>
+    <div
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center my-4"
+    >
+      {
+        card_track_records.map((item) => (
+          <div class="col mb-4">
+            <CardIcon item={item} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- secure_spot -->
+<section id="secure-spot" class="secure-spot__bg py-5 text-light text-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+        <h2 class="text-light">Scholarship for 2023 Open for Applications</h2>
+        <p>
+          Complete the form to begin your Scholarship Application process. Our
+          Education Counsellors will contact you if you are eligible to apply.
+        </p>
+        <a href={`${homepage_path}#masthead`} class="btn btn-secondary"
+          >Enquire Now</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<Footer />
+
+<script>
+  import * as bootstrap from "bootstrap";
+  console.log("bs_init", bootstrap);
+</script>
+
+<style>
+  .secure-spot__bg {
+    background-image: url("../../assets/bg/cta-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .scholarship2023__bg {
+    background-image: url("../../assets/bg/scholarship2023-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
