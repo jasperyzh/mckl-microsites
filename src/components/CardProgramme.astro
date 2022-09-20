@@ -5,12 +5,12 @@ const { content } = Astro.props;
 // console.log(content.programme_code);
 ---
 
-<div class="programme_box">
+<div class="card__programme">
   <h4>
     {content.title}
     {content.new_programme && <sup class="new">NEW</sup>}
   </h4>
-  <ul>
+  <ul class="code">
     {
       content.code_kl && (
         <li>
@@ -27,14 +27,35 @@ const { content } = Astro.props;
     }
   </ul>
   {content.note && <p>{content.note}</p>}
-  <p class="fw-bold">Intake: {content.intake}</p>
+  <p class="intake">Intake: {content.intake}</p>
 </div>
 
-<style>
-  ul {
+<style lang="scss">
+  .card__programme {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  ul,
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  ul.code {
     list-style: none;
     padding: 0;
+    li {
+      color: $primary;
+      font-size: 0.75rem;
+    }
   }
+
+  .intake {
+    color: $primary;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
   sup.new {
     color: red;
     font-style: italic;

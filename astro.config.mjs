@@ -6,15 +6,15 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(), purgecss(), mdx()],
+  integrations: [vue(), /* purgecss(), */ mdx()],
   base: "/",
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "./src/styles/component-mixin";`
-        }
-      }
-    }
-  }
+          additionalData: `@import "./src/styles/component-mixin";`,
+        },
+      },
+    },
+  },
 });

@@ -1,60 +1,98 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+import "../styles/style.scss";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+	<link rel="icon" type="image/x-icon" href="/favicon.png">
+	
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-127424948-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-127424948-1");
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5F9B8QD");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      import * as bootstrap from "bootstrap";
+
+      /**
+       * navbar_collapse_onclick
+       */
+      const navbar_collapse = new bootstrap.Collapse(
+        ".navbar-collapse.collapse",
+        { toggle: false }
+      );
+      navbar_collapse._element
+        .querySelectorAll("a.nav-link")
+        .forEach((item) => {
+          item.addEventListener("click", () => {
+            navbar_collapse.hide();
+          });
+        });
+
+      /**
+       * add_margin_for_fixed_top
+       */
+      function fixed_top_margin_top(fixed_top_element, margin_top_target) {
+        // add_margin_top_according_to_fixed_top
+        margin_top_target.style.transition = "margin 100ms ease";
+        margin_top_target.style.marginTop = `${fixed_top_element.clientHeight}px`;
+
+        // create_variable_for_scroll_padding
+        // reference: https://www.youtube.com/watch?v=iGUSTyG-CYw
+        document.documentElement.style.setProperty(
+          "--scroll-padding",
+          `${fixed_top_element.clientHeight}px`
+        );
+      }
+      const header = document.querySelector("header.header");
+      const main = document.querySelector("main.main");
+      document.addEventListener("DOMContentLoaded", () => {
+        fixed_top_margin_top(header, main);
+      });
+      window.addEventListener("resize", () => {
+        fixed_top_margin_top(header, main);
+      });
+    </script>
+  </body>
 </html>
-<style>
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-	}
-
-	body {
-		margin: 0;
-	}
-
-
-</style>
-
-<style is:global>
-	h1 {
-		font-size: var(--font-size-xl);
-	}
-
-	h2 {
-		font-size: var(--font-size-lg);
-	}
-
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

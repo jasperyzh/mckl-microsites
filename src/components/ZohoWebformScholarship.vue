@@ -4,45 +4,19 @@
 - Code lines with comments Do not remove this code are required for the form to work properly, make sure that you do not remove these lines of code. 
 - The Mandatory check script can modified as to suit your business needs. 
 - It is important that you test the modified form before going live.-->
-  <div
-    id="crmWebToEntityForm"
-    class="container-box zcwf_lblLeft crmWebToEntityForm"
-  >
+  <div id="crmWebToEntityForm" class="container-box zcwf_lblLeft crmWebToEntityForm">
     <h2 class="h4">Complete the form to begin your Scholarship Application process</h2>
     <!-- <h2>Complete the form &amp; secure your spot today!</h2> -->
-    <form
-      id="form__top"
-      action="https://crm.zoho.com/crm/WebToLeadForm"
-      name="WebToLeads4875945000001345005"
-      method="POST"
-      onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4875945000001345005()'
-      accept-charset="UTF-8"
-    >
-      <input
-        type="text"
-        style="display: none"
-        name="xnQsjsdp"
-        value="4d9f4e6fae5a20e0cd8c2a36a070b76984439065bac62cc4cea2c71c2a1d58fb"
-      />
+    <form id="form__top" action="https://crm.zoho.com/crm/WebToLeadForm" name="WebToLeads4875945000001345005"
+      method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4875945000001345005()'
+      accept-charset="UTF-8">
+      <input type="text" style="display: none" name="xnQsjsdp"
+        value="4d9f4e6fae5a20e0cd8c2a36a070b76984439065bac62cc4cea2c71c2a1d58fb" />
       <input type="hidden" name="zc_gad" id="zc_gad" value="" />
-      <input
-        type="text"
-        style="display: none"
-        name="xmIwtLD"
-        value="3df8513a44e8ee0dc6e36209ffd3db24bfd1904603c6563b9abfdd5fe958c691"
-      />
-      <input
-        type="text"
-        style="display: none"
-        name="actionType"
-        value="TGVhZHM="
-      />
-      <input
-        type="text"
-        style="display: none"
-        name="returnURL"
-        value="https://mckl.edu.my/scholarship/thank-you"
-      />
+      <input type="text" style="display: none" name="xmIwtLD"
+        value="3df8513a44e8ee0dc6e36209ffd3db24bfd1904603c6563b9abfdd5fe958c691" />
+      <input type="text" style="display: none" name="actionType" value="TGVhZHM=" />
+      <input type="text" style="display: none" name="returnURL" value="https://mckl.edu.my/scholarship/thank-you" />
 
       <!-- Do not remove this code. -->
       <!-- <div class='zcwf_title' style='max-width: 600px;color: black;'>mckl-scholarship
@@ -51,14 +25,8 @@
         <!-- <div class='zcwf_col_lab'><label for='Last_Name'>Full Name<span
 style='color:red;'>*</span></label></div> -->
         <div class="zcwf_col_fld">
-          <input
-            type="text"
-            class="form-control info"
-            id="Last_Name"
-            name="Last Name"
-            maxlength="80"
-            placeholder="Full Name*"
-          />
+          <input type="text" class="form-control info" id="Last_Name" name="Last Name" maxlength="80"
+            placeholder="Full Name*" />
           <div class="zcwf_col_help"></div>
         </div>
       </div>
@@ -66,15 +34,8 @@ style='color:red;'>*</span></label></div> -->
         <!-- <div class='zcwf_col_lab'><label for='Email'>Email<span
 style='color:red;'>*</span></label></div> -->
         <div class="zcwf_col_fld">
-          <input
-            type="text"
-            class="form-control info"
-            ftype="email"
-            id="Email"
-            name="Email"
-            maxlength="100"
-            placeholder="Email*"
-          />
+          <input type="text" class="form-control info" ftype="email" id="Email" name="Email" maxlength="100"
+            placeholder="Email*" />
           <div class="zcwf_col_help"></div>
         </div>
       </div>
@@ -82,26 +43,14 @@ style='color:red;'>*</span></label></div> -->
         <!-- <div class='zcwf_col_lab'><label for='Mobile'>Mobile<span
 style='color:red;'>*</span></label></div> -->
         <div class="zcwf_col_fld">
-          <input
-            type="text"
-            class="form-control info"
-            id="Mobile"
-            name="Mobile"
-            maxlength="30"
-            placeholder="Mobile*"
-          />
+          <input type="text" class="form-control info" id="Mobile" name="Mobile" maxlength="30" placeholder="Mobile*" />
           <div class="zcwf_col_help"></div>
         </div>
       </div>
 
       <!-- programme_interest -->
       <div class="form-group">
-        <select
-          class="form-control"
-          name="programme_interested"
-          id="programme_interested"
-          required=""
-        >
+        <select class="form-select" name="programme_interested" id="programme_interested" required="">
           <option disabled selected value="">Interested Programme*</option>
           <optgroup label="Pre-University">
             <option value="Cambridge A Level">Cambridge A Level</option>
@@ -132,7 +81,7 @@ style='color:red;'>*</span></label></div> -->
 
       <!-- qualification -->
       <div class="form-group">
-        <select class="form-control qualification" id="qualification" required>
+        <select class="form-select qualification" id="qualification" required>
           <option disabled selected value="">
             Highest Level of Education*
           </option>
@@ -150,13 +99,7 @@ style='color:red;'>*</span></label></div> -->
           <label for="LEADCF5">Latest Academic Qualification</label>
         </div>
         <div class="zcwf_col_fld">
-          <input
-            type="text"
-            id="LEADCF5"
-            name="LEADCF5"
-            maxlength="255"
-            value="null"
-          />
+          <input type="text" id="LEADCF5" name="LEADCF5" maxlength="255" value="null" />
           <div class="zcwf_col_help"></div>
         </div>
       </div>
@@ -165,14 +108,12 @@ style='color:red;'>*</span></label></div> -->
           <label for="LEADCF20">Pre-University</label>
         </div>
         <div class="zcwf_col_fld">
-          <select class="zcwf_col_fld_slt" id="LEADCF20" name="LEADCF20">
+          <select class="form-select zcwf_col_fld_slt" id="LEADCF20" name="LEADCF20">
             <option value="-None-">-None-</option>
             <option selected value="Cambridge&#x20;A&#x20;Level">
               Cambridge A Level
             </option>
-            <option
-              value="Cambridge&#x20;A&#x20;Level&#x20;&#x28;German&#x20;Pathway&#x29;"
-            >
+            <option value="Cambridge&#x20;A&#x20;Level&#x20;&#x28;German&#x20;Pathway&#x29;">
               Cambridge A Level &#x28;German Pathway&#x29;
             </option>
             <option value="AUSMAT">AUSMAT</option>
@@ -185,7 +126,7 @@ style='color:red;'>*</span></label></div> -->
           <label for="LEADCF19">Diploma/Degree</label>
         </div>
         <div class="zcwf_col_fld">
-          <select class="zcwf_col_fld_slt" id="LEADCF19" name="LEADCF19">
+          <select class="form-select zcwf_col_fld_slt" id="LEADCF19" name="LEADCF19">
             <option value="-None-">-None-</option>
             <option selected value="ADTP">ADTP</option>
             <option value="DECE&#x20;&#x28;PT&#x29;">
@@ -246,44 +187,18 @@ Please accept this</div>
         <div class="zcwf_privacy">
           <div class="dIB vat form-group form-check">
             <div class="displayPurpose f13">
-              <input
-                class="form-check-input"
-                autocomplete="off"
-                id="privacyTool4875945000001345005"
-                type="checkbox"
-                name="privacyTool"
-                onclick="disableErr4875945000001345005()"
-                required="required"
-              />
-              <label
-                for="privacyTool4875945000001345005"
-                class="form-check-label"
-              >
+              <input class="form-check-input" autocomplete="off" id="privacyTool4875945000001345005" type="checkbox"
+                name="privacyTool" onclick="disableErr4875945000001345005()" required="required" />
+              <label for="privacyTool4875945000001345005" class="form-check-label">
                 <div class="dIB zcwf_privacy_txt">
                   I have read the College's
-                  <a
-                    href="https://mckl.edu.my/legal-policies-and-notices/"
-                    title=""
-                    target="_blank"
-                    data_issistrackenabled="false"
-                    data_siqtrackparam="null"
-                    style="color: #033676; text-decoration: underline"
-                    >Personal Data Protection Notice</a
-                  >
+                  <a href="https://mckl.edu.my/legal-policies-and-notices/" title="" target="_blank"
+                    data_issistrackenabled="false" data_siqtrackparam="null"
+                    style="color: #033676; text-decoration: underline">Personal Data Protection Notice</a>
                   and I give consent to the College to process my personal data
                   accordingly.
                 </div>
-                <div
-                  id="privacyErr4875945000001345005"
-                  style="
-                    font-size: 12px;
-                    color: red;
-                    padding-left: 5px;
-                    visibility: hidden;
-                  "
-                >
-                  Please accept this
-                </div>
+
               </label>
             </div>
           </div>
@@ -293,14 +208,8 @@ Please accept this</div>
         <div class="zcwf_col_lab"></div>
         <!-- <div class='zcwf_col_fld'><input type='submit' id='formsubmit'
 class='formsubmit zcwf_button' value='Submit' title='Submit'> -->
-        <input
-          type="submit"
-          id="formsubmit_top"
-          class="mr-2 btn btn-primary formsubmit zcwf_button"
-          value="Submit"
-          title="Submit"
-          onclick="phonenumber(document.WebToLeads4875945000001345005.Mobile)"
-        />
+        <input type="submit" id="formsubmit_top" class="mr-2 btn btn-primary formsubmit zcwf_button" value="Submit"
+          title="Submit" onclick="phonenumber(document.WebToLeads4875945000001345005.Mobile)" />
         <!-- <input
 type='reset' class='zcwf_button' name='reset' value='Reset'
 title='Reset'> -->
@@ -408,7 +317,7 @@ export default {
             if (fieldObj.name == "Last Name") {
               name = fieldObj.value;
             }
-          } catch (e) {}
+          } catch (e) { }
         }
       }
       if (!validateEmail4875945000001345005()) {
@@ -524,3 +433,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.form-group {
+  margin-bottom: .75rem;
+}
+
+.zcwf_privacy {
+  font-size: .825rem;
+}
+</style>
