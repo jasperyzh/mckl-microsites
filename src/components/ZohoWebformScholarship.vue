@@ -5,7 +5,8 @@
 - The Mandatory check script can modified as to suit your business needs. 
 - It is important that you test the modified form before going live.-->
   <div id="crmWebToEntityForm" class="container-box zcwf_lblLeft crmWebToEntityForm">
-    <h2 class="h4">Complete the form to begin your Scholarship Application process</h2>
+    <h2 class="h4">Enquire now</h2>
+    <p>Our Education Counsellors will reach out to you on Scholarship details.</p>
     <!-- <h2>Complete the form &amp; secure your spot today!</h2> -->
     <form id="form__top" action="https://crm.zoho.com/crm/WebToLeadForm" name="WebToLeads4875945000001345005"
       method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4875945000001345005()'
@@ -25,7 +26,7 @@
         <!-- <div class='zcwf_col_lab'><label for='Last_Name'>Full Name<span
 style='color:red;'>*</span></label></div> -->
         <div class="zcwf_col_fld">
-          <input type="text" class="form-control info" id="Last_Name" name="Last Name" maxlength="80"
+          <input type="text" class="form-control form-control-sm info" id="Last_Name" name="Last Name" maxlength="80"
             placeholder="Full Name*" />
           <div class="zcwf_col_help"></div>
         </div>
@@ -34,8 +35,8 @@ style='color:red;'>*</span></label></div> -->
         <!-- <div class='zcwf_col_lab'><label for='Email'>Email<span
 style='color:red;'>*</span></label></div> -->
         <div class="zcwf_col_fld">
-          <input type="text" class="form-control info" ftype="email" id="Email" name="Email" maxlength="100"
-            placeholder="Email*" />
+          <input type="text" class="form-control form-control-sm info" ftype="email" id="Email" name="Email"
+            maxlength="100" placeholder="Email*" />
           <div class="zcwf_col_help"></div>
         </div>
       </div>
@@ -43,45 +44,33 @@ style='color:red;'>*</span></label></div> -->
         <!-- <div class='zcwf_col_lab'><label for='Mobile'>Mobile<span
 style='color:red;'>*</span></label></div> -->
         <div class="zcwf_col_fld">
-          <input type="text" class="form-control info" id="Mobile" name="Mobile" maxlength="30" placeholder="Mobile*" />
+          <input type="text" class="form-control form-control-sm info" id="Mobile" name="Mobile" maxlength="30"
+            placeholder="Mobile*" />
           <div class="zcwf_col_help"></div>
         </div>
       </div>
 
+      <!-- campus -->
+      <div class="form-group">
+        <select class="form-select form-select-sm campus" id="campus" name="campus" required v-model="campus">
+          <option disabled selected value="">
+            Campus*
+          </option>
+          <option value="KL Campus">Kuala Lumpur Campus</option>
+          <option value="Penang Pykett Campus">Pykett, Penang Campus</option>
+        </select>
+      </div>
+
       <!-- programme_interest -->
       <div class="form-group">
-        <select class="form-select" name="programme_interested" id="programme_interested" required="">
-          <option disabled selected value="">Interested Programme*</option>
-          <optgroup label="Pre-University">
-            <option value="Cambridge A Level">Cambridge A Level</option>
-            <option value="AUSMAT">Australian Matriculation</option>
-          </optgroup>
-          <optgroup label="Undergraduate Programme">
-            <option value="ADTP">American Degree Transfer Program</option>
-            <option value="DECE (FT)">
-              Diploma in Early Childhood Education
-            </option>
-            <option value="DSW (FT)">Diploma in Social Work</option>
-            <option value="DCS">Diploma in Computer Science</option>
-            <option value="DIT">Diploma in Information Technology</option>
-            <option value="DEC">Diploma in Digital Business</option>
-            <option value="DDM">Diploma in Digital Marketing</option>
-            <option value="DIFT">Diploma in Financial Technology</option>
-          </optgroup>
-          <optgroup label="Professional Accounting">
-            <option value="ACCA FIA">
-              ACCA Foundation in Accountancy (ACCA FIA)
-            </option>
-            <option value="ACCA (PT)">
-              Association of Chartered Certified Accountants (ACCA)
-            </option>
-          </optgroup>
+        <select class="form-select form-select-sm" name="programme_interested" id="programme_interested" required=""
+          v-html="get_interested_programme">
         </select>
       </div>
 
       <!-- qualification -->
       <div class="form-group">
-        <select class="form-select qualification" id="qualification" required>
+        <select class="form-select form-select-sm qualification" id="qualification" required>
           <option disabled selected value="">
             Highest Level of Education*
           </option>
@@ -94,6 +83,11 @@ style='color:red;'>*</span></label></div> -->
       </div>
 
       <!-- hidden fields -->
+      <select class='zcwf_col_fld_slt d-none' id='LEADCF23' name='LEADCF23'>
+        <option value='-None-'>-None-</option>
+        <option selected value='KL Campus'>KL Campus</option>
+        <option value='Penang Pykett Campus'>Penang Pykett Campus</option>
+      </select>
       <div class="zcwf_row d-none">
         <div class="zcwf_col_lab" style="font-size: 12px; font-family: Arial">
           <label for="LEADCF5">Latest Academic Qualification</label>
@@ -209,7 +203,7 @@ Please accept this</div>
         <!-- <div class='zcwf_col_fld'><input type='submit' id='formsubmit'
 class='formsubmit zcwf_button' value='Submit' title='Submit'> -->
         <input type="submit" id="formsubmit_top" class="mr-2 btn btn-primary formsubmit zcwf_button" value="Submit"
-          title="Submit" onclick="phonenumber(document.WebToLeads4875945000001345005.Mobile)" />
+          title="Submit" />
         <!-- <input
 type='reset' class='zcwf_button' name='reset' value='Reset'
 title='Reset'> -->
@@ -220,6 +214,61 @@ title='Reset'> -->
 
 <script>
 export default {
+  data() {
+    return {
+      campus: ""
+    }
+  },
+  computed: {
+    get_interested_programme() {
+      if (this.campus === "Penang Pykett Campus") {
+        return `
+        <option disabled selected value="">Interested Programme*</option>
+          <optgroup label="Pre-University">
+            <option value="Cambridge A Level">Cambridge A Level</option>
+            <option value="AUSMAT">Australian Matriculation</option>
+          </optgroup>
+          <optgroup label="Undergraduate Programme">
+            <option value="DECE (FT)">
+              Diploma in Early Childhood Education
+            </option>
+            <option value="DCS">Diploma in Computer Science</option>
+            <option value="DIT">Diploma in Information Technology</option>
+            <option value="DEC">Diploma in Digital Business</option>
+            <option value="DDM">Diploma in Digital Marketing</option>
+          </optgroup>
+        `;
+      } else {
+        return `
+            <option disabled selected value="">Interested Programme*</option>
+          <optgroup label="Pre-University">
+            <option value="Cambridge A Level">Cambridge A Level</option>
+            <option value="AUSMAT">Australian Matriculation</option>
+          </optgroup>
+          <optgroup label="Undergraduate Programme">
+            <option value="ADTP">American Degree Transfer Program</option>
+            <option value="DECE (FT)">
+              Diploma in Early Childhood Education
+            </option>
+            <option value="DSW (FT)">Diploma in Social Work</option>
+            <option value="DCS">Diploma in Computer Science</option>
+            <option value="DIT">Diploma in Information Technology</option>
+            <option value="DEC">Diploma in Digital Business</option>
+            <option value="DDM">Diploma in Digital Marketing</option>
+            <option value="DIFT">Diploma in Financial Technology</option>
+          </optgroup>
+          <optgroup label="Professional Accounting">
+            <option value="ACCA FIA">
+              ACCA Foundation in Accountancy (ACCA FIA)
+            </option>
+            <option value="ACCA (FT)">
+              Association of Chartered Certified Accountants (ACCA)
+            </option>
+          </optgroup>
+      `;
+      }
+    }
+  },
   mounted() {
     //validation phone number
     //        function phonenumber(inputtxt)
@@ -346,9 +395,15 @@ export default {
       }
     }
     // submit form
-    document.getElementById("form__top").addEventListener("submit", () => {
+    document.getElementById("form__top").addEventListener("submit", (e) => {
+      // e.preventDefault();
+
       clearZohoField();
       refillZohoField();
+
+      // console.log(document.getElementById("LEADCF23").value);
+      // console.log(document.getElementById("campus").value);
+
       return;
     });
 
@@ -388,6 +443,10 @@ export default {
       /* refill qualification onto zoho-field */
       document.getElementById("LEADCF5").value =
         document.getElementById("qualification").value;
+
+
+      document.getElementById("LEADCF23").value =
+        document.getElementById("campus").value;
 
       /* refill programme_interested onto zoho-field */
 

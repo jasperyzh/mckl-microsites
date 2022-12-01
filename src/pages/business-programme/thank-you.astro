@@ -1,0 +1,10 @@
+---
+import BusinessProgrammeContent from "./index.astro";
+import SectionThankyou from "@components/section-thankyou.astro";
+
+const homepage_path = "/business-programme";
+---
+
+<BusinessProgrammeContent is_thank_you={true}>
+  <SectionThankyou slot="thank-you" homepage_path={homepage_path} />
+</BusinessProgrammeContent>

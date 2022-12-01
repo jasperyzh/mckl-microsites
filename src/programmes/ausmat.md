@@ -2,6 +2,6 @@
 title: Australian Matriculation (AUSMAT)
 category: "pre-university"
 code_kl: KPT/JPS(R2/010/3/0097)(A9207)07/23
-code_pg: KPT/JPS(R/010/3/0233)(MQA/FA4447)03/24
-intake: January, June & August
+code_pg: KPT/JPS(N/010/2/0006)(MQA/PA14311)05/27
+intake: 16 Jan, 15 Jun & 24 Aug
 ---

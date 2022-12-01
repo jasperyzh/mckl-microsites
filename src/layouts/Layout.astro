@@ -3,7 +3,10 @@ export interface Props {
   title: string;
 }
 
-const { title } = Astro.props;
+import ToastAnnouncement from "@components/ToastAnnouncement.astro";
+
+const { title = "Welcome to MCKL", hide_toast_announcement = true } =
+  Astro.props;
 
 import "../styles/style.scss";
 ---
@@ -14,8 +17,8 @@ import "../styles/style.scss";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-	<link rel="icon" type="image/x-icon" href="/favicon.png">
-	
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -50,7 +53,10 @@ import "../styles/style.scss";
     <!-- End Google Tag Manager -->
   </head>
   <body>
-    <slot />
+    <div class="site-container">
+      <slot />
+      {hide_toast_announcement && <ToastAnnouncement />}
+    </div>
 
     <script>
       import * as bootstrap from "bootstrap";

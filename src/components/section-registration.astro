@@ -1,0 +1,29 @@
+---
+const { img_src, img_style } = Astro.props;
+---
+
+<section id="registration" class="px-2 px-md-4 py-5 bg-primary--half">
+  <div class="container bg-light shadow">
+    <div class="row">
+      <div class="col-lg-6 g-0">
+        <figure class="w-100 h-100 mb-0">
+          <img class="form-img-mobile-size" src={img_src} style={img_style} />
+        </figure>
+      </div>
+      <div class="col-lg-6 py-3">
+        <slot name="content" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .bg-primary--half {
+    background-image: linear-gradient(180deg, $light 33%, $primary 33%);
+  }
+  .form-img-mobile-size {
+    @include media-breakpoint-down(lg) {
+      aspect-ratio: 3/1;
+    }
+  }
+</style>

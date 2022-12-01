@@ -1,15 +1,13 @@
 ---
-const { content } = Astro.props;
-
-// const test = content.program
-// console.log(content.programme_code);
+const { content, style, compiledContent } = Astro.props;
 ---
 
-<div class="card__programme">
+<div class="card__programme" style={style}>
   <h4>
     {content.title}
     {content.new_programme && <sup class="new">NEW</sup>}
   </h4>
+  {content.after_title && <div set:html={content.after_title} />}
   <ul class="code">
     {
       content.code_kl && (
@@ -26,8 +24,13 @@ const { content } = Astro.props;
       )
     }
   </ul>
+
+  <!-- discontinue content.note; go with <slot /> -->
   {content.note && <p>{content.note}</p>}
-  <p class="intake">Intake: {content.intake}</p>
+
+  {compiledContent && <div set:html={compiledContent} />}
+
+  {content.intake && <p class="intake">Intake: {content.intake}</p>}
 </div>
 
 <style lang="scss">
@@ -35,7 +38,7 @@ const { content } = Astro.props;
     border-bottom: 1px solid #ccc;
     margin-bottom: 1rem;
   }
-  
+
   ul,
   p {
     margin-bottom: 0.5rem;

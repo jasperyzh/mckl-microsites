@@ -1,0 +1,32 @@
+---
+import article_221201 from "@assets/business-programme/221201-article.jpg";
+
+import CardArticle from "@components/CardArticle.astro";
+---
+
+<section id="news_event" class="my-5 pt-3">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <h2>News & Highlights</h2>
+        <p class="lead">Highlight of our recent endeavor</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card-deck justify-content-center">
+          <div class="col mb-3">
+            <CardArticle
+              classes="card--horizontal"
+              id="article-1"
+              title="MCKL’s graduate competency framework ensures students live up to employment requirements"
+              desc="Methodist College Kuala Lumpur’s (MCKL) Graduate Competency Framework ensures that its graduates are equipped with the right skills and attitude for today’s business and technology industries."
+              link="https://mckl.edu.my/2022/07/04/mckls-graduate-competency-framework-ensures-students-live-up-to-employment-requirements/"
+              img_src={article_221201}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

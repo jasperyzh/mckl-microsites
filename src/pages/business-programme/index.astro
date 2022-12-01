@@ -1,0 +1,687 @@
+---
+const title = "Digital Programme | MCKL College";
+const microsite_source = "business-programme";
+const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+const programme_interested = {
+  kl: {
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        DDM: "Diploma in Digital Marketing - NEW",
+        DEC: "Diploma in Digital Business - NEW",
+        DIFT: "Diploma in Financial Technology - NEW",
+      },
+    },
+  },
+  penang: {
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        DDM: "Diploma in Digital Marketing - NEW",
+        DEC: "Diploma in Digital Business - NEW",
+      },
+    },
+  },
+};
+const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+  Astro.props;
+
+// images
+// import bg_mobile from "@assets/bg/bg-business-2205-mobile.jpg";
+// import bg_laptop from "@assets/bg/bg-business-2205-laptop.jpg";
+// import bg_desktop from "@assets/bg/bg-business-2205-desktop.jpg";
+import bg_mobile from "@assets/test-business.jpg";
+import bg_laptop from "@assets/test-business.jpg";
+import bg_desktop from "@assets/test-business.jpg";
+import form_support from "@assets/174601870.jpg";
+
+// import form_support from "@assets/digital-programme/form-support.jpg";
+
+import icon_trackrecord1 from "@assets/icon/business-icon-1.png";
+import icon_trackrecord3 from "@assets/icon/business-icon-2.png";
+import icon_trackrecord4 from "@assets/icon/business-icon-3.png";
+import icon_trackrecord5 from "@assets/icon/business-icon-4.png";
+
+import icon_future from "@assets/icon/icon-business-future_ready_skills.svg";
+import icon_training from "@assets/icon/icon-business-industrial_training.svg";
+import icon_international_degree from "@assets/icon/icon-business-international_degree.svg";
+
+import logo_deakin_square from "@assets/partners-uni/deakin_square.jpg";
+import logo_keele_square from "@assets/partners-uni/keele_square.jpg";
+import logo_sheffield_square from "@assets/partners-uni/sheffield_square.jpg";
+import logo_middlesex_square from "@assets/partners-uni//middlesex_square.jpg";
+import logo_teesside_square from "@assets/partners-uni//teesside_square.jpg";
+
+import featured_ddm from "@assets/business-programme/featured-ddm.jpg";
+import featured_ddb from "@assets/business-programme/featured-ddb.jpg";
+import featured_dft from "@assets/business-programme/featured-dft.jpg";
+import testimonial_lim_kai_xiang from "@assets/testimonial/lim_kai_xiang.jpg";
+
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+import SectionPartners from "@components/section-partners.astro";
+import SectionAboutmckl from "@components/section-aboutmckl.astro";
+import SectionBusinessProgramme from "@components/section-business-programme.astro";
+import SectionProgrammeArticles from "@components/section-programme-article.astro";
+import SectionRegistration from "@components/section-registration.astro";
+
+import CardIcon from "@components/CardIcon.astro";
+import SwiperTestimonial from "@components/SwiperTestimonial.vue";
+import BsAccordion from "@components/BsAccordion.vue";
+import ZohoWebform from "@components/ZohoWebform.vue";
+
+// programmes
+import * as ddm from "../../programmes/ddm.md";
+import * as ddb from "../../programmes/ddb.md";
+import * as dft from "../../programmes/dft.md";
+
+// contents
+const nav__items = [
+  {
+    name: "About",
+    href: "#about_digital",
+  },
+  {
+    name: "Programmes",
+    href: "#programmes",
+  },
+  {
+    name: "Register Today",
+    href: "#registration",
+    nav_link_class: "btn btn-danger",
+  },
+];
+const card_icons = [
+  {
+    img_src: icon_future,
+    title: "Gain Future-ready Skills & Knowledge",
+    desc: "Exposure to industry-relevant skills such as Search Engine Optimisation (SEO), Social Media Content Marketing, International Business, Cybersecurity and Blockchain.",
+  },
+  {
+    img_src: icon_training,
+    title: "Progress into an International Degree",
+    desc: "Opportunity to pursue a bachelor's degree at our partner universities abroad, such as Sheffield Hallam University, Deakin University and Keele University.",
+  },
+  {
+    img_src: icon_international_degree,
+    title: "Be Job-Ready with Industrial Training",
+    desc: "12-week industrial training in the final semester with industry experts provides real-life working experience and a seamless transition to employment.",
+  },
+];
+const card_track_records = [
+  {
+    img_src: icon_trackrecord1,
+    title: "Globally Recognised",
+    desc: "Providing renowned professional pre-university and tertiary programmes.",
+  },
+  {
+    img_src: icon_trackrecord3,
+    title: "Industry Revolution 4.0",
+    desc: "Operations & learning system in line with the IR 4.0 environment.",
+  },
+  {
+    img_src: icon_trackrecord4,
+    title: "Microsoft Recognition",
+    desc: "Providing flexibility with 100% blended learning via Microsoft cloud learning system.",
+  },
+  {
+    img_src: icon_trackrecord5,
+    title: "MCKL DNA",
+    desc: "Nurturing students with Character Formation and Service Learning programmes throughout their studies.",
+  },
+];
+const testimonials = [
+  {
+    name: "Lim Kai Xiang",
+    desc: ["Diploma in Digital Business, MCKL"],
+    quote:
+      "I decided to study MCKL’s Digital Business programme as it provides me the academic knowledge and skills to pursue global career opportunities in the future. MCKL has helped me prepare myself for my further studies as the lecturers always made sure that we have a clear understanding on all the subjects.",
+    img_src: testimonial_lim_kai_xiang,
+  },
+];
+---
+
+<Layout title={title}>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+
+  <main class="main">
+    {is_thank_you && <slot name="thank-you" />}
+
+    <!-- bg_laptop={bg_laptop} -->
+    <SectionMasthead
+      bg_mobile={bg_mobile}
+      bg_laptop={bg_laptop}
+      bg_desktop={bg_desktop}
+      bg_img_style="object-position: center;"
+    >
+      <div class="container">
+        <!-- <div
+          class="row justify-content-center text-center text-light text-light__heading"
+        > -->
+        <div class="row justify-content-center text-center text-md-start">
+          <div class="col" style="filter: drop-shadow(2px 4px 8px #0003);">
+            <h1 class="font-weight-bold mb-4">
+              Launch Your Business Career in
+              <span class="d-block">IR 4.0 with MCKL</span>
+            </h1>
+            <p class="h4">12-weeks of industrial training for all students.</p>
+            <p class="h4">Scholarships and financial aid available.</p>
+            <div class="my-3">
+              <a
+                class="m-2 btn btn-secondary btn-lg"
+                href={`${homepage_path}#programmes_offered`}>Learn More</a
+              >
+              <a
+                class="m-2 btn btn-light btn-lg"
+                href={`${homepage_path}#registration`}>Enquire Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionMasthead>
+    <style lang="scss" is:global>
+      .masthead__picture {
+        @include media-breakpoint-down(md) {
+          filter: brightness(1.3) contrast(0.9);
+          z-index: -1;
+          opacity: 0.5;
+        }
+        filter: brightness(1.1);
+      }
+    </style>
+
+    <!-- intro -->
+    <section
+      class="bg-primary py-4 text-center border-bottom border-secondary text-light text-light__heading"
+      style="border-width: 6px !important"
+    >
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-7">
+            <h3 class="my-4">Why Study Business with MCKL?</h3>
+            <p>
+              Industrial Revolution 4.0 (IR 4.0) is upon us and has impacted
+              societies, business models, future jobs and careers. As more
+              emphasis is placed on smart solutions, automation, data analytics
+              and internet of things (IoT) technology in businesses, the demand
+              for digitally-skilled talents are also widely growing.
+            </p>
+            <p>
+              To meet the demands of IR 4.0, MCKL recognises the need to equip
+              our students with future-oriented skills. Our new diploma
+              programmes are here to prepare our students to be job-ready!
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center my-4 text-start"
+        >
+          {
+            card_icons.map((item) => (
+              <div class="col mb-4">
+                <CardIcon classes="card__icon--business" item={item} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section id="programmes_offered">
+      <!-- title -->
+      <div class="bg-secondary py-4 text-center">
+        <h2 class="text-primary">Programmes Offered</h2>
+        <p class="h5 text-primary">Intake: January, June & August 2023</p>
+      </div>
+
+      <SectionBusinessProgramme
+        featured_img={featured_ddm}
+        prog={ddm.frontmatter}
+      >
+        <div slot="content">
+          <h4 class="my-4">What is Digital Marketing?</h4>
+          <p>
+            Have you ever wondered what goes on behind the scenes of every
+            Chinese New Year video or Hari Raya contest that you see online?
+            Digital marketing is the combination of various marketing effort
+            that takes place online in one form or another. By leveraging
+            various digital channels such as search engines, email, social
+            media, websites, and mobile apps, brands are able to reach out to
+            their target audience much more easily, efficiently as well as
+            precisely than ever before. From creating brand awareness to driving
+            sales, digital marketing is now where traditional advertising used
+            to be.
+          </p>
+        </div>
+        <BsAccordion
+          client:idle
+          show_first={true}
+          accordion_id="ddm"
+          accordion_items={[
+            { title: "Why study Digital Marketing?" },
+            { title: "What happens next after graduation?" },
+          ]}
+          slot="after_content"
+        >
+          <div slot="content-0">
+            <p>
+              Digital marketing has evolved over the years making it one of the
+              most sought-after forms of advertising in today's fast-changing
+              world. The programme is designed to equip students with in-demand
+              digital skills such as search engine optimisation (SEO), search
+              engine marketing (SEM), social media marketing, electronic direct
+              mail (EDM) marketing and other digital platforms. The programme
+              also develops skills that are needed to analyse market needs and
+              trends, define target markets and unlock business opportunities in
+              a competitive environment.
+            </p>
+          </div>
+          <div slot="content-1">
+            <div class="row">
+              <div class="col-md-6">
+                <p>
+                  Students are now <strong>job-ready</strong> to explore careers
+                  such as:
+                </p>
+                <ul>
+                  <li>Content Creator Digital Marketing</li>
+                  <li>Digital Marketing Executive</li>
+                  <li>E-Service Executive</li>
+                  <li>Market Research Analyst</li>
+                  <li>Media Content Strategist</li>
+                  <li>Online Business Entrepreneur</li>
+                  <li>Social Media Executive</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  Students can also top up 2 years to progress into a bachelor’s
+                  degree programme at our partner universities:
+                </p>
+
+                <div class="media align-items-center mb-2">
+                  <figure>
+                    <img
+                      width="96"
+                      src={logo_deakin_square}
+                      class=""
+                      alt="Deakin University, Australia"
+                    />
+                    <p style="line-height: 1">
+                      <small>CRICOS PROVIDER <br />NO. 00113B</small>
+                    </p>
+                  </figure>
+                  <div class="media-body ms-3">
+                    <h5 class="mt-0">Deakin University, Australia</h5>
+                    <p>Commerce | Business Analytics</p>
+                  </div>
+                </div>
+
+                <div class="media align-items-center mb-2">
+                  <img
+                    width="96"
+                    src={logo_keele_square}
+                    class=""
+                    alt="Keele University, UK"
+                  />
+                  <div class="media-body ms-3">
+                    <h5 class="mt-0">Keele University, UK</h5>
+                    <p>
+                      International Business Management | Marketing and Business
+                      Management
+                    </p>
+                  </div>
+                </div>
+
+                <div class="media align-items-center mb-2">
+                  <img
+                    width="96"
+                    src={logo_sheffield_square}
+                    class=""
+                    alt="Sheffield Hallam University, UK"
+                  />
+                  <div class="media-body ms-3">
+                    <h5 class="mt-0">Sheffield Hallam University, UK</h5>
+                    <p>
+                      Digital Marketing | Business and Digital Technology |
+                      Information Technology with Business Studies
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </BsAccordion>
+      </SectionBusinessProgramme>
+
+      <SectionBusinessProgramme
+        featured_img={featured_ddb}
+        prog={ddb.frontmatter}
+      >
+        <div slot="content">
+          <h4 class="my-4">What is Digital Business?</h4>
+          <p>
+            Have you ever wondered how to start your own online business or how
+            international brands have embraced Digital Business as part of their
+            retail strategy? Digital Business is a sales channel that enables
+            entrepreneurs and businesses to sell online, directly to consumers,
+            but that’s not all. It is also about marketing, gaining consumer
+            trust and confidence and so much more; without physically
+            interacting with customers both locally and beyond geographical
+            borders.
+          </p>
+        </div>
+        <BsAccordion
+          client:idle
+          show_first={true}
+          accordion_id="ddb"
+          accordion_items={[
+            { title: "Why study Digital Business?" },
+            { title: "What happens next after graduation?" },
+          ]}
+          slot="after_content"
+        >
+          <div slot="content-0">
+            <p>
+              Digital Business has great future prospects as most businesses are
+              moving online for greater penetration into the market through
+              faster and wider reach via the usage of the Internet. The
+              programme will provide students with an in-depth understanding of
+              the context, nature, role and significance of e-business / Digital
+              Business activities in a dynamic business world. Students will
+              gain exposure to theoretical and practical knowledge of conducting
+              an online business over the Web and also the fundamentals of
+              entrepreneurship for the opportunity to start their own
+              businesses.
+            </p>
+          </div>
+          <div slot="content-1">
+            <div class="row">
+              <div class="col-md-6">
+                <p>
+                  Students are now <strong>job-ready</strong> to explore careers
+                  such as:
+                </p>
+                <ul>
+                  <li>Digital Marketing Executive</li>
+                  <li>Digital Business Entrepreneur</li>
+                  <li>Digital Business Executive</li>
+                  <li>Digital Business Planner</li>
+                  <li>Market Research Analyst</li>
+                  <li>Online Business Analyst</li>
+                  <li>Web Development Specialist</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  Students can also top up 1-2 years to progress into a
+                  bachelor’s degree programme at our partner universities:
+                </p>
+
+                <div class="media align-items-center mb-2">
+                  <figure>
+                    <img
+                      width="96"
+                      src={logo_deakin_square}
+                      class=""
+                      alt="Deakin University, Australia"
+                    />
+                    <p style="line-height: 1">
+                      <small>CRICOS PROVIDER <br />NO. 00113B</small>
+                    </p>
+                  </figure>
+                  <div class="media-body ml-3">
+                    <h5 class="mt-0">Deakin University, Australia</h5>
+                    <p>Commerce | Business</p>
+                  </div>
+                </div>
+
+                <div class="media align-items-center mb-2">
+                  <img
+                    width="96"
+                    src={logo_keele_square}
+                    class=""
+                    alt="Keele University, UK"
+                  />
+                  <div class="media-body ml-3">
+                    <h5 class="mt-0">Keele University, UK</h5>
+                    <p>
+                      International Business Management | Marketing and Business
+                      Management
+                    </p>
+                  </div>
+                </div>
+
+                <div class="media align-items-center mb-2">
+                  <img
+                    width="96"
+                    src={logo_middlesex_square}
+                    class=""
+                    alt="Middlesex University London, UK"
+                  />
+                  <div class="media-body ml-3">
+                    <h5 class="mt-0">Middlesex University London, UK</h5>
+                    <p>International Business Administration</p>
+                  </div>
+                </div>
+
+                <div class="media align-items-center mb-2">
+                  <img
+                    width="96"
+                    src={logo_sheffield_square}
+                    class=""
+                    alt="Sheffield Hallam University, UK"
+                  />
+                  <div class="media-body ml-3">
+                    <h5 class="mt-0">Sheffield Hallam University, UK</h5>
+                    <p>
+                      Business and Finance | Business Management | Business and
+                      Digital Technology | Information Technology with Business
+                      Studies
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </BsAccordion>
+      </SectionBusinessProgramme>
+
+      <SectionBusinessProgramme
+        featured_img={featured_dft}
+        prog={dft.frontmatter}
+      >
+        <p slot="after_title">
+          <small>*Programmes offered in Kuala Lumpur Campus only</small>
+        </p>
+        <div slot="content">
+          <h4 class="my-4">What is Financial Technology (FinTech)?</h4>
+          <p>
+            Imagine 10 years ago, would you have ever guessed that we are en
+            route to becoming a cashless society or that financial instruments
+            no longer require banks or face to face interactions to take place?
+            This is FinTech. FinTech, or financial technology, is used to
+            describe businesses that use technological innovation to enhance or
+            automate their financial services and products. This allows for
+            quicker processes, personalised services, and more accurate data.
+            Technology in finance continues to evolve due to advances in big
+            data, artificial intelligence (AI), machine learning and data
+            science. FinTech is now being used in various areas of finance such
+            as mobile banking, cryptocurrency, blockchain, investment and
+            trading.
+          </p>
+        </div>
+        <BsAccordion
+          client:idle
+          show_first={true}
+          accordion_id="dft"
+          accordion_items={[
+            { title: "Why study Financial Technology (FinTech)?" },
+            { title: "What happens next after graduation?" },
+          ]}
+          slot="after_content"
+        >
+          <div slot="content-0">
+            <p>
+              FinTech is a rapidly growing industry and will continue to expand
+              for years to come. Talents with cross-discipline knowledge and
+              skills in Finance and Information Technology are in demand for the
+              coming years. The programme will fully equip students with
+              comprehensive knowledge and future-oriented skills in Financial
+              Technology. Some of the key areas include Financial Accounting,
+              Financial Management, Principles of Investment and Blockchain.
+              With a comprehensive programme, MCKL aims to produce future-ready
+              students to meet the need of the FinTech industry.
+            </p>
+          </div>
+          <div slot="content-1">
+            <div class="row">
+              <div class="col-auto">
+                <p>
+                  Students are now <strong>job-ready</strong> to explore careers
+                  such as:
+                </p>
+                <ul>
+                  <li>App Developer</li>
+                  <li>Blockchain Developer</li>
+                  <li>Cybersecurity Analyst</li>
+                  <li>Data Scientist</li>
+                  <li>Financial Analyst</li>
+                  <li>FinTech Quantitative Developer</li>
+                  <li>FinTech Systems Analyst</li>
+                  <li>Investment Analyst</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  Students can also choose to progress into a <strong
+                    >bachelor’s degree</strong
+                  >
+                  programme at our partner universities.
+                </p>
+                such as Teesside University.
+                <div
+                  class="media justify-content-center align-items-center mb-2"
+                >
+                  <img
+                    width="96"
+                    src={logo_teesside_square}
+                    class=""
+                    alt="..."
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </BsAccordion>
+      </SectionBusinessProgramme>
+
+      <!-- youtube -->
+      <section id="youtube" class="my-5 text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <h2>MCKL New Business Programmes Webinar</h2>
+              <p class="lead">Future Proof with Business & Computing Studies</p>
+            </div>
+          </div>
+          <div class="row justify-content-center my-3">
+            <div class="col-lg-6">
+              <iframe
+                class="w-100 border-0"
+                style="aspect-ratio: 16 / 9"
+                src="https://www.youtube.com/embed/ipQasHCAgDo"></iframe>
+            </div><div class="col-lg-6">
+              <iframe
+                class="w-100 border-0"
+                style="aspect-ratio: 16 / 9"
+                src="https://www.youtube.com/embed/97JrtA4J-kk"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- articles -->
+      <SectionProgrammeArticles />
+
+      <!-- partners -->
+      <SectionPartners />
+
+      <SectionAboutmckl>
+        <div class="container" slot="after_content">
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center my-4"
+          >
+            {
+              card_track_records.map((item) => (
+                <div class="col mb-4">
+                  <CardIcon item={item} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </SectionAboutmckl>
+
+      <!-- testimonial -->
+      <section id="testimonial" class="my-5">
+        <div class="container-lg">
+          <div class="row text-center">
+            <div class="col mb-3">
+              <h2>Testimonial</h2>
+              <p>Hear from our graduates</p>
+            </div>
+          </div>
+          <div class="row">
+            <SwiperTestimonial client:only="vue" content={testimonials} />
+          </div>
+        </div>
+      </section>
+
+      <SectionRegistration
+        img_src={form_support}
+        img_style="object-fit: cover; width: 100%; height: 100%;"
+      >
+        <div slot="content">
+          <h2 class="h4">Enquire for personal education advice</h2>
+          <p>Explore the right IR 4.0 oriented programmes today!</p>
+          <ul>
+            <li>Top Up 1 Year to complete your degree in Australia*</li>
+            <li>100% MCKL-Industry Scholarship*</li>
+            <li>50% Tuition Fee Waiver*</li>
+            <li>Scholarships & Financial Aid*</li>
+            <li>Internship & Career Opportunities</li>
+            <li>Personalised Counselling</li>
+            <li>Complimentary MCKL Career Test</li>
+            <li>Campus Tour</li>
+            <li class="list-unstyled">
+              <small>*Terms & Conditions apply.</small>
+            </li>
+          </ul>
+
+          <ZohoWebform
+            client:only="vue"
+            return_url={return_url}
+            microsite_source={microsite_source}
+            programme_interested={programme_interested}
+          />
+        </div>
+      </SectionRegistration>
+
+      <Footer />
+    </section>
+  </main>
+</Layout>
+<style>
+  .media {
+    display: flex;
+    gap: 1rem;
+  }
+</style>

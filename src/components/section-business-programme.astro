@@ -1,0 +1,41 @@
+---
+const { prog, featured_img } = Astro.props;
+---
+
+<article id={prog.id} class="my-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="h1">{prog.title}</h3>
+        <p class="text-muted mb-0">
+          <small>KL: {prog.code_kl}</small>
+          {
+            prog.code_pg && (
+              <>
+                <br />
+                <small>PG: {prog.code_pg}</small>
+              </>
+            )
+          }
+        </p>
+        <slot name="after_title" />
+      </div>
+    </div>
+
+    <div class="row my-4">
+      <div class="col-md-6 order-md-2">
+        <img src={featured_img} alt={prog.title} />
+      </div>
+      <div class="col-md-6 order-md-1">
+        <slot name="content" />
+        <a href="#registration" class="btn btn-primary">Enquire Now</a>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col">
+        <slot name="after_content" />
+      </div>
+    </div>
+  </div>
+</article>

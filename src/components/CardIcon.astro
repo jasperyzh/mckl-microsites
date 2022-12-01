@@ -1,8 +1,8 @@
 ---
-const { item } = Astro.props;
+const { item, classes } = Astro.props;
 ---
 
-<div class="card card__icon">
+<div class={`card card__icon ${classes}`}>
   <figure>
     <img width="120" src={item.img_src} alt={item.title} class="card-img" />
   </figure>
@@ -17,6 +17,15 @@ const { item } = Astro.props;
   .card__icon {
     background-color: transparent;
     border: 0;
+
+    &.card__icon--large {
+      margin: 1rem;
+    }
+
+    &.card__icon--large img {
+      aspect-ratio: 4/3;
+      max-height: inherit;
+    }
 
     figure img {
       object-fit: contain;
@@ -49,6 +58,15 @@ const { item } = Astro.props;
       }
       .card-body {
         color: $white;
+      }
+    }
+
+    &--business {
+      figure img {
+        object-position: left;
+      }
+      .card-title {
+        color: $secondary;
       }
     }
   }
