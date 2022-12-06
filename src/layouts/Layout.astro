@@ -55,7 +55,7 @@ import "../styles/style.scss";
   <body>
     <div class="site-container">
       <slot />
-      {hide_toast_announcement && <ToastAnnouncement />}
+      {!hide_toast_announcement && <ToastAnnouncement />}
     </div>
 
     <script>

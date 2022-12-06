@@ -13,10 +13,13 @@ const {
 <div id={id} class={`card card-article ${classes}`}>
   <img class="card-img" src={img_src} alt={title} />
   <div class="card-body">
-    <h3 class="card-title h5">{title}</h3>
-    <p class="card-text">
-      {desc}
-    </p>
+    <slot name="content">
+      <h3 class="card-title h5">{title}</h3>
+      <p class="card-text">
+        {desc}
+      </p>
+    </slot>
+    <slot name="after_content" />
   </div>
   <div class="card-footer">
     <slot name="button">

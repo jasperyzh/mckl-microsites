@@ -1,15 +1,16 @@
 ---
-const { bg_mobile, bg_laptop, bg_desktop, bg_img_style } = Astro.props;
+const { bg_mobile, bg_laptop, bg_desktop, style, bg_img_style } = Astro.props;
 ---
 
 <section
   id="masthead"
   class="masthead masthead__ratio masthead__bg position-relative d-flex align-items-center py-4"
+  style={style}
 >
-  <picture class="masthead__picture">
+  <picture class="masthead__picture" style={bg_img_style}>
     <source media="(min-width: 992px)" srcset={bg_desktop} />
     <source media="(min-width: 576px)" srcset={bg_laptop} />
-    <img src={bg_mobile} alt="Background Image" style={bg_img_style} />
+    <img src={bg_mobile} alt="Background Image" />
   </picture>
 
   <slot />
