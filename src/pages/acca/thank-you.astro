@@ -1,0 +1,10 @@
+---
+import AccaContent from "./index.astro";
+import SectionThankyou from "@components/section-thankyou.astro";
+
+const homepage_path = "/acca";
+---
+
+<AccaContent is_thank_you={true}>
+  <SectionThankyou slot="thank-you" homepage_path={homepage_path} />
+</AccaContent>

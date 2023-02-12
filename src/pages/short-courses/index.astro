@@ -1,0 +1,302 @@
+---
+const title = "Short Courses | MCKL College";
+const microsite_source = "short-courses";
+const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+  Astro.props;
+
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import CardCourse from "@components/CardCourse.astro";
+import CardIcon from "@components/CardIcon.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+
+import Cta from "@components/section-shortcourses-cta.astro";
+
+// images
+import bg_mobile from "@assets/short-courses/homepage-background.svg";
+import bg_laptop from "@assets/short-courses/homepage-background.svg";
+import bg_desktop from "@assets/short-courses/homepage-background.svg";
+
+import { nav__items } from "../../js/short-courses.js";
+
+import why_cpd1 from "@assets/short-courses/why-cpd1.svg";
+import why_cpd2 from "@assets/short-courses/why-cpd2.svg";
+import why_cpd3 from "@assets/short-courses/why-cpd3.svg";
+import why_cpd4 from "@assets/short-courses/why-cpd4.svg";
+import logo_hrd from "@assets/short-courses/logo-hrd-training_provider.png";
+
+const why_mckl_cpd = [
+  {
+    title: "Track record in offering educational programmes for over 40 years",
+    img_src: why_cpd1,
+  },
+  {
+    title: "Innovative teaching and delivery methods using blended learning",
+    img_src: why_cpd2,
+  },
+  {
+    title:
+      "Experienced lecturers and professionals in their fields of expertise",
+    img_src: why_cpd3,
+  },
+  {
+    title: "Strategic location in the heart of Kuala Lumpur",
+    img_src: why_cpd4,
+  },
+  {
+    title: "Approved training provider under HRD Corp",
+    img_src: logo_hrd,
+  },
+];
+
+const courses = await Astro.glob("../../short-courses/*.md");
+---
+
+<Layout title={title} hide_global_toast_announcement={true}>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+
+  <main class="main">
+    <SectionMasthead
+      bg_mobile={bg_mobile}
+      bg_laptop={bg_laptop}
+      bg_desktop={bg_desktop}
+      style="background-color: var(--bs-primary);"
+    >
+      <div class="container h-100">
+        <div
+          class="row h-100 justify-content-center justify-content-md-start align-items-center text-center text-md-start text-light"
+        >
+          <div class="col-lg-6">
+            <p class="text-uppercase text-secondary">
+              <small>Upcoming Intake</small>
+            </p>
+            <h1 class="font-weight-bold mb-2">
+              Cambridge International Certificate in Teaching & Learning
+            </h1>
+            <p>March 2023 Intake in progress</p>
+
+            <div class="masthead__cta my-4">
+              <a
+                class="btn btn-secondary btn-lg my-2 me-md-3"
+                href="/short-courses/cambridge-international-certificate-in-teaching-learning"
+              >
+                Learn More
+              </a>
+              <!--  <a
+                class="btn btn-outline-secondary btn-lg my-2 me-md-3"
+                href="#cta"
+              >
+                Apply Now
+              </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style is:global>
+        #masthead picture {
+          z-index: 1;
+        }
+        #masthead picture img {
+          object-fit: none;
+          object-position: 120% -5%;
+        }
+      </style>
+    </SectionMasthead>
+
+    <section id="education_development" class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Teaching, Learning &amp; Education Development Courses</h2>
+            <p>Certified courses to progress your career as an educator.</p>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          {
+            courses.map(({ frontmatter }) => {
+              if (
+                frontmatter.tag.includes("education_development") &&
+                !frontmatter.draft
+              ) {
+                return (
+                  <div class="col mb-3">
+                    <CardCourse
+                      classes="card__course"
+                      slug={frontmatter.slug}
+                      title={frontmatter.title}
+                      link={`/short-courses/${frontmatter.slug}`}
+                    />
+                  </div>
+                );
+              }
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="digital_skills" class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>The Digital Skills</h2>
+            <p>
+              Certified courses to prove your digital skills to current/future
+              employers.
+            </p>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          {
+            courses.map(({ frontmatter }) => {
+              if (
+                frontmatter.tag.includes("digital_skills") &&
+                !frontmatter.draft
+              ) {
+                return (
+                  <div class="col mb-3">
+                    <CardCourse
+                      classes="card__course"
+                      slug={frontmatter.slug}
+                      title={frontmatter.title}
+                      link={`/short-courses/${frontmatter.slug}`}
+                    />
+                  </div>
+                );
+              }
+            })
+          }
+          <!-- <a
+          slot="cta-2"
+          href="#cta"
+          data-form_option={frontmatter.form_option}
+          class="btn btn-outline-primary btn-sm"
+        >
+          Apply Now
+        </a> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="edu_manage_leadership" class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Education Management & Leadership</h2>
+            <p>Lead and drive change in private education institutions.</p>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          {
+            courses.map(({ frontmatter }) => {
+              if (
+                frontmatter.tag.includes("edu_manage_leadership") &&
+                !frontmatter.draft
+              ) {
+                return (
+                  <div class="col mb-3">
+                    <CardCourse
+                      slug={frontmatter.slug}
+                      title={frontmatter.title}
+                      link={`/short-courses/${frontmatter.slug}`}
+                    />
+                  </div>
+                );
+              }
+            })
+          }
+        </div>
+      </div>
+    </section> -->
+
+    <section
+      class="free-course free-course__bg my-5 text-light bg-primary py-5"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Free Online Courses for Everyone</h2>
+            <p>
+              Absolute zero cost to get access to range of quality courses
+              anytime and anywhere, advancing your fruitful education and career
+              journey.
+            </p>
+          </div>
+          <div
+            class="col-md-5 d-flex justify-content-center align-items-center"
+          >
+            <a
+              class="btn btn-secondary btn-lg"
+              href="/short-courses/free-courses">Check Our Free Courses</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why_mckl_cpd" class="my-5">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col col-md-9">
+            <h2 class="h3">
+              Why Choose MCKL Centre for Professional Development (CPD)?
+            </h2>
+            <p>
+              MCKL Centre for Professional Development (CPD) was established in
+              March 2020 as part of its vision to become the institution of
+              excellence for life. CPD provides continuing and professional
+              education courses and services to individuals who want to upskill
+              their careers. It also equips learners for further education, so
+              they can continue their own professional development and advance
+              their careers in the new Industrial Revolution 4.0 environment.
+            </p>
+          </div>
+        </div>
+        <div
+          id="highlights"
+          class="row justify-content-center row-cols-2 row-cols-sm-3 row-cols-lg-5 mt-5 text-center"
+        >
+          {
+            why_mckl_cpd.map((item) => (
+              <div class="col">
+                <CardIcon item={item} classes="card__icon--large" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <Cta />
+  </main>
+  <Footer />
+</Layout>
+
+<!-- <script>
+  const CTA_FORM = document.querySelector(
+    'form[name="WebToLeads4875945000000954001"] #programme_interested'
+  );
+  document.querySelectorAll('.card__course [href="#cta"]').forEach((item) => {
+    item.addEventListener("click", (e) => {
+      let selectedOption = e.target.getAttribute("data-form_option");
+      CTA_FORM.value = selectedOption;
+    });
+  });
+</script> -->
+<style>
+  .free-course__bg {
+    background-image: url("../../assets/short-courses/freecourse-background.jpg");
+    background-size: cover;
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>

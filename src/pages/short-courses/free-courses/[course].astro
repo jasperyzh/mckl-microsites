@@ -1,0 +1,285 @@
+---
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import CardCourse from "@components/CardCourse.astro";
+import CardIcon from "@components/CardIcon.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+import BsAccordion from "@components/BsAccordion.vue";
+
+import Cta from "@components/section-shortcourses-cta.astro";
+
+// images
+import bg_mobile from "@assets/short-courses/homepage-background.svg";
+import bg_laptop from "@assets/short-courses/homepage-background.svg";
+import bg_desktop from "@assets/short-courses/homepage-background.svg";
+
+import hrd_claimable from "@assets/short-courses/hrd-claimable.png";
+
+export async function getStaticPaths() {
+  const courses = await Astro.glob("../../../short-courses/*.md").catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+  const trainers = await Astro.glob("../../../short-courses/trainers.json");
+
+  const filteredCourses = courses.reduce((acc, course) => {
+    const { tag, draft } = course.frontmatter;
+    if (tag === "free-course") {
+      const filteredTrainers = [];
+
+      for (let i = 0; i < trainers[0].default.length; i++) {
+        const trainer = trainers[0].default[i];
+        course.frontmatter.trainers.forEach((selected_trainer) => {
+          if (trainer.slug === selected_trainer) {
+            filteredTrainers.push(trainer);
+          }
+        });
+      }
+
+      acc.push({
+        params: { course: course.frontmatter.slug },
+        props: {
+          course_content: course,
+          frontmatter: course.frontmatter,
+          title: course.frontmatter.title,
+          brochure_url: course.frontmatter.brochure_url,
+          filteredTrainers: filteredTrainers,
+        },
+      });
+    }
+    return acc;
+  }, []);
+
+  return filteredCourses;
+}
+
+const { course } = Astro.params;
+
+const {
+  title,
+  frontmatter,
+  brochure_url,
+  filteredTrainers,
+  homepage_path = "/short-courses",
+} = Astro.props;
+
+const { Content } = Astro.props.course_content;
+
+// const title = "Short Courses | MCKL College";
+// const microsite_source = "short-courses";
+// const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+// const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+//   Astro.props;
+
+import { nav__items } from "../../../js/short-courses.js";
+---
+
+<Layout
+  title={`${title} | MCKL Free Courses`}
+  hide_global_toast_announcement={true}
+>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+  <main class="main">
+    <SectionMasthead
+      bg_mobile={bg_mobile}
+      bg_laptop={bg_laptop}
+      bg_desktop={bg_desktop}
+    >
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-md-6">
+            <div class="mt-5">
+              <a
+                href="/short-courses/free-courses"
+                class="btn btn-secondary btn-lg mb-3"
+                >Return for more Free Courses</a
+              >
+              <p class="text-uppercase"><small>Course Preview</small></p>
+              <h1 class="display-4 font-weight-bold">
+                {title}
+              </h1>
+
+              <p class="pt-3">{frontmatter.description}</p>
+
+              <a
+                href="#cta"
+                data-form_option={title}
+                class="btn btn-secondary btn-lg">Enrol Now</a
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <iframe
+              class="w-100 border-0"
+              style="aspect-ratio: 16/9"
+              src={frontmatter.featured_video_url}></iframe>
+          </div>
+        </div>
+      </div>
+    </SectionMasthead>
+
+    <!-- courses -->
+    <section class="courses my-4" id="courses">
+      <div class="container">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div
+              class="col-md-12 text-center text-md-center align-items-center order-2 order-md-1"
+            >
+              <div class="scholarships__intro">
+                <h2>Explore topic outline</h2>
+                <p>
+                  Explore the course outline prepared to give you a strong
+                  foundation in mastery
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- course_info -->
+    <Content />
+
+    <section class="quote">
+      <div class="container">
+        <div class="row py-5 justify-content-center">
+          <div
+            class="col-12 col-md-10 text-center text-md-center align-items-center"
+          >
+            <div>
+              <h1 class="blurb__heading">
+                {frontmatter.quote}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="instructor" class="instructor py-5 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Learn from the Experts who walk the talk</h2>
+            <p>
+              Meet your professional instructor to guide you on your learning
+              journey and beyond.
+            </p>
+          </div>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around"
+        >
+          {
+            filteredTrainers.map((trainer) => {
+              return (
+                <div class="col">
+                  <div class="card card-trainer">
+                    <figure class="card-trainer__figure">
+                      <img
+                        class="card-trainer__img"
+                        width="260"
+                        height="260"
+                        src={`/trainers/${trainer.slug}.png`}
+                        alt={`Profile Picture of Trainer ${trainer.name}`}
+                      />
+                    </figure>
+                    <h3>{trainer.name}</h3>
+                    <p class="text-muted mb-2">{trainer.role}</p>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <Cta
+      preselect_interested_course={title}
+      returnURL="https://stagingmckl.fishermen-analytics.com/short-courses/free-courses/thank-you"
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @import "bootstrap/scss/_functions";
+  .card-trainer {
+    max-width: 280px;
+    margin: 1rem auto;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+
+    &__figure {
+      display: inline-block;
+      background-image: escape-svg(
+        url('data:image/svg+xml;utf8,<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_1151_8622)"><circle cx="256.5" cy="348.5" r="252.5" fill="#033676"/></g><defs><clipPath id="clip0_1151_8622"><rect width="512" height="512" fill="white"/></clipPath></defs></svg>')
+      );
+      background-size: contain;
+      background-position: 0 50px;
+      background-repeat: no-repeat;
+    }
+
+    &__img {
+      aspect-ratio: 1/1;
+      width: 100%;
+      max-width: 260px;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+  }
+
+  $bg_img: url('data:image/svg+xml,<svg id="visual" viewBox="0 0 900 320" width="900" height="320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><path d="M0 30L50 31.5C100 33 200 36 300 37C400 38 500 37 600 36C700 35 800 34 850 33.5L900 33L900 0L850 0C800 0 700 0 600 0C500 0 400 0 300 0C200 0 100 0 50 0L0 0Z" fill="transparent"></path><path d="M0 55L50 57.2C100 59.3 200 63.7 300 65.8C400 68 500 68 600 67C700 66 800 64 850 63L900 62L900 31L850 31.5C800 32 700 33 600 34C500 35 400 36 300 35C200 34 100 31 50 29.5L0 28Z" fill="#ffd695"></path><path d="M0 135L50 137.7C100 140.3 200 145.7 300 150C400 154.3 500 157.7 600 157.2C700 156.7 800 152.3 850 150.2L900 148L900 60L850 61C800 62 700 64 600 65C500 66 400 66 300 63.8C200 61.7 100 57.3 50 55.2L0 53Z" fill="#fcaf17"></path><path d="M0 225L50 225.5C100 226 200 227 300 230.2C400 233.3 500 238.7 600 239.2C700 239.7 800 235.3 850 233.2L900 231L900 146L850 148.2C800 150.3 700 154.7 600 155.2C500 155.7 400 152.3 300 148C200 143.7 100 138.3 50 135.7L0 133Z" fill="#fcaf17"></path><path d="M0 276L50 276.5C100 277 200 278 300 279.7C400 281.3 500 283.7 600 284.3C700 285 800 284 850 283.5L900 283L900 229L850 231.2C800 233.3 700 237.7 600 237.2C500 236.7 400 231.3 300 228.2C200 225 100 224 50 223.5L0 223Z" fill="#ffd695"></path><path d="M0 321L50 321C100 321 200 321 300 321C400 321 500 321 600 321C700 321 800 321 850 321L900 321L900 281L850 281.5C800 282 700 283 600 282.3C500 281.7 400 279.3 300 277.7C200 276 100 275 50 274.5L0 274Z" fill="transparent"></path></svg>');
+
+  .quote {
+    background-image: escape-svg($bg_img);
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+
+    @include media-breakpoint-up(md) {
+      padding: 0 0;
+    }
+
+    h1 {
+      color: #033676;
+    }
+
+    &__heading {
+      font-size: 2rem;
+      padding-bottom: 1rem;
+
+      @include media-breakpoint-up(sm) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  .course_info__content {
+    background-color: transparent;
+    padding: 30px;
+    border: 2px solid $primary;
+    width: 100%;
+    height: 100%;
+    display: table;
+  }
+</style>

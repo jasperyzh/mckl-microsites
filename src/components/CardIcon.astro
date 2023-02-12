@@ -7,7 +7,7 @@ const { item, classes } = Astro.props;
     <img width="120" src={item.img_src} alt={item.title} class="card-img" />
   </figure>
   <div class="card-body">
-    <h5 class="card-title">{item.title}</h5>
+    <h5 class="card-title" set:html={item.title}></h5>
 
     {item.desc && <p class="card-text">{item.desc}</p>}
   </div>
@@ -24,7 +24,11 @@ const { item, classes } = Astro.props;
 
     &.card__icon--large img {
       aspect-ratio: 4/3;
-      max-height: inherit;
+      max-height: 120px;
+    }
+
+    &.card__icon--filter-white img {
+      filter: brightness(0) invert(1);
     }
 
     figure img {

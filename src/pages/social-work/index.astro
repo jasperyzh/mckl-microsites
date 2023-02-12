@@ -31,6 +31,7 @@ import article06 from "@assets/social-work/articles/focus-malaysia.jpg";
 import article07 from "@assets/social-work/articles/news_7.jpg";
 import article08 from "@assets/social-work/articles/news_8.jpg";
 import article09 from "@assets/social-work/articles/news-socialworkteaevent.jpg";
+import article10 from "@assets/social-work/articles/dsw-article10.jpg";
 
 import article01_modal from "@assets/social-work/articles/news_1-info.jpg";
 import article02_modal from "@assets/social-work/articles/news_2-info.jpg";
@@ -42,6 +43,7 @@ import testimonial_angelia_gan_lee_fan from "@assets/social-work/testimonial/ang
 import testimonial_vijayan_ramasami from "@assets/social-work/testimonial/vijayan_ramasami.jpg";
 import testimonial_elsie_lee from "@assets/social-work/testimonial/elsie_lee.jpg";
 import testimonial_denison_jayasooria from "@assets/social-work/testimonial/denison_jayasooria.jpg";
+import testimonial_elliot_tan from "@assets/social-work/testimonial/elliot_tan.jpg";
 
 // components
 import Layout from "@layouts/Layout.astro";
@@ -58,6 +60,8 @@ import BsModal from "@components/BsModal.astro";
 
 import ZohoWebform from "@components/ZohoWebform.vue";
 import SwiperTestimonial from "@components/SwiperTestimonial.vue";
+
+import * as dsw from "../../programmes/dsw.md";
 
 const nav__items = [
   {
@@ -95,6 +99,12 @@ const card_socials = [
 ];
 
 const dsw_articles = [
+  {
+    img_src: article10,
+    title: "Equipping for Holistic Social Work Competency",
+    link: "https://mckl.edu.my/2022/10/03/equipping-for-holistic-social-work-competency/",
+    btn_label: "Read more",
+  },
   {
     img_src: article01,
     title: "Making a career from doing good",
@@ -207,6 +217,13 @@ const card_track_records = [
 
 const testimonials = [
   {
+    name: "Elliot Tan",
+    desc: ["Diploma in Social Work, MCKL"],
+    quote:
+      "MCKL's Diploma in Social Work is very relevant to my work in helping the poor and needy and also provides me with accreditation for the future. My cohort started with just five people! It was a very small class, but it made our time with our lecturers intimate and in-depth. Most of all, I was happy to receive the Tan Sri Dato' Tan Chee Khoon Award. It's a reminder that my dedication and patience have been seen and rewarded. For future students in DSW, plan your time well and embrace what you learn wholeheartedly. In this profession, the real learning takes place on the job, so go out confidently!",
+    img_src: testimonial_elliot_tan,
+  },
+  {
     name: "Jacqualine Yap Siew Peng",
     desc: [
       "Diploma in Social Work, MCKL",
@@ -295,8 +312,16 @@ const dws_partners = [
       bg_mobile={bg_mobile}
       bg_laptop={bg_desktop}
       bg_desktop={bg_desktop}
-      bg_img_style="object-position: center; opacity: 0.6; z-index: -1"
     >
+      <style lang="scss" is:global>
+        @include media-breakpoint-down(lg) {
+          .masthead__picture {
+            object-position: center;
+            opacity: 0.6;
+            z-index: -1;
+          }
+        }
+      </style>
       <div class="container-lg">
         <div
           class="row justify-content-center justify-content-md-start align-items-center"
@@ -304,8 +329,12 @@ const dws_partners = [
           <div class="col-10 col-md-7 col-lg-6 mb-lg-5">
             <div class="masthead__content text-center text-lg-start ps-lg-3">
               <h1 class="font-weight-bold">
-                Make a Positive Impact Through Social Work
+                Empowering individuals, strengthening communities, fostering
+                positive change through social work.
               </h1>
+              <!-- <h1 class="font-weight-bold">
+                Make a Positive Impact Through Social Work
+              </h1> -->
               <p class="h4">
                 Join MCKL, the Pioneer Provider of Diploma in Social Work in
                 Malaysia
@@ -328,6 +357,9 @@ const dws_partners = [
         <div class="row justify-content-center">
           <div class="col-md-10">
             <h2>About MCKL's Social Work Programme</h2>
+            <p class="mb-2"><small>{dsw.frontmatter.code_kl}</small></p>
+            <!-- <p class="mb-2 h5">Intake: {dsw.frontmatter.intake}</p> -->
+            <p class="mb-2 h5">Intake: August 2023</p>
           </div>
         </div>
       </div>
@@ -421,6 +453,7 @@ const dws_partners = [
                   desc={item.desc}
                   link={item.desc}
                   btn_label={item.btn_label}
+                  img_style="aspect-ratio: 4/3; object-fit: cover"
                 >
                   {item.modal ? (
                     <div slot="button">
@@ -562,7 +595,6 @@ const dws_partners = [
         <p>Explore the right education programme that best fits you.</p>
         <ul>
           <li>Top Up 1 Year to complete your degree in Australia & Ireland*</li>
-          <li>50% Tuition Fee Waiver*</li>
           <li>RM500 Rebate Voucher*</li>
           <li>Internship & Career Opportunities</li>
           <li>Scholarships & Financial Aid*</li>

@@ -3,9 +3,10 @@ export interface Props {
   title: string;
 }
 
-import ToastAnnouncement from "@components/ToastAnnouncement.astro";
+// import toastannouncement_img_src from "/221207-75scholarship-02.png";
+// import Global_ToastAnnouncement from "@components/ToastAnnouncement.astro";
 
-const { title = "Welcome to MCKL", hide_toast_announcement = true } =
+const { title = "Welcome to MCKL", hide_global_toast_announcement = false } =
   Astro.props;
 
 import "../styles/style.scss";
@@ -55,7 +56,7 @@ import "../styles/style.scss";
   <body>
     <div class="site-container">
       <slot />
-      {!hide_toast_announcement && <ToastAnnouncement />}
+      <!-- {!hide_global_toast_announcement && <Global_ToastAnnouncement img_src={toastannouncement_img_src} />} -->
     </div>
 
     <script>

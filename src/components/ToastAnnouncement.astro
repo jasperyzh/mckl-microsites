@@ -1,9 +1,10 @@
 ---
 // 221205 - hardcoded img_src and hyperlink
 
-import img_src from "@assets/open-day/221205-openday-popup.png";
-// const { img_src = "https://via.placeholder.com/512x512?text=placeholder" } =
-//   Astro.props;
+// import img_src from "@assets/open-day/221205-openday-popup.png";
+// import img_src from "/221207-75scholarship-02.png";
+
+const { img_src, href = "/open-day" } = Astro.props;
 ---
 
 <div
@@ -25,14 +26,28 @@ import img_src from "@assets/open-day/221205-openday-popup.png";
         aria-label="Close"></button>
     </div>
     <div class="toast-body">
-      <a href="https://mckl.edu.my/open-day" target="_blank">
-        <img
-          width="320"
-          src={img_src}
-          alt=""
-          style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
-        />
-      </a>
+      {
+        href && (
+          <a href={href} target="_blank">
+            <img
+              width="320"
+              src={img_src}
+              alt=""
+              style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
+            />
+          </a>
+        )
+      }
+      {
+        !href && (
+          <img
+            width="320"
+            src={img_src}
+            alt=""
+            style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
+          />
+        )
+      }
     </div>
   </div>
 </div>

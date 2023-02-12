@@ -1,0 +1,205 @@
+---
+const title = "Short Courses | MCKL College";
+const microsite_source = "short-courses";
+const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+  Astro.props;
+
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import CardCourse from "@components/CardCourse.astro";
+import CardIcon from "@components/CardIcon.astro";
+
+import Cta from "@components/section-shortcourses-cta.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+
+// images
+import bg_mobile from "@assets/short-courses/homepage-background.svg";
+import bg_laptop from "@assets/short-courses/homepage-background.svg";
+import bg_desktop from "@assets/short-courses/homepage-background.svg";
+
+import home_banner from "@assets/free-courses/home-banner.jpg";
+
+import { nav__items } from "../../js/short-courses.js";
+
+import why_cpd1 from "@assets/short-courses/why-cpd1.svg";
+import why_cpd2 from "@assets/short-courses/why-cpd2.svg";
+import why_cpd3 from "@assets/short-courses/why-cpd3.svg";
+import why_cpd4 from "@assets/short-courses/why-cpd4.svg";
+import logo_hrd from "@assets/short-courses/logo-hrd-training_provider.png";
+
+const why_mckl_cpd = [
+  {
+    title: "Track record in offering educational programmes for over 39 years",
+    img_src: why_cpd1,
+  },
+  {
+    title: "Innovative teaching and delivery methods using blended learning",
+    img_src: why_cpd2,
+  },
+  {
+    title:
+      "Experienced lecturers and professionals in their fields of expertise",
+    img_src: why_cpd3,
+  },
+  {
+    title: "Strategic location in the heart of Kuala Lumpur",
+    img_src: why_cpd4,
+  },
+  {
+    title: "Approved training provider under HRD Corp",
+    img_src: logo_hrd,
+  },
+];
+
+import icon_accessibility from "@assets/short-courses/icon-accessibility.svg";
+import icon_puzzle from "@assets/short-courses/icon-puzzle.svg";
+import icon_rubik from "@assets/short-courses/icon-rubik.svg";
+import icon_observe from "@assets/short-courses/icon-observe.svg";
+
+const benefits_card = [
+  {
+    title: "Accessibility",
+    desc: "Digital delivery enables greater flexibility & greater access conveniently regardless geographical boundary.",
+    img_src: icon_accessibility,
+  },
+  {
+    title: "Mix & Match",
+    desc: "Total freedom to choose courses from any discipline and take full control over what to study.",
+    img_src: icon_puzzle,
+  },
+  {
+    title: "Continuous Lifelong Learning",
+    desc: "Continuous access to frequent, adaptable & low-barrier learning opportunity",
+    img_src: icon_rubik,
+  },
+  {
+    title: "Demonstrate Genuine Interest",
+    desc: "Completing online courses reflects personal drive & learning passion, not just to get a qualification.",
+    img_src: icon_observe,
+  },
+];
+
+const courses = await Astro.glob("../../short-courses/*.md");
+---
+
+<Layout title={title} hide_global_toast_announcement={true}>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+
+  <main class="main">
+    <section
+      id="masthead"
+      class="masthead masthead--aspect-important masthead__bg py-5"
+    >
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-md-6">
+            <div class="mt-5">
+              <!--   <NuxtLink
+                  to="/short-courses"
+                  class="btn btn-secondary btn-lg mb-3"
+                  >Return for more Courses</NuxtLink
+                > -->
+              <h1 class="display-4 font-weight-bold">
+                FREE Online Courses for Everyone
+              </h1>
+              <p class="pt-3">
+                Absolute zero cost to get access to a range of quality courses
+                anytime and anywhere, advancing your fruitful education and
+                career journey. Enrol yourself for a wide range of quality and
+                fun-filled courses. Mix and match the various courses
+                accordingly as per your preference to kick start your
+                educational journey today.
+              </p>
+              <a href="#cta" class="btn btn-secondary btn-lg">Enrol Now</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="home-banner"
+              src={home_banner}
+              alt="placeholder"
+              height="400px"
+            />
+            <div class="arrow bounce"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses py-5" id="courses">
+      <div class="container">
+        <div class="container">
+          <div class="row pt-3 pb-1">
+            <div
+              class="col-md-8 text-left text-md-left align-items-center order-2 order-md-1"
+            >
+              <div class="courses courses__header">
+                <h2 class="pb-3">Free Online Courses</h2>
+                <p>
+                  Upskill yourself and enhance your competency anytime and
+                  anywhere
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            {
+              courses.map(({ frontmatter }) => {
+                if (
+                  frontmatter.tag.includes("free-course") &&
+                  !frontmatter.draft
+                ) {
+                  return (
+                    <div class="col mb-3">
+                      <CardCourse
+                        slug={frontmatter.slug}
+                        title={frontmatter.title}
+                        link={`/short-courses/free-courses/${frontmatter.slug}`}
+                      />
+                    </div>
+                  );
+                }
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefit" class="my-5 pb-3 text-center">
+      <div class="container">
+        <div class="row">
+          <h3 class="h4 mt-5 mb-3">Benefits</h3>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+          {
+            benefits_card.map((item) => (
+              <div class="col">
+                <CardIcon item={item} classes="" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <Cta
+      returnURL="https://stagingmckl.fishermen-analytics.com/short-courses/free-courses/thank-you"
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  $masthead-background-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><path id="Path_1190" data-name="Path 1190" d="M1478.447-65.128H0v542.3L439.993,805.01a50,50,0,0,0,59.782,0L1633.681-65.128Z" fill="#e8f4ff"/></svg>');
+  .masthead__bg {
+    background-image: escape-svg($masthead-background-svg);
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+</style>

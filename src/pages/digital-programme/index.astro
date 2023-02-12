@@ -38,10 +38,12 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
 // import bg_mobile from "@assets/bg/bg-digital-mobile.jpg";
 // // import bg_laptop from "@assets/bg/bg-openday-2212-laptop.jpg";
 // import bg_desktop from "@assets/bg/bg-digital-desktop.jpg";
-import bg_mobile from "@assets/test-digital.jpg";
-// import bg_laptop from "@assets/bg/bg-openday-2212-laptop.jpg";
-import bg_desktop from "@assets/test-digital.jpg";
-import form_support from "@assets/test-digital-form.jpg";
+import bg_mobile from "@assets/digital-programme/221215-bg-digital-desktop.jpg";
+// import bg_laptop from "@assets/digital-programme/221215-bg-digital-desktop.jpg";
+import bg_desktop from "@assets/digital-programme/221215-bg-digital-desktop.jpg";
+
+import form_support from "@assets/digital-programme/digital-form_support.jpg";
+
 
 // import form_support from "@assets/digital-programme/form-support.jpg";
 import logo_uni_south_aus from "@assets/logo/logo-uni_south_aus.svg";
@@ -223,8 +225,7 @@ const testimonials = [
       bg_mobile={bg_mobile}
       bg_laptop={bg_desktop}
       bg_desktop={bg_desktop}
-      style="text-shadow: 2px 1px 10px black"
-      bg_img_style="object-position: center; filter: brightness(0.9) contrast(1.5); z-index: -1"
+      bg_img_style="object-position: center; filter: brightness(0.9); z-index: -1"
     >
       <div class="container">
         <div class="row align-items-center text-center text-md-start">
@@ -327,7 +328,8 @@ const testimonials = [
                   <br />
                   PG: {dcs.frontmatter.code_pg}
                 </p>
-                <p>Intake: {dcs.frontmatter.intake}</p>
+                <!-- <p>Intake: {dcs.frontmatter.intake}</p> -->
+                <p class="fw-bold">Intake: January, June & August 2023</p>
                 <p>
                   Equip students with broad-based knowledge and future-oriented
                   skills such as Data Science, Cloud Computing and Machine
@@ -352,7 +354,8 @@ const testimonials = [
                   <br />
                   PG: {dit.frontmatter.code_pg}
                 </p>
-                <p>Intake: {dit.frontmatter.intake}</p>
+                <!-- <p>Intake: {dit.frontmatter.intake}</p> -->
+                <p class="fw-bold">Intake: January, June & August 2023</p>
                 <p>
                   Equip students with broad-based knowledge and future-oriented
                   skills such as Internet of Things (IoT), Cloud Computing and
