@@ -5,10 +5,18 @@ const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
 const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
+// import toastannouncement_img_src from "/221207-75scholarship-02.png";
+import toastannouncement_img_src from "/221215-100scholarship.png";
+
+import ToastAnnouncement from "@components/ToastAnnouncement.astro";
+
 // images
-import bg_mobile from "@assets/bg/221205-bg-openday-mobile.jpg";
-import bg_laptop from "@assets/bg/221205-bg-openday-laptop.jpg";
-import bg_desktop from "@assets/bg/221205-bg-openday-desktop.jpg";
+import bg_mobile from "@assets/open-day/230106-bg-openday-mobile.jpg";
+import bg_laptop from "@assets/open-day/230106-bg-openday-laptop.jpg";
+import bg_desktop from "@assets/open-day/230106-bg-openday-desktop.jpg";
+// import bg_mobile from "@assets/bg/221205-bg-openday-mobile.jpg";
+// import bg_laptop from "@assets/bg/221205-bg-openday-laptop.jpg";
+// import bg_desktop from "@assets/bg/221205-bg-openday-desktop.jpg";
 
 import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
 import form_support from "@assets/open-day/form_support168337539_l.jpg";
@@ -16,6 +24,9 @@ import form_support from "@assets/open-day/form_support168337539_l.jpg";
 import icon_bursary from "@assets/icon/icon1-bursary.png";
 import icon_merit from "@assets/icon/mckl-merit.png";
 import icon_waiver from "@assets/icon/icon4-feewaiver.png";
+
+import icon_merit from "@assets/icon/mckl-merit.png";
+
 import icon_briefcase from "@assets/icon/briefcase.png";
 import icon_aus_ireland from "@assets/icon/icon-aus_ire.svg";
 
@@ -54,7 +65,7 @@ import SwiperTestimonial from "@components/SwiperTestimonial.vue";
 
 // programmes
 import * as cambridge_a_level_prepcal from "../../programmes/cambridge_a_level_prepcal.md";
-import * as prepausmat from "../../programmes/prepausmat.md";
+// import * as prepausmat from "../../programmes/prepausmat.md";
 
 import * as cambridge_a_level from "../../programmes/cambridge_a_level.md";
 import * as ausmat from "../../programmes/ausmat.md";
@@ -98,10 +109,12 @@ const nav__items = [
     nav_link_class: "btn btn-danger",
   },
 ];
+
 const card_icons = [
   {
-    title: "RM500 Rebate Voucher*",
-    img_src: icon_waiver,
+    title:
+      "<span>Up to 100% Merit Scholarship* <br> <small class='fw-normal'><i>Apply with your Trial/Forecast Result</i></small></span>",
+    img_src: icon_merit,
   },
   {
     title: "50% Tuition Fee Waiver*",
@@ -231,7 +244,7 @@ const testimonials = [
 ];
 ---
 
-<Layout title={title} hide_toast_announcement={true}>
+<Layout title={title} hide_global_toast_announcement={true}>
   <Header homepage_path={homepage_path} nav__items={nav__items} />
 
   <main class="main">
@@ -289,10 +302,16 @@ const testimonials = [
               alt="Believe. Aspire. Excel."
             />
             <h2>We believe in your dreams.</h2>
+            <!-- <p>
+              It's MCKL's Registration Week and we are still accepting
+              applications! Our semester is starting soon, be sure to register
+              between 9th to 20th January to meet your new friends at
+              Orientation Day in KL & Penang. If you haven't enrolled with us,
+              now is your chance to meet with our counsellors and secure a spot
+              in our future-ready programmes!
+            </p> -->
             <p>
-              At MCKL's Open Day, you can discover our programmes and campuses
-              and gain an insight into your college life, bringing you closer to
-              achieving your goals and future prospects.
+              MCKL has over 40 years of proven excellence in providing globally recognized, professional pre-university and tertiary education. Our programs are designed to meet the demands of Industry Revolution 4.0, offering everyone a comprehensive education experience that prepares them for successful careers and meaningful lives.
             </p>
           </div>
         </div>
@@ -365,7 +384,7 @@ const testimonials = [
                 <CardProgramme
                   content={cambridge_a_level_prepcal.frontmatter}
                 />
-                <CardProgramme content={prepausmat.frontmatter} />
+                <!-- <CardProgramme content={prepausmat.frontmatter} /> -->
               </div>
               <div slot="content-1">
                 <CardProgramme content={cambridge_a_level.frontmatter} />
@@ -453,7 +472,7 @@ const testimonials = [
         <ul>
           <li>Top Up 1 Year to complete your degree in Australia & Ireland*</li>
           <li>50% Tuition Fee Waiver*</li>
-          <li>RM500 Rebate Voucher*</li>
+          <li>100% Merit Scholarship Available</li>
           <li>Internship & Career Opportunities</li>
           <li>Scholarships & Financial Aid*</li>
           <li>Personalised Counselling</li>
@@ -473,4 +492,5 @@ const testimonials = [
   </main>
 
   <Footer />
+  <ToastAnnouncement img_src={toastannouncement_img_src} href="" />
 </Layout>

@@ -33,22 +33,48 @@ const { homepage_path, nav__items } = Astro.props;
       <div class="collapse navbar-collapse" id="navbar__primary">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {
-            nav__items.map((item) => (
-              <li
-                class={`nav-item ${
-                  item.nav_item_class ? item.nav_item_class : ""
-                }`}
-              >
-                <a
-                  class={`nav-link ${
-                    item.nav_link_class ? item.nav_link_class : ""
-                  }`}
-                  href={item.href}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))
+            nav__items.map((item) => {
+              if (!item.children) {
+                return (
+                  <li
+                    class={`nav-item ${
+                      item.nav_item_class ? item.nav_item_class : ""
+                    }`}
+                  >
+                    <a
+                      class={`nav-link ${
+                        item.nav_link_class ? item.nav_link_class : ""
+                      }`}
+                      href={item.href}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                );
+              } else {
+                return (
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      {item.name}
+                    </a>
+                    <ul class="dropdown-menu">
+                      {item.children.map((submenu_item) => (
+                        <li>
+                          <a class="dropdown-item" href={submenu_item.href}>
+                            {submenu_item.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              }
+            })
           }
         </ul>
       </div>

@@ -1,0 +1,47 @@
+---
+import ZohoWebformShortcourses from "@components/ZohoWebformShortcourses.vue";
+
+const {
+  preselect_interested_course = "",
+  returnURL = "https://stagingmckl.fishermen-analytics.com/short-courses/thank-you",
+  // returnURL = "https://mckl.edu.my/short-courses/thank-you",
+} = Astro.props;
+---
+
+<section id="cta" class="cta cta__bg mt-5 py-5 bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="box text-light">
+          <h2 class="mb-3">Explore Your Passion With Us</h2>
+          <p>
+            Welcome to Methodist College Kuala Lumpur - a College where values
+            and tradition meet excellence in education!
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4 class="pb-3" style="color: #ffffff">
+          I'm interested, tell me more!
+        </h4>
+
+        <div class="bg-light rounded">
+          <ZohoWebformShortcourses
+            client:load
+            return_url={returnURL}
+            microsite_source="short-courses"
+            preselect_interested_course={preselect_interested_course}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .cta__bg {
+    background-image: url("../assets/short-courses/cta-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>

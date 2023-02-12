@@ -240,7 +240,7 @@ const props = defineProps({
                         title: "Diploma & Degree",
                         options: {
                             ADTP: "American Degree Transfer Program",
-                            "DECE (PT)": "Diploma in Early Childhood Education",
+                            "DECE (FT)": "Diploma in Early Childhood Education",
                             "DSW (PT)": "Diploma in Social Work",
                             DCS: "Diploma in Computer Science - NEW",
                             DIT: "Diploma in Information Technology - NEW",
@@ -293,7 +293,7 @@ const props = defineProps({
                     LEADCF19: {
                         title: "Diploma & Degree",
                         options: {
-                            "DECE (PT)": "Diploma in Early Childhood Education",
+                            "DECE (FT)": "Diploma in Early Childhood Education",
                             DCS: "Diploma in Computer Science - NEW",
                             DIT: "Diploma in Information Technology - NEW",
                             DEC: "Diploma in Digital Business - NEW",

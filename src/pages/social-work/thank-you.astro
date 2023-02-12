@@ -1,10 +1,10 @@
 ---
-import OpendayContent from "./index.astro";
+import SocialWorkContent from "./index.astro";
 import SectionThankyou from "@components/section-thankyou.astro";
 
-const homepage_path = "/open-day";
+const homepage_path = "/social-work";
 ---
 
-<OpendayContent is_thank_you={true}>
+<SocialWorkContent is_thank_you={true}>
   <SectionThankyou slot="thank-you" homepage_path={homepage_path} />
-</OpendayContent>
+</SocialWorkContent>

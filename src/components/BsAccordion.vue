@@ -9,15 +9,18 @@
         </button>
       </h2>
       <div :id="`${accordion_id}-collapse${index}`" :class="`accordion-collapse collapse ${show_first && index == 0 && 'show'
-      }`" :aria-labelledby="`${accordion_id}-${index}`" :data-bs-parent="`#${accordion_id}`">
+  }`" :aria-labelledby="`${accordion_id}-${index}`" :data-bs-parent="`#${accordion_id}`">
         <div class="accordion-body">
-          <slot :name="`content-${index}`"></slot>
+          <slot :name="`content-${index}`">
+            <div v-html="item.content"></div>
+          </slot>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
+// 221207-BsAccordion built with vuejs as Astro-component could not duplicate the ids of inner-component, CardProgramme (see /open-day/index.astro for reference)
 const props = defineProps({
   show_first: {
     type: Boolean,

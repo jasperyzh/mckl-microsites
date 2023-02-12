@@ -15,7 +15,7 @@ const programme_interested = {
       title: "Undergraduate Programme",
       options: {
         ADTP: "American Degree Transfer Program",
-        "DECE (PT)": "Diploma in Early Childhood Education",
+        "DECE (FT)": "Diploma in Early Childhood Education",
         "DSW (PT)": "Diploma in Social Work",
         DCS: "Diploma in Computer Science",
         DIT: "Diploma in Information Technology",
@@ -43,7 +43,7 @@ const programme_interested = {
     LEADCF19: {
       title: "Undergraduate Programme",
       options: {
-        "DECE (PT)": "Diploma in Early Childhood Education",
+        "DECE (FT)": "Diploma in Early Childhood Education",
         DCS: "Diploma in Computer Science",
         DIT: "Diploma in Information Technology",
         DEC: "Diploma in Digital Business",
@@ -69,6 +69,7 @@ import icon2_scholarship from "@assets/icon/icon2-scholarship.png";
 import icon3_waiver from "@assets/icon/icon3-waiver.png";
 import icon4_career from "@assets/icon/icon4-career.png";
 import icon5_rebate from "@assets/icon/icon3-rebate.png";
+import icon_merit from "@assets/icon/mckl-merit.png";
 
 import icon_trackrecord1 from "@assets/icon/business-icon-1.png";
 import icon_trackrecord2 from "@assets/logo/logo-acca_approved_learning_partner.svg";
@@ -127,15 +128,18 @@ const nav__items = [
 ];
 const card_icons = [
   {
-    title: "RM500 Rebate Voucher*",
-    img_src: icon5_rebate,
+    title:
+      "<span>Up to 100% Merit Scholarship* <br> <small class='fw-normal'><i>Apply with your Trial/Forecast Result</i></small></span>",
+    img_src: icon_merit,
   },
+  // {
+  //   title: "RM500 Rebate Voucher*",
+  //   img_src: icon5_rebate,
+  // },
   {
     title: "50% Tuition Fee Waiver*",
     img_src: icon3_waiver,
   },
-];
-const card_icons__row2 = [
   {
     title: "Personalised Counselling",
     img_src: icon1_counselling,
@@ -149,6 +153,20 @@ const card_icons__row2 = [
     img_src: icon4_career,
   },
 ];
+/* const card_icons__row2 = [
+  {
+    title: "Personalised Counselling",
+    img_src: icon1_counselling,
+  },
+  {
+    title: "Scholarships & Financial Aid*",
+    img_src: icon2_scholarship,
+  },
+  {
+    title: "Complimentary MCKL Career Test",
+    img_src: icon4_career,
+  },
+]; */
 const card_track_records = [
   {
     img_src: icon_trackrecord1,
@@ -206,14 +224,22 @@ const card_track_records = [
                 possibilities of your future.
               </p>
               <div
-                class="btn btn-secondary btn-lg my-3 d-inline-block"
+                class="btn btn-secondary btn-lg my-3 d-inline-block shadow-sm"
                 style="font-size: 1.625rem"
               >
-                <p class="mb-0">Visit</p>
+                <p class="h4 mb-0">
+                  Visit MCKL
+                  <!-- <br />MCKL Registration Week -->
+                  <br />9am &ndash; 5pm (Mon &ndash; Sat)
+                  <!-- <br />9&ndash;20 January 2023 | 9am&ndash;5pm -->
+                  <br />KL Campus &bull; PG Campus
+                </p>
+                <!-- <p class="h4 mb-0">Application for January Intake 2023 Open</p> -->
+                <!-- <p class="mb-0">Visit</p>
                 <span class="d-block h2 m-0">MCKL Scholarship Week</span>
                 21 – 26 November 2022 | <span class="d-inline-block fw-normal"
                   >9am – 5pm</span
-                >
+                > -->
               </div>
             </div>
           </div>
@@ -306,17 +332,19 @@ const card_track_records = [
           </div>
         </div>
 
-        <div class="row justify-content-center mt-5 text-center">
+        <div
+          class="row row-cols-2 row-cols-sm-3 justify-content-center mt-5 text-center"
+        >
           {
             card_icons.map((item) => (
-              <div class="col-6 col-md-4 col-lg-auto mb-4">
-                <CardIcon item={item} classes="card__icon--large" />
+              <div class="col mb-4">
+                <CardIcon item={item} classes=" card__icon--filter-white" />
               </div>
             ))
           }
-          <ul class="list-unstyled">
+          <!--  <ul class="list-unstyled">
             {card_icons__row2.map((item) => <li>{item.title}</li>)}
-          </ul>
+          </ul> -->
         </div>
 
         <div
