@@ -45,8 +45,8 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ftp.fishermen-analytics.com
-          username: fanalytics_staging@fishermen-analytics.com
-          password: ${{ secrets.FANALYTICS_STAGING }}
+          username: fanalytics_live@fishermen-analytics.com
+          password: ${{ secrets.FANALYTICS_LIVE }}
           server-dir: /public_html/stagingmckl/
           local-dir: dist/
 
