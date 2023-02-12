@@ -47,7 +47,7 @@ jobs:
           server: ftp.fishermen-analytics.com
           username: fanalytics_live@fishermen-analytics.com
           password: ${{ secrets.FANALYTICS_LIVE }}
-          server-dir: /public_html/stagingmckl
+          server-dir: /public_html/stagingmckl/
           local-dir: dist/
 
   # build_with_astro:
