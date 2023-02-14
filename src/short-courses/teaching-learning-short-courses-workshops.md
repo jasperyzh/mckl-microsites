@@ -1,7 +1,7 @@
 ---
 title: Teaching & Learning Short Courses & Workshops 
 slug: teaching-learning-short-courses-workshops
-draft: false
+draft: true
 form_option: Teaching & Learning and Education Related Short Courses & Workshop
 tag: education_development
 brochure_url: /pdf/cpd/teaching-learning-short-courses-workshops.pdf

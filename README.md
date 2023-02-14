@@ -1,5 +1,11 @@
 # Welcome to [Astro](https://astro.build)
 
+## log
+230212
+- gh_actions Deploy /dist/ via FTP to stagingmckl.fishermen-analytics.com
+- added tailwindcss to dev
+- updated open-day
+
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!

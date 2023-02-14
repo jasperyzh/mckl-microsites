@@ -1,7 +1,7 @@
 ---
 title: ICDL - The Digital Skills Standard 
 slug: icdl
-draft: false
+draft: true
 form_option: ICDL
 tag: digital_skills
 brochure_url: /pdf/cpd/icdl.pdf

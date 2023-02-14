@@ -274,9 +274,9 @@ const props = defineProps({
                         CICTL:
                             "Cambridge International Certificate in Teaching & Learning",
                         CIDTL: "Cambridge International Diploma in Teaching & Learning",
-                        "Teaching & Learning and Education Related Short Courses & Workshop":
-                            "Teaching & Learning Short Courses & Workshops",
-                        ICDL: "ICDL - The Digital Skills Standard"
+                        // "Teaching & Learning and Education Related Short Courses & Workshop":
+                        //     "Teaching & Learning Short Courses & Workshops",
+                        // ICDL: "ICDL - The Digital Skills Standard"
                     },
                 },
                 // 230102 - free courses goes under "remarks"

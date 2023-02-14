@@ -6,10 +6,10 @@ export const nav__items = [
         name: "Teaching, Learning & Education Development Courses",
         href: "/short-courses#education_development",
       },
-      {
+      /* {
         name: "The Digital Skills",
         href: "/short-courses#digital_skills",
-      },
+      }, */
       /* {
         name: "Education Management & Leadership",
         href: "#edu_manage_leadership",
