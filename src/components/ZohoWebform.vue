@@ -265,9 +265,9 @@ const props = defineProps({
                             // "International Certification of Digital Literacy":
                                 // "International Certification of Digital Literacy",
                             "Micro-Credentials in Social Work":
-                                "Micro-Credentials in Social Work",
+                                "Micro-credentials in Social Work",
                             "Micro-Credentials in Early Childhood Education":
-                                "Micro-Credentials in Early Childhood Education",
+                                "Micro-credentials in Early Childhood Education",
                             "Micro-credentials in Computer Science":
                                 "Micro-credentials in Computer Science",
                             "Micro-credentials in Information Technology":
@@ -277,7 +277,7 @@ const props = defineProps({
                             // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":
                                 // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
                             "Micro-Cred Computing &amp; Business":
-                                "Micro-Cred Computing &amp; Business",
+                                "Micro-credentials in Computing &amp; Business",
                             // "AWS Academy": "AWS Academy",
                         },
                     },
