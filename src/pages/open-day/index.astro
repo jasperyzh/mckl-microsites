@@ -11,9 +11,12 @@ import toastannouncement_img_src from "/221215-100scholarship.png";
 import ToastAnnouncement from "@components/ToastAnnouncement.astro";
 
 // images
-import bg_mobile from "@assets/open-day/230106-bg-openday-mobile.jpg";
-import bg_laptop from "@assets/open-day/230106-bg-openday-laptop.jpg";
-import bg_desktop from "@assets/open-day/230106-bg-openday-desktop.jpg";
+import bg_mobile from "@assets/open-day/230217-bg-openday-mobile.jpg";
+import bg_laptop from "@assets/open-day/230217-bg-openday-mobile.jpg";
+import bg_desktop from "@assets/open-day/230217-bg-openday-desktop.jpg";
+// import bg_mobile from "@assets/open-day/230106-bg-openday-mobile.jpg";
+// import bg_laptop from "@assets/open-day/230106-bg-openday-laptop.jpg";
+// import bg_desktop from "@assets/open-day/230106-bg-openday-desktop.jpg";
 // import bg_mobile from "@assets/bg/221205-bg-openday-mobile.jpg";
 // import bg_laptop from "@assets/bg/221205-bg-openday-laptop.jpg";
 // import bg_desktop from "@assets/bg/221205-bg-openday-desktop.jpg";
@@ -312,11 +315,10 @@ const testimonials = [
             </p> -->
             <p>
               MCKL has over 40 years of proven excellence in providing globally
-              recognized, professional pre-university and tertiary education.
-              Our programs are designed to meet the demands of Industry
-              Revolution 4.0, offering everyone a comprehensive education
-              experience that prepares them for successful careers and
-              meaningful lives.
+              recognised professional pre-university and tertiary education. Our
+              programmes are designed to meet the demands of Industry Revolution
+              4.0, offering everyone a comprehensive education experience that
+              prepares them for successful careers and meaningful lives.
             </p>
           </div>
         </div>
@@ -421,10 +423,10 @@ const testimonials = [
                   style="border-bottom: 0"
                 />
                 <CardProgramme content={cidtl.frontmatter} />
-                <CardProgramme content={icdl.frontmatter} />
+                <!-- <CardProgramme content={icdl.frontmatter} /> -->
                 <CardProgramme content={micro_credential.frontmatter} />
-                <CardProgramme content={education_management.frontmatter} />
-                <CardProgramme content={teaching_learning.frontmatter} />
+                <!-- <CardProgramme content={education_management.frontmatter} /> -->
+                <!-- <CardProgramme content={teaching_learning.frontmatter} /> -->
               </div>
             </BsAccordion>
           </div>
@@ -499,3 +501,11 @@ const testimonials = [
   <Footer />
   <ToastAnnouncement img_src={toastannouncement_img_src} href="" />
 </Layout>
+<script>
+  let test = {
+    controlsText: [
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>',
+    ],
+  };
+</script>

@@ -224,7 +224,7 @@ const props = defineProps({
                         title: "Preparatory Programmes",
                         options: {
                             "PREPCAL": "PREPCAL",
-                            "PREPAUSMAT": "PREPAUSMAT",
+                            // "PREPAUSMAT": "PREPAUSMAT",
                         },
                     },
                     LEADCF20: {
@@ -262,8 +262,8 @@ const props = defineProps({
                             CICTL:
                                 "Cambridge International Certificate in Teaching & Learning",
                             CIDTL: "Cambridge International Diploma in Teaching & Learning",
-                            "International Certification of Digital Literacy":
-                                "International Certification of Digital Literacy",
+                            // "International Certification of Digital Literacy":
+                                // "International Certification of Digital Literacy",
                             "Micro-Credentials in Social Work":
                                 "Micro-Credentials in Social Work",
                             "Micro-Credentials in Early Childhood Education":
@@ -272,13 +272,13 @@ const props = defineProps({
                                 "Micro-credentials in Computer Science",
                             "Micro-credentials in Information Technology":
                                 "Micro-credentials in Information Technology",
-                            "Educational Management and Leadership for Private Education":
-                                "Educational Management and Leadership for Private Education",
-                            "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":
-                                "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
+                            // "Educational Management and Leadership for Private Education":
+                                // "Educational Management and Leadership for Private Education",
+                            // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":
+                                // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
                             "Micro-Cred Computing &amp; Business":
                                 "Micro-Cred Computing &amp; Business",
-                            "AWS Academy": "AWS Academy",
+                            // "AWS Academy": "AWS Academy",
                         },
                     },
                 },
