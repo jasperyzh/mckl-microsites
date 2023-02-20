@@ -47,8 +47,8 @@
                         - Please select your preferences -
                     </option>
 
-                    <optgroup v-for="(optgroup, optgroup_index) in get_programme_interested_options"
-                        :key="optgroup_index" :label="optgroup.title" :id="optgroup_index">
+                    <optgroup v-for="(optgroup, optgroup_index) in get_programme_interested_options" :key="optgroup_index"
+                        :label="optgroup.title" :id="optgroup_index">
                         <option v-for="(option_name, option_index) in get_programme_interested_options[
                             optgroup_index
                         ].options" :key="option_index" :value="option_index" v-html="option_name"></option>
@@ -263,7 +263,7 @@ const props = defineProps({
                                 "Cambridge International Certificate in Teaching & Learning",
                             CIDTL: "Cambridge International Diploma in Teaching & Learning",
                             // "International Certification of Digital Literacy":
-                                // "International Certification of Digital Literacy",
+                            // "International Certification of Digital Literacy",
                             "Micro-Credentials in Social Work":
                                 "Micro-credentials in Social Work",
                             "Micro-Credentials in Early Childhood Education":
@@ -273,11 +273,11 @@ const props = defineProps({
                             "Micro-credentials in Information Technology":
                                 "Micro-credentials in Information Technology",
                             // "Educational Management and Leadership for Private Education":
-                                // "Educational Management and Leadership for Private Education",
+                            // "Educational Management and Leadership for Private Education",
                             // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":
-                                // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
-                            "Micro-Cred Computing &amp; Business":
-                                "Micro-credentials in Computing &amp; Business",
+                            // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
+                            // "Micro-Cred Computing &amp; Business":
+                            // "Micro-credentials in Computing &amp; Business",
                             // "AWS Academy": "AWS Academy",
                         },
                     },
@@ -287,6 +287,8 @@ const props = defineProps({
                         title: "Pre-U / Foundation",
                         options: {
                             "Cambridge A Level": "Cambridge A Level",
+                            "Cambridge A Level (German Pathway)":
+                                "Cambridge A Level (German Pathway)",
                             AUSMAT: "Australian Matriculation",
                         },
                     },

@@ -1,6 +1,8 @@
 ---
 import logo_mckl from "@assets/logo/mckl-horizontal-logo-motto.svg";
 import logo_pykett from "@assets/logo/pykett-horizontal-logo-motto.svg";
+
+const get_year = new Date().getFullYear();
 ---
 
 <footer id="footer" class="footer py-5 bg-primary text-light">
@@ -100,7 +102,7 @@ import logo_pykett from "@assets/logo/pykett-horizontal-logo-motto.svg";
       <div class="col text-center">
         <p class="my-4 text-uppercase">
           <small
-            >&copy; 2022 Methodist College Kuala Lumpur (DK144(W)) All Rights
+            >&copy; {get_year} Methodist College Kuala Lumpur (DK144(W)) All Rights
             Reserved. |
             <a
               href="https://mckl.edu.my/legal-policies-and-notices/"
@@ -123,7 +125,6 @@ import logo_pykett from "@assets/logo/pykett-horizontal-logo-motto.svg";
       color: $secondary;
     }
   }
-  small,
   small {
     font-size: 80%;
     font-weight: 400;
