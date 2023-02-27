@@ -31,7 +31,8 @@ import icon_waiver from "@assets/icon/icon4-feewaiver.png";
 import icon_merit from "@assets/icon/mckl-merit.png";
 
 import icon_briefcase from "@assets/icon/briefcase.png";
-import icon_aus_ireland from "@assets/icon/icon-aus_ire.svg";
+// import icon_aus_ireland from "@assets/icon/icon-aus_ire.svg";
+import icon_aus_ireland_uk from "@assets/icon/icon-aus_ire_uk.svg";
 
 import icon_trackrecord1 from "@assets/icon/business-icon-1.png";
 import icon_trackrecord2 from "@assets/logo/logo-acca_approved_learning_partner.svg";
@@ -115,6 +116,10 @@ const nav__items = [
 
 const card_icons = [
   {
+    title: "RM500 Rebate Voucher*",
+    img_src: icon_waiver,
+  },
+  {
     title:
       "<span>Up to 100% Merit Scholarship* <br> <small class='fw-normal'><i>Apply with your Trial/Forecast Result</i></small></span>",
     img_src: icon_merit,
@@ -128,8 +133,9 @@ const card_icons = [
     img_src: icon_merit,
   },
   {
-    title: "Top Up 1 Year to complete your degree in Australia & Ireland*",
-    img_src: icon_aus_ireland,
+    title:
+      "Top Up 1 year to complete your degree in Australia & Ireland & United Kingdom*",
+    img_src: icon_aus_ireland_uk,
   },
   {
     title: "Internship & Career Opportunities",
@@ -305,21 +311,18 @@ const testimonials = [
               alt="Believe. Aspire. Excel."
             />
             <h2>We believe in your dreams.</h2>
-            <!-- <p>
-              It's MCKL's Registration Week and we are still accepting
-              applications! Our semester is starting soon, be sure to register
-              between 9th to 20th January to meet your new friends at
-              Orientation Day in KL & Penang. If you haven't enrolled with us,
-              now is your chance to meet with our counsellors and secure a spot
-              in our future-ready programmes!
-            </p> -->
             <p>
+              At MCKL's Open Day, you can discover our programmes and campuses
+              and gain an insight into your college life, bringing you closer to
+              achieving your goals and future prospects.
+            </p>
+            <!-- <p>
               MCKL has over 40 years of proven excellence in providing globally
               recognised professional pre-university and tertiary education. Our
               programmes are designed to meet the demands of Industry Revolution
               4.0, offering everyone a comprehensive education experience that
               prepares them for successful careers and meaningful lives.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -339,7 +342,9 @@ const testimonials = [
           </div>
           <div
             id="highlights"
-            class="row justify-content-center row-cols-2 row-cols-sm-3 row-cols-lg-5 mt-5 text-center"
+            class={`row justify-content-center row-cols-2 row-cols-sm-3 mt-5 text-center ${
+              card_icons.length >= 6 ? "row-cols-lg-4" : "row-cols-lg-5"
+            }`}
           >
             {
               card_icons.map((item) => (
@@ -441,7 +446,7 @@ const testimonials = [
           <h3 class="h4">Over 40 years of Proven Track Record</h3>
         </div>
         <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center my-4"
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center my-4"
         >
           {
             card_track_records.map((item) => (
@@ -477,7 +482,11 @@ const testimonials = [
         <h2 class="h4">Enquire for personal education advice</h2>
         <p>Explore the right education programme that best fits you.</p>
         <ul>
-          <li>Top Up 1 Year to complete your degree in Australia & Ireland*</li>
+          <li>
+            Top Up 1 year to complete your degree in Australia & Ireland &
+            United Kingdom*
+          </li>
+          <li>RM500 Rebate Voucher*</li>
           <li>50% Tuition Fee Waiver*</li>
           <li>100% Merit Scholarship Available*</li>
           <li>Internship & Career Opportunities</li>

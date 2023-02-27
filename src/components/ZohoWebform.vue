@@ -60,7 +60,7 @@
             <div class="col-12" v-if="microsite_source !== 'scholarship'">
                 <div class="microsite_interest bg-white border mt-2 px-3 py-2 rounded">
                     <label>I'm interested in:</label>
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="check_counselling"
                             value="Personalised counselling with Senior Academicians"
                             v-model="form_data.microsite_interest" />
@@ -73,6 +73,21 @@
                             v-model="form_data.microsite_interest" />
                         <label for="check_scholarship" class="form-check-label">
                             Scholarships
+                        </label>
+                    </div> -->
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="check_virtual"
+                            value="Virtual Counselling Session" v-model="form_data.microsite_interest" />
+                        <label for="check_virtual" class="form-check-label">
+                            Virtual Counselling Session
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="check_physical"
+                            value="Physical Counselling Session" v-model="form_data.microsite_interest" />
+                        <label for="check_physical" class="form-check-label">
+                            Physical Counselling Session
                         </label>
                     </div>
                 </div>
