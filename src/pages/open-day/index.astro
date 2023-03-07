@@ -5,15 +5,14 @@ const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
 const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
-// import toastannouncement_img_src from "/221207-75scholarship-02.png";
-import toastannouncement_img_src from "/221215-100scholarship.png";
-
-import ToastAnnouncement from "@components/ToastAnnouncement.astro";
+import Testimonial from "../../components/Testimonial.astro";
+import ExcellenceAwardTestimonials from "../../content/testimonials-excellence_award_2023.json";
+import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
 
 // images
-import bg_mobile from "@assets/open-day/230217-bg-openday-mobile.jpg";
-import bg_laptop from "@assets/open-day/230217-bg-openday-mobile.jpg";
-import bg_desktop from "@assets/open-day/230217-bg-openday-desktop.jpg";
+import bg_mobile from "@assets/open-day/openday-bg-mobile.jpg";
+import bg_laptop from "@assets/open-day/openday-bg-mobile.jpg";
+import bg_desktop from "@assets/open-day/openday-bg-desktop.jpg";
 // import bg_mobile from "@assets/open-day/230106-bg-openday-mobile.jpg";
 // import bg_laptop from "@assets/open-day/230106-bg-openday-laptop.jpg";
 // import bg_desktop from "@assets/open-day/230106-bg-openday-desktop.jpg";
@@ -134,7 +133,7 @@ const card_icons = [
   },
   {
     title:
-      "Top Up 1 year to complete your degree in Australia & Ireland & United Kingdom*",
+      "Top Up 1 year to complete your degree in Australia, Ireland & United Kingdom*",
     img_src: icon_aus_ireland_uk,
   },
   {
@@ -474,6 +473,26 @@ const testimonials = [
       </div>
     </section>
 
+    <section
+      id="testimonial-excellence_award_2023"
+      class="pb-5 scholarship2023__bg"
+    >
+      <div class="container-lg">
+        <div class="row text-center">
+          <img
+            src={testimonial_heading}
+            alt="MCKL Excellence Award 2023 - Congratulations to Our Scholars!"
+          />
+        </div>
+        <div class="row">
+          <Testimonial
+            testimonials={ExcellenceAwardTestimonials}
+            style="dark"
+          />
+        </div>
+      </div>
+    </section>
+
     <SectionRegistration
       img_src={form_support}
       img_style="object-fit: cover; width: 100%; height: 100%; object-position: 75% 20%;"
@@ -483,8 +502,8 @@ const testimonials = [
         <p>Explore the right education programme that best fits you.</p>
         <ul>
           <li>
-            Top Up 1 year to complete your degree in Australia & Ireland &
-            United Kingdom*
+            Top Up 1 year to complete your degree in Australia, Ireland & United
+            Kingdom*
           </li>
           <li>RM500 Rebate Voucher*</li>
           <li>50% Tuition Fee Waiver*</li>
@@ -508,7 +527,6 @@ const testimonials = [
   </main>
 
   <Footer />
-  <ToastAnnouncement img_src={toastannouncement_img_src} href="" />
 </Layout>
 <script>
   let test = {
@@ -518,3 +536,11 @@ const testimonials = [
     ],
   };
 </script>
+<style>
+  .scholarship2023__bg {
+    background-image: url("../../assets/bg/bg-scholarship-2209-scholarship.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>

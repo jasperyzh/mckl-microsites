@@ -5,6 +5,38 @@ const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
 const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
+const programme_interested = {
+  kl: {
+   
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        "DSW (PT)": "Diploma in Social Work",
+      },
+    },
+   
+  },
+ /*  penang: {
+    LEADCF20: {
+      title: "Pre-University",
+      options: {
+        "Cambridge A Level": "Cambridge A Level",
+        AUSMAT: "Australian Matriculation",
+      },
+    },
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        "DECE (FT)": "Diploma in Early Childhood Education",
+        DCS: "Diploma in Computer Science",
+        DIT: "Diploma in Information Technology",
+        DEC: "Diploma in Digital Business",
+        DDM: "Diploma in Digital Marketing",
+      },
+    },
+  }, */
+};
+
 // images
 import bg_mobile from "@assets/bg/bg-social-mobile.jpg";
 // import bg_laptop f "@ "@assets/bg/bg-social-laptop.jpg";
@@ -32,6 +64,7 @@ import article07 from "@assets/social-work/articles/news_7.jpg";
 import article08 from "@assets/social-work/articles/news_8.jpg";
 import article09 from "@assets/social-work/articles/news-socialworkteaevent.jpg";
 import article10 from "@assets/social-work/articles/dsw-article10.jpg";
+// import article11 from "";
 
 import article01_modal from "@assets/social-work/articles/news_1-info.jpg";
 import article02_modal from "@assets/social-work/articles/news_2-info.jpg";
@@ -99,6 +132,12 @@ const card_socials = [
 ];
 
 const dsw_articles = [
+  {
+    img_src: "/images/social-work/article11.jpg",
+    title: "A glocal perspective on social work education",
+    link: "https://mckl.edu.my/2023/02/17/a-glocal-perspective-on-social-work-education/",
+    btn_label: "Read more",
+  },
   {
     img_src: article10,
     title: "Equipping for Holistic Social Work Competency",
@@ -302,8 +341,12 @@ const dws_partners = [
 ];
 ---
 
-<Layout title={title} hide_toast_announcement={true}>
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
+<Layout title={title}>
+  <Header
+    mckl_logo_only={true}
+    homepage_path={homepage_path}
+    nav__items={nav__items}
+  />
 
   <main class="main">
     {is_thank_you && <slot name="thank-you" />}
@@ -609,6 +652,8 @@ const dws_partners = [
           client:only="vue"
           return_url={return_url}
           microsite_source={microsite_source}
+          disable_penang={true}
+          programme_interested={programme_interested}
         />
       </div>
     </SectionRegistration>

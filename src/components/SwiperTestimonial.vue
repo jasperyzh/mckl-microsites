@@ -5,15 +5,14 @@
         <div class="card border-0 mb-3">
           <div class="row no-gutters">
             <div class="
-                col-md-4
-                order-md-2
-                d-flex
-                justify-content-center
-                align-items-center
-              ">
+                    col-md-4
+                    order-md-2
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                  ">
               <figure class="swiper__figure">
-                <img class="swiper__img rounded" width="320" :src="item.img_src"
-                  :alt="`Profile photo of ${item.name}`" />
+                <img class="swiper__img rounded" width="320" :src="item.img_src" :alt="`Profile photo of ${item.name}`" />
               </figure>
             </div>
             <div class="col-md-8 order-md-1 d-flex align-items-center">
@@ -76,6 +75,10 @@ export default {
         el: ".swiper-pagination",
       },
       loop: true,
+      autoplay: {
+        delay: 6000,
+        pauseOnMouseEnter: true
+      },
     });
   },
 };

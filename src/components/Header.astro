@@ -1,6 +1,9 @@
 ---
-import img_logo from "@assets/logo/mckl-campuses-logo.png";
-const { homepage_path, nav__items } = Astro.props;
+import campus_logo from "@assets/logo/mckl-campuses-logo.png";
+import mckl_logo from "@assets/logo/mckl-logo.png";
+import anniversary_logo from "@assets/logo/mckl-40anniversary_masthead-white.png";
+
+const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
 ---
 
 <header class="header fixed-top shadow bg-primary">
@@ -10,13 +13,32 @@ const { homepage_path, nav__items } = Astro.props;
   >
     <div class="container">
       <a class="navbar-brand" href={homepage_path}>
-        <img
-          class="img-fluid"
-          width="430"
-          src={img_logo}
-          alt="MCKL Logo"
-          style="filter: brightness(100)"
-        />
+        {
+          mckl_logo_only ? (
+            <img
+              class="img-fluid"
+              width="190"
+              src={mckl_logo}
+              alt="MCKL Logo"
+              style="filter: brightness(100)"
+            />
+          ) : (
+            <img
+              class="img-fluid"
+              width="430"
+              src={campus_logo}
+              alt="MCKL Logo"
+              style="filter: brightness(100)"
+            />
+          )
+        }
+        <figure class="anniversary">
+          <img
+            src={anniversary_logo}
+            alt="MCKL 40 Anniversary Logo"
+            width="84"
+          />
+        </figure>
       </a>
       <button
         class="navbar-toggler"
@@ -88,5 +110,27 @@ const { homepage_path, nav__items } = Astro.props;
   }
   .btn.btn-danger {
     font-weight: bold;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .anniversary {
+    position: relative;
+    padding: 0 0.5rem;
+    margin-left: 0.4rem;
+    margin-bottom: 0;
+  }
+  .anniversary:after {
+    content: "";
+    display: block;
+    height: 60%;
+    inset: 0 auto 0 0;
+    position: absolute;
+    background-color: #fff;
+    width: 1px;
+    margin: auto;
   }
 </style>

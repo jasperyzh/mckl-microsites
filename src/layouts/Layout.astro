@@ -1,15 +1,14 @@
 ---
+import "../styles/style.scss";
+
+import ToastAnnouncement from "@components/ToastAnnouncement.astro";
+
 export interface Props {
   title: string;
 }
 
-// import toastannouncement_img_src from "/221207-75scholarship-02.png";
-// import Global_ToastAnnouncement from "@components/ToastAnnouncement.astro";
-
-const { title = "Welcome to MCKL", hide_global_toast_announcement = false } =
+const { title = "Welcome to MCKL", hide_toast_announcement = false } =
   Astro.props;
-
-import "../styles/style.scss";
 ---
 
 <!DOCTYPE html>
@@ -56,7 +55,14 @@ import "../styles/style.scss";
   <body>
     <div class="site-container">
       <slot />
-      <!-- {!hide_global_toast_announcement && <Global_ToastAnnouncement img_src={toastannouncement_img_src} />} -->
+      {
+        !hide_toast_announcement && (
+          <ToastAnnouncement
+            img_src="/221215-100scholarship.png"
+            href="/open-day"
+          />
+        )
+      }
     </div>
 
     <script>

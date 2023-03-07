@@ -33,7 +33,7 @@
                     <label class="btn btn-outline-primary btn-sm" for="campus_kl">Kuala Lumpur Campus</label>
 
                     <input type="radio" class="btn-check" name="campus" id="campus_penang" value="Penang Pykett Campus"
-                        v-model="form_data.campus" @change="clear_programme_interested()" autocomplete="off">
+                        v-model="form_data.campus" @change="clear_programme_interested()" autocomplete="off" :disabled="disable_penang">
                     <label class="btn btn-outline-primary btn-sm" for="campus_penang">Pykett Campus, Penang</label>
                 </div>
             </div>
@@ -221,6 +221,12 @@ function onchange_programme_interested(e) {
 };
 
 const props = defineProps({
+    disable_penang: {
+        type: Boolean,
+        default(rawProps) {
+            return false;
+        }
+    },
     return_url: {
         type: String,
         required: true
@@ -287,6 +293,8 @@ const props = defineProps({
                                 "Micro-credentials in Computer Science",
                             "Micro-credentials in Information Technology":
                                 "Micro-credentials in Information Technology",
+                            "Micro-credentials in Fundamentals of Innovation and Entrepreneurship": "Micro-credentials in Fundamentals of Innovation and Entrepreneurship",
+                            "Micro-credentials in Programming with Python": "Micro-credentials in Programming with Python"
                             // "Educational Management and Leadership for Private Education":
                             // "Educational Management and Leadership for Private Education",
                             // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":

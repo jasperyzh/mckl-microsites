@@ -26,11 +26,21 @@ const { content, style, compiledContent } = Astro.props;
   </ul>
 
   <!-- discontinue content.note; go with <slot /> -->
-  {content.note && <p>{content.note}</p>}
+  {content.note && <p set:html={content.note}></p>}
 
   {compiledContent && <div set:html={compiledContent} />}
 
-  {content.intake && <p class="intake">Intake: {content.intake}</p>}
+  <p class="text-primary tw-text-sm tw-font-bold">
+    {content.intake && <span>Intake: {content.intake}</span>}
+    {
+      content.course_duration && (
+        <span class="badge bg-primary">
+          Course duration – <Fragment set:html={content.course_duration} />
+        </span>
+      )
+    }
+  </p>
+  <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
 </div>
 
 <style lang="scss">

@@ -25,13 +25,14 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
 // images
-import bg_mobile from "@assets/bg/bg-acca-mobile.jpg";
+import bg_mobile from "@assets/acca/acca-bg-mobile.jpg";
+import bg_desktop from "@assets/acca/acca-bg-desktop.jpg";
 // import bg_laptop f "@ "@assets/bg/bg-acca-laptop.jpg";
 // import bg_desktop from "@assets/bg/bg-acca-desktop.jpg";
-import bg_desktop from "@assets/157322131_m.jpg";
+// import bg_desktop from "@assets/157322131_m.jpg";
 
 // import form_support from "@assets/acca/form_support2.jpg";
-import form_support from "@assets/109102132_m.jpg";
+import form_photo from "@assets/acca/acca-form-photo.jpg";
 
 import logo_acca from "@assets/logo/logo-acca_approved_learning_partner.svg";
 import logo_acca_cbe from "@assets/logo/logo-acca_cbe_centre.png";
@@ -193,8 +194,12 @@ const testimonials = [
 ];
 ---
 
-<Layout title={title} hide_toast_announcement={true}>
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
+<Layout title={title}>
+  <Header
+    mckl_logo_only={true}
+    homepage_path={homepage_path}
+    nav__items={nav__items}
+  />
 
   <main class="main">
     {is_thank_you && <slot name="thank-you" />}
@@ -319,8 +324,8 @@ const testimonials = [
                   complete the ACCA Qualification in just 3 years.
                 </p>
                 <p>
-                  100% Merit Scholarship Available: Apply with Trial/Forecast result and
-                  get your confirmation on the spot*
+                  100% Merit Scholarship Available: Apply with Trial/Forecast
+                  result and get your confirmation on the spot*
                 </p>
 
                 <p><small><i>*T&amp;C Applies</i></small></p>
@@ -460,16 +465,20 @@ const testimonials = [
     <!-- <SectionPartners /> -->
 
     <SectionRegistration
-      img_src={form_support}
+      img_src={form_photo}
       img_style="object-fit: cover; width: 100%; height: 100%; object-position: 60% 20%;"
     >
       <div slot="content">
         <h2 class="h4">Enquire for personal education advice</h2>
         <p>Fill in the form and kick start your education journey with us.</p>
         <ul>
-          <li>Scholarships & Financial Aid*</li>
+          <li>Up to 100% Merit Scholarship*</li>
+          <li>50% Tuition Fee Waiver</li>
+          <li>RM 500 rebate voucher*</li>
+          <li>Scholarships and financial aids*</li>
           <li>Campus Tour</li>
-          <li>Personalised Counselling</li>
+          <li>Personalised Counselling Sessions</li>
+          <li>Complimentary MCKL Career Test</li>
           <li class="list-unstyled">
             <small>*Terms & Conditions apply.</small>
           </li>
