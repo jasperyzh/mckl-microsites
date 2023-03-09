@@ -1,10 +1,7 @@
 ---
+// 230309 - add props and defaults
 // 221205 - hardcoded img_src and hyperlink
-
-// import img_src from "@assets/open-day/221205-openday-popup.png";
-// import img_src from "/221207-75scholarship-02.png";
-
-const { img_src, href = "/open-day" } = Astro.props;
+const { toast_img_src, toast_href } = Astro.props;
 ---
 
 <div
@@ -18,7 +15,6 @@ const { img_src, href = "/open-day" } = Astro.props;
     aria-atomic="true"
   >
     <div class="toast-header">
-      <!-- C -->
       <button
         type="button"
         class="btn-close rounded-circle"
@@ -27,26 +23,29 @@ const { img_src, href = "/open-day" } = Astro.props;
     </div>
     <div class="toast-body">
       {
-        href && (
-          <a href={href} target="_blank">
-            <img
-              width="320"
-              src={img_src}
-              alt=""
-              style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
-            />
-          </a>
-        )
-      }
-      {
-        !href && (
-          <img
-            width="320"
-            src={img_src}
-            alt=""
-            style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
-          />
-        )
+        (() => {
+          if (toast_href) {
+            return (
+              <a href={toast_href} target="_blank">
+                <img
+                  width="320"
+                  src={toast_img_src}
+                  alt=""
+                  style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
+                />
+              </a>
+            );
+          } else {
+            return (
+              <img
+                width="320"
+                src={toast_img_src}
+                alt=""
+                style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
+              />
+            );
+          }
+        })()
       }
     </div>
   </div>

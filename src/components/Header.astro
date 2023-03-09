@@ -1,7 +1,7 @@
 ---
 import campus_logo from "@assets/logo/mckl-campuses-logo.png";
 import mckl_logo from "@assets/logo/mckl-logo.png";
-import anniversary_logo from "@assets/logo/mckl-40anniversary_masthead-white.png";
+import anniversary_logo from "@assets/logo/mckl-40anniversary_masthead-rgb.png";
 
 const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
 ---
@@ -12,33 +12,61 @@ const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
     aria-label="Fifth navbar example"
   >
     <div class="container">
-      <a class="navbar-brand" href={homepage_path}>
-        {
-          mckl_logo_only ? (
-            <img
-              class="img-fluid"
-              width="190"
-              src={mckl_logo}
-              alt="MCKL Logo"
-              style="filter: brightness(100)"
-            />
-          ) : (
-            <img
-              class="img-fluid"
-              width="430"
-              src={campus_logo}
-              alt="MCKL Logo"
-              style="filter: brightness(100)"
-            />
-          )
-        }
-        <figure class="anniversary">
+      <a
+        class="navbar-brand tw-flex tw-justify-start !tw-p-0"
+        href={homepage_path}
+      >
+        <figure
+          class="anniversary-logo tw-mb-0 tw-mr-2 tw-relative tw-self-baseline"
+          style="--anniversary--width: 84px; min-width: var(--anniversary--width);"
+        >
           <img
+            class="tw-fixed tw-bg-white tw-p-2"
             src={anniversary_logo}
             alt="MCKL 40 Anniversary Logo"
-            width="84"
+            style="width: var(--anniversary--width); margin-top: -0.5rem"
           />
         </figure>
+        {
+          mckl_logo_only ? (
+            <div class="tw-flex tw-items-center">
+              <img
+                class="lg:tw-hidden"
+                src="/logo/mckl-logo-mobile.svg"
+                alt="Logo of Methodist College Kuala Lumpur & Pykett Penang"
+                width="48"
+              />
+              <img
+                class="tw-hidden lg:tw-block tw-max-w-[240px]"
+                src="/logo/mckl-logo.png"
+                alt="Logo of Methodist College Kuala Lumpur"
+                width="180"
+              />
+            </div>
+          ) : (
+            <div class="tw-flex tw-items-center">
+              <img
+                class="lg:tw-hidden"
+                src="/logo/mckl-logo-mobile.svg"
+                alt="Logo of Methodist College Kuala Lumpur & Pykett Penang"
+                width="48"
+              />
+              <img
+                class="tw-hidden lg:tw-block tw-max-w-[240px]"
+                src="/logo/mckl-logo.png"
+                alt="Logo of Methodist College Kuala Lumpur"
+                width="180"
+              />
+              <div class="tw-hidden lg:tw-block tw-border tw-border-r-0 tw-mx-2 tw-border-gray-300 tw-border-solid tw-w-[1px] tw-h-full"></div>
+              <img
+                class="tw-hidden lg:tw-block tw-max-w-[217px]"
+                src="/logo/mckl-pykett-logo.png"
+                alt="Logo of Methodist College Pykett, Penang"
+                width="217"
+              />
+            </div>
+          )
+        }
       </a>
       <button
         class="navbar-toggler"
@@ -105,25 +133,25 @@ const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
 </header>
 
 <style>
-  .navbar-brand img {
+  .navbar-brand tw-py-0 img {
     max-width: clamp(270px, 50vw, 417px);
   }
   .btn.btn-danger {
     font-weight: bold;
   }
 
-  .navbar-brand {
+  .navbar-brand tw-py-0 {
     display: flex;
     align-items: center;
   }
 
-  .anniversary {
+  /* .anniversary_line {
     position: relative;
     padding: 0 0.5rem;
     margin-left: 0.4rem;
     margin-bottom: 0;
   }
-  .anniversary:after {
+  .anniversary_line:after {
     content: "";
     display: block;
     height: 60%;
@@ -132,5 +160,5 @@ const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
     background-color: #fff;
     width: 1px;
     margin: auto;
-  }
+  } */
 </style>

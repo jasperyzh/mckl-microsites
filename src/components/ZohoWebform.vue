@@ -34,7 +34,7 @@
 
                     <input type="radio" class="btn-check" name="campus" id="campus_penang" value="Penang Pykett Campus"
                         v-model="form_data.campus" @change="clear_programme_interested()" autocomplete="off" :disabled="disable_penang">
-                    <label class="btn btn-outline-primary btn-sm" for="campus_penang">Pykett Campus, Penang</label>
+                    <label :class="`btn btn-outline-primary btn-sm ${disable_penang && 'd-none'}`" for="campus_penang">Pykett Campus, Penang</label>
                 </div>
             </div>
 

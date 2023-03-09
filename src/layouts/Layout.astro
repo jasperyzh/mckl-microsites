@@ -5,10 +5,17 @@ import ToastAnnouncement from "@components/ToastAnnouncement.astro";
 
 export interface Props {
   title: string;
+  toast_img_src?: string;
+  toast_href?: string;
+  toast_hide: false;
 }
 
-const { title = "Welcome to MCKL", hide_toast_announcement = false } =
-  Astro.props;
+const {
+  title = "Welcome to MCKL",
+  toast_img_src = "", // "/images/221205-openday-popup.png",
+  toast_href = "",
+  toast_hide = true,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -56,11 +63,8 @@ const { title = "Welcome to MCKL", hide_toast_announcement = false } =
     <div class="site-container">
       <slot />
       {
-        !hide_toast_announcement && (
-          <ToastAnnouncement
-            img_src="/221215-100scholarship.png"
-            href="/open-day"
-          />
+        !toast_hide && toast_img_src && (
+          <ToastAnnouncement {toast_img_src} {toast_href} />
         )
       }
     </div>

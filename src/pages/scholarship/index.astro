@@ -4,7 +4,7 @@ const microsite_source = "scholarship";
 const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
 
 import Testimonial from "../../components/Testimonial.astro";
-import ExcellenceAwardTestimonials from "../../content/testimonials-excellence_award_2023.json";
+import ExcellenceAwardTestimonials from "../../content/_testimonials-excellence_award_2023.json";
 import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
 
 const programme_interested = {
@@ -364,7 +364,7 @@ const card_track_records = [
         </div>
 
         <div
-          class="row row-cols-2 row-cols-sm-3 justify-content-center mt-5 text-center"
+          class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 justify-content-center mt-5 text-center"
         >
           {
             card_icons.map((item) => (
@@ -494,8 +494,13 @@ const card_track_records = [
       <div class="container-lg">
         <div class="row text-center">
           <img
+            width=""
             src={testimonial_heading}
             alt="MCKL Excellence Award 2023 - Congratulations to Our Scholars!"
+            style="
+    width: clamp(260px, 50vw, 360px);
+    margin-inline: auto;
+    margin-block: 2rem;"
           />
         </div>
         <div class="row">

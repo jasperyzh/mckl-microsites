@@ -6,7 +6,7 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
 import Testimonial from "../../components/Testimonial.astro";
-import ExcellenceAwardTestimonials from "../../content/testimonials-excellence_award_2023.json";
+import ExcellenceAwardTestimonials from "../../content/_testimonials-excellence_award_2023.json";
 import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
 
 // images
@@ -252,7 +252,12 @@ const testimonials = [
 ];
 ---
 
-<Layout title={title} hide_global_toast_announcement={true}>
+<Layout
+  title={title}
+  toast_img_src="/images/221215-100scholarship.png"
+  toast_href="/scholarship"
+  toast_hide={false}
+>
   <Header homepage_path={homepage_path} nav__items={nav__items} />
 
   <main class="main">
@@ -413,7 +418,10 @@ const testimonials = [
                   content={dit.frontmatter}
                   compiledContent={dit.compiledContent()}
                 />
-                <CardProgramme content={ddb.frontmatter} />
+                <CardProgramme
+                  content={ddb.frontmatter}
+                  compiledContent={ddb.compiledContent()}
+                />
                 <CardProgramme content={ddm.frontmatter} />
                 <CardProgramme content={dft.frontmatter} />
               </div>
@@ -473,7 +481,7 @@ const testimonials = [
       </div>
     </section>
 
-    <section
+    <!-- <section
       id="testimonial-excellence_award_2023"
       class="pb-5 scholarship2023__bg"
     >
@@ -491,7 +499,7 @@ const testimonials = [
           />
         </div>
       </div>
-    </section>
+    </section> -->
 
     <SectionRegistration
       img_src={form_support}
