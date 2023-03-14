@@ -33,8 +33,10 @@
                     <label class="btn btn-outline-primary btn-sm" for="campus_kl">Kuala Lumpur Campus</label>
 
                     <input type="radio" class="btn-check" name="campus" id="campus_penang" value="Penang Pykett Campus"
-                        v-model="form_data.campus" @change="clear_programme_interested()" autocomplete="off" :disabled="disable_penang">
-                    <label :class="`btn btn-outline-primary btn-sm ${disable_penang && 'd-none'}`" for="campus_penang">Pykett Campus, Penang</label>
+                        v-model="form_data.campus" @change="clear_programme_interested()" autocomplete="off"
+                        :disabled="disable_penang">
+                    <label :class="`btn btn-outline-primary btn-sm ${disable_penang && 'd-none'}`"
+                        for="campus_penang">Pykett Campus, Penang</label>
                 </div>
             </div>
 
@@ -57,7 +59,8 @@
             </div>
 
             <!-- microsite_interest:LEADCF10 -->
-            <div class="col-12" v-if="microsite_source !== 'scholarship'">
+            <div class="col-12">
+                <!-- <div class="col-12" v-if="microsite_source !== 'scholarship'"> -->
                 <div class="microsite_interest bg-white border mt-2 px-3 py-2 rounded">
                     <label>I'm interested in:</label>
                     <!-- <div class="form-check">

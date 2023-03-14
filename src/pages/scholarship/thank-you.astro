@@ -6,5 +6,16 @@ const homepage_path = "/scholarship";
 ---
 
 <ScholarshipContent is_thank_you={true}>
-  <SectionThankyou slot="thank-you" homepage_path={homepage_path} />
+  <SectionThankyou slot="thank-you" homepage_path={homepage_path}>
+    <!-- for /scholarship -->
+    <div class="col-lg-8">
+      <a href="/open-day">
+        <img
+          class="d-block mx-auto my-4"
+          src="/images/bg/230309-open_day-bg-desktop.jpg"
+          alt="MCKL Open Day"
+        />
+      </a>
+    </div>
+  </SectionThankyou>
 </ScholarshipContent>

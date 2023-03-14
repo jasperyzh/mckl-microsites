@@ -228,7 +228,9 @@ const testimonials = [
                 Enquire Now</a
               >
               <div class="d-block">
-                <OpenDayInvitation />
+                <OpenDayInvitation>
+                  <span slot="campus">KL Campus</span>
+                </OpenDayInvitation>
               </div>
               <figure
                 class="d-flex justify-content-center justify-content-lg-start"
@@ -492,6 +494,7 @@ const testimonials = [
           return_url={return_url}
           microsite_source={microsite_source}
           programme_interested={programme_interested}
+          disable_penang={true}
         />
       </div>
     </SectionRegistration>

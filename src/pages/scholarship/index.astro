@@ -205,7 +205,11 @@ const card_track_records = [
 ];
 ---
 
-<Layout title={title}>
+<Layout
+  title={title}
+  toast_img_src="/images/230309-open_day_blurb.png"
+  toast_href="/open-day"
+>
   <Header homepage_path={homepage_path} nav__items={nav__items} />
 
   <main class="main">
@@ -284,7 +288,7 @@ const card_track_records = [
 
     <!-- intro -->
     <section
-      class="bg-primary py-4 text-center  text-light text-light__heading pt-5"
+      class="bg-primary py-4 text-center text-light text-light__heading pt-5"
     >
       <div class="container">
         <div class="row justify-content-center">
@@ -397,9 +401,18 @@ const card_track_records = [
                 <CardProgramme content={adtp.frontmatter} />
                 <CardProgramme content={dece.frontmatter} />
                 <CardProgramme content={dsw.frontmatter} />
-                <CardProgramme content={dcs.frontmatter} />
-                <CardProgramme content={dit.frontmatter} />
-                <CardProgramme content={ddb.frontmatter} />
+                <CardProgramme
+                  content={dcs.frontmatter}
+                  compiledContent={dcs.compiledContent()}
+                />
+                <CardProgramme
+                  content={dit.frontmatter}
+                  compiledContent={dit.compiledContent()}
+                />
+                <CardProgramme
+                  content={ddb.frontmatter}
+                  compiledContent={ddb.compiledContent()}
+                />
                 <CardProgramme content={ddm.frontmatter} />
                 <CardProgramme content={dft.frontmatter} />
               </div>

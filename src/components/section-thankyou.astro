@@ -16,9 +16,22 @@ const { homepage_path } = Astro.props;
           >Check out our Open Day</a
         >
       </div> -->
-      <div class="col-auto">
+      <div class="col-12 text-center">
         <a href={homepage_path} class="btn btn-secondary">Return</a>
       </div>
+      <slot>
+        <!-- for all microsites -->
+        <div class="col-lg-8">
+          <a href="/scholarship">
+            <img
+              class="d-block mx-auto my-4"
+              src="/images/banner/230314-100_scholarship.jpg"
+              alt="MCKL 100% Merit Scholarship Available!"
+            />
+          </a>
+        </div>
+        <!-- unique:scholarship -->
+      </slot>
     </div>
   </div>
 </section>
