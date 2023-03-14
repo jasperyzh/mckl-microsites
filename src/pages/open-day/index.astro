@@ -271,220 +271,207 @@ const testimonials = [
       bg_laptop={bg_laptop}
       bg_desktop={bg_desktop}
       bg_img_style="object-position: center"
+      href="/open-day#registration"
     >
-      <div class="container-lg">
-        <div
-          class="row justify-content-center justify-content-md-start align-items-center"
-        >
-          <div class="col-10 col-md-7 col-lg-6 mb-lg-5">
-            <div class="masthead__content text-center ps-lg-3">
-              <!-- <img
-                  width="720"
-                  src={masthead_tagline}
-                  alt="Believe. Aspire. Excel."
-                />
-                <h1 class="h2 mb-2">We believe in your dreams.</h1> -->
-              <!-- <p class="lead fw-normal">
-                  Our scholarship and financial aid are available, bringing you
-                  a step closer to fulfilling your aspirations and the endless
-                  possibilities of your future.
-                </p> -->
-              <!-- <div
-                  class="btn btn-secondary btn-lg my-3 d-inline-block shadow"
-                  style="font-size: 1.625rem; pointer-events: none;"
-                >
-                  <p class="mb-0">Visit</p>
-                  <span class="d-block h2 m-0">MCKL Open Day</span>
-                  9 & 10, 16 & 17 December 2022
-                  <span class="d-inline-block fw-normal">9am &mdash; 5pm</span>
-                </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
+      <a class="masthead__link" href="/open-day#registration"></a>
+      <style>
+        .masthead__link {
+          display: block;
+          width: 50%;
+          height: 20%;
+          margin: auto;
+          margin-bottom: 0;
+        }
+        @media (min-width: 992px) {
+          .masthead__link {
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom: 0;
+          }
+        }
+      </style>
     </SectionMasthead>
+  </main>
 
-    <!-- intro -->
-    <section
-      class="bg-primary py-4 text-center border-bottom border-secondary text-light text-light__heading pt-5"
-      style="border-width: 6px !important"
-    >
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-10">
-            <img
-              width="420"
-              src={tagline_believe_aspire_excel}
-              alt="Believe. Aspire. Excel."
-            />
-            <h2>We believe in your dreams.</h2>
-            <p>
-              At MCKL's Open Day, you can discover our programmes and campuses
-              and gain an insight into your college life, bringing you closer to
-              achieving your goals and future prospects.
-            </p>
-            <!-- <p>
+  <!-- intro -->
+  <section
+    class="bg-primary py-4 text-center border-bottom border-secondary text-light text-light__heading pt-5"
+    style="border-width: 6px !important"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <img
+            width="420"
+            src={tagline_believe_aspire_excel}
+            alt="Believe. Aspire. Excel."
+          />
+          <h2>We believe in your dreams.</h2>
+          <p>
+            At MCKL's Open Day, you can discover our programmes and campuses and
+            gain an insight into your college life, bringing you closer to
+            achieving your goals and future prospects.
+          </p>
+          <!-- <p>
               MCKL has over 40 years of proven excellence in providing globally
               recognised professional pre-university and tertiary education. Our
               programmes are designed to meet the demands of Industry Revolution
               4.0, offering everyone a comprehensive education experience that
               prepares them for successful careers and meaningful lives.
             </p> -->
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <SectionAboutmckl>
-      <section slot="after_content">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <p>
-                MCKL always seeks to provide opportunities to deserving
-                students. For more information please fill in the form below and
-                we will get in touch with you.
-              </p>
-            </div>
-          </div>
-          <div
-            id="highlights"
-            class={`row justify-content-center row-cols-2 row-cols-sm-3 mt-5 text-center ${
-              card_icons.length >= 6 ? "row-cols-lg-4" : "row-cols-lg-5"
-            }`}
-          >
-            {
-              card_icons.map((item) => (
-                <div class="col">
-                  <CardIcon item={item} classes="card__icon--large" />
-                </div>
-              ))
-            }
-          </div>
-          <div class="row text-center">
-            <div class="col">
-              <p><small>*Terms & Conditions apply.</small></p>
-            </div>
-          </div>
-          <div class="row justify-content-center my-4">
-            <div class="col-auto">
-              <a href="./#registration" class="btn btn-danger">Enquire today</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </SectionAboutmckl>
-
-    <SectionPartners />
-
-    <!-- programmes-offered -->
-    <section id="programmes" class="py-5">
+  <SectionAboutmckl>
+    <section slot="after_content">
       <div class="container">
-        <div class="row justify-content-center text-center mb-3">
-          <div class="col-auto">
-            <h2>Programmes Offered in 2023</h2>
-          </div>
-        </div>
         <div class="row justify-content-center">
-          <div class="col-md-10">
-            <BsAccordion
-              client:idle
-              show_first={true}
-              accordion_id="programme"
-              accordion_items={[
-                { title: "Preparatory Course" },
-                { title: "Pre-University" },
-                { title: "Undergraduate Programme" },
-                { title: "Professional Accounting" },
-                { title: "Professional Development" },
-              ]}
-            >
-              <div slot="content-0">
-                <CardProgramme
-                  content={cambridge_a_level_prepcal.frontmatter}
-                />
-                <!-- <CardProgramme content={prepausmat.frontmatter} /> -->
-              </div>
-              <div slot="content-1">
-                <CardProgramme content={cambridge_a_level.frontmatter} />
-                <CardProgramme content={ausmat.frontmatter} />
-              </div>
-              <div slot="content-2">
-                <CardProgramme content={adtp.frontmatter} />
-                <CardProgramme content={dece.frontmatter} />
-                <CardProgramme content={dsw.frontmatter} />
-                <CardProgramme
-                  content={dcs.frontmatter}
-                  compiledContent={dcs.compiledContent()}
-                />
-                <CardProgramme
-                  content={dit.frontmatter}
-                  compiledContent={dit.compiledContent()}
-                />
-                <CardProgramme
-                  content={ddb.frontmatter}
-                  compiledContent={ddb.compiledContent()}
-                />
-                <CardProgramme content={ddm.frontmatter} />
-                <CardProgramme content={dft.frontmatter} />
-              </div>
-              <div slot="content-3">
-                <CardProgramme content={acca_fia.frontmatter} />
-                <CardProgramme content={acca.frontmatter} />
-              </div>
-              <div slot="content-4">
-                <CardProgramme
-                  content={cictl.frontmatter}
-                  style="border-bottom: 0"
-                />
-                <CardProgramme content={cidtl.frontmatter} />
-                <!-- <CardProgramme content={icdl.frontmatter} /> -->
-                <CardProgramme content={micro_credential.frontmatter} />
-                <!-- <CardProgramme content={education_management.frontmatter} /> -->
-                <!-- <CardProgramme content={teaching_learning.frontmatter} /> -->
-              </div>
-            </BsAccordion>
+          <div class="col-md-8">
+            <p>
+              MCKL always seeks to provide opportunities to deserving students.
+              For more information please fill in the form below and we will get
+              in touch with you.
+            </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- track_record -->
-    <section id="track_record" class="py-5 text-center">
-      <div class="container">
-        <div class="row row-cols-1 justify-content-center text-center">
-          <h3 class="h4">Over 40 years of Proven Track Record</h3>
         </div>
         <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center my-4"
+          id="highlights"
+          class={`row justify-content-center row-cols-2 row-cols-sm-3 mt-5 text-center ${
+            card_icons.length >= 6 ? "row-cols-lg-4" : "row-cols-lg-5"
+          }`}
         >
           {
-            card_track_records.map((item) => (
-              <div class="col mb-4">
-                <CardIcon item={item} />
+            card_icons.map((item) => (
+              <div class="col">
+                <CardIcon item={item} classes="card__icon--large" />
               </div>
             ))
           }
         </div>
-      </div>
-    </section>
-
-    <!-- testimonial -->
-    <section id="testimonial" class="my-5">
-      <div class="container-lg">
         <div class="row text-center">
-          <div class="col mb-3">
-            <h2>Testimonial</h2>
-            <p>Hear from our graduates</p>
+          <div class="col">
+            <p><small>*Terms & Conditions apply.</small></p>
           </div>
         </div>
-        <div class="row">
-          <SwiperTestimonial client:only="vue" content={testimonials} />
+        <div class="row justify-content-center my-4">
+          <div class="col-auto">
+            <a href="./#registration" class="btn btn-danger">Enquire today</a>
+          </div>
         </div>
       </div>
     </section>
+  </SectionAboutmckl>
 
-    <!-- <section
+  <SectionPartners />
+
+  <!-- programmes-offered -->
+  <section id="programmes" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-3">
+        <div class="col-auto">
+          <h2>Programmes Offered in 2023</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <BsAccordion
+            client:idle
+            show_first={true}
+            accordion_id="programme"
+            accordion_items={[
+              { title: "Preparatory Course" },
+              { title: "Pre-University" },
+              { title: "Undergraduate Programme" },
+              { title: "Professional Accounting" },
+              { title: "Professional Development" },
+            ]}
+          >
+            <div slot="content-0">
+              <CardProgramme content={cambridge_a_level_prepcal.frontmatter} />
+              <!-- <CardProgramme content={prepausmat.frontmatter} /> -->
+            </div>
+            <div slot="content-1">
+              <CardProgramme content={cambridge_a_level.frontmatter} />
+              <CardProgramme content={ausmat.frontmatter} />
+            </div>
+            <div slot="content-2">
+              <CardProgramme content={adtp.frontmatter} />
+              <CardProgramme content={dece.frontmatter} />
+              <CardProgramme content={dsw.frontmatter} />
+              <CardProgramme
+                content={dcs.frontmatter}
+                compiledContent={dcs.compiledContent()}
+              />
+              <CardProgramme
+                content={dit.frontmatter}
+                compiledContent={dit.compiledContent()}
+              />
+              <CardProgramme
+                content={ddb.frontmatter}
+                compiledContent={ddb.compiledContent()}
+              />
+              <CardProgramme content={ddm.frontmatter} />
+              <CardProgramme content={dft.frontmatter} />
+            </div>
+            <div slot="content-3">
+              <CardProgramme content={acca_fia.frontmatter} />
+              <CardProgramme content={acca.frontmatter} />
+            </div>
+            <div slot="content-4">
+              <CardProgramme
+                content={cictl.frontmatter}
+                style="border-bottom: 0"
+              />
+              <CardProgramme content={cidtl.frontmatter} />
+              <!-- <CardProgramme content={icdl.frontmatter} /> -->
+              <CardProgramme content={micro_credential.frontmatter} />
+              <!-- <CardProgramme content={education_management.frontmatter} /> -->
+              <!-- <CardProgramme content={teaching_learning.frontmatter} /> -->
+            </div>
+          </BsAccordion>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- track_record -->
+  <section id="track_record" class="py-5 text-center">
+    <div class="container">
+      <div class="row row-cols-1 justify-content-center text-center">
+        <h3 class="h4">Over 40 years of Proven Track Record</h3>
+      </div>
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center my-4"
+      >
+        {
+          card_track_records.map((item) => (
+            <div class="col mb-4">
+              <CardIcon item={item} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- testimonial -->
+  <section id="testimonial" class="my-5">
+    <div class="container-lg">
+      <div class="row text-center">
+        <div class="col mb-3">
+          <h2>Testimonial</h2>
+          <p>Hear from our graduates</p>
+        </div>
+      </div>
+      <div class="row">
+        <SwiperTestimonial client:only="vue" content={testimonials} />
+      </div>
+    </div>
+  </section>
+
+  <!-- <section
       id="testimonial-excellence_award_2023"
       class="pb-5 scholarship2023__bg"
     >
@@ -504,41 +491,41 @@ const testimonials = [
       </div>
     </section> -->
 
-    <SectionRegistration
-      img_src={form_support}
-      img_style="object-fit: cover; width: 100%; height: 100%; object-position: 75% 20%;"
-    >
-      <div slot="content">
-        <h2 class="h4">Enquire for personal education advice</h2>
-        <p>Explore the right education programme that best fits you.</p>
-        <ul>
-          <li>
-            Top Up 1 year to complete your degree in Australia, Ireland & United
-            Kingdom*
-          </li>
-          <li>RM500 Rebate Voucher*</li>
-          <li>50% Tuition Fee Waiver*</li>
-          <li>100% Merit Scholarship Available*</li>
-          <li>Internship & Career Opportunities</li>
-          <li>Scholarships & Financial Aid*</li>
-          <li>Personalised Counselling</li>
-          <li>Complimentary MCKL Career Test</li>
-          <li>Campus Tour</li>
-          <li class="list-unstyled">
-            <small>*Terms & Conditions apply.</small>
-          </li>
-        </ul>
-        <ZohoWebform
-          client:only="vue"
-          return_url={return_url}
-          microsite_source={microsite_source}
-        />
-      </div>
-    </SectionRegistration>
-  </main>
-
-  <Footer />
+  <SectionRegistration
+    img_src={form_support}
+    img_style="object-fit: cover; width: 100%; height: 100%; object-position: 75% 20%;"
+  >
+    <div slot="content">
+      <h2 class="h4">Enquire for personal education advice</h2>
+      <p>Explore the right education programme that best fits you.</p>
+      <ul>
+        <li>
+          Top Up 1 year to complete your degree in Australia, Ireland & United
+          Kingdom*
+        </li>
+        <li>RM500 Rebate Voucher*</li>
+        <li>50% Tuition Fee Waiver*</li>
+        <li>100% Merit Scholarship Available*</li>
+        <li>Internship & Career Opportunities</li>
+        <li>Scholarships & Financial Aid*</li>
+        <li>Personalised Counselling</li>
+        <li>Complimentary MCKL Career Test</li>
+        <li>Campus Tour</li>
+        <li class="list-unstyled">
+          <small>*Terms & Conditions apply.</small>
+        </li>
+      </ul>
+      <ZohoWebform
+        client:only="vue"
+        return_url={return_url}
+        microsite_source={microsite_source}
+      />
+    </div>
+  </SectionRegistration>
 </Layout>
+
+<Footer />
+
 <script>
   let test = {
     controlsText: [
@@ -555,3 +542,16 @@ const testimonials = [
     background-size: cover;
   }
 </style>
+
+<script>
+  document.querySelector(
+    "#page > div.main > div.container.beforeShakeContent > p.beforeShakeContent-small"
+  ).inser`
+  <br> <a class="text-white text-underline" href="/whats-new/" style="
+      margin-top: 10px;
+      display: block;
+      text-decoration: underline;
+      color: #fff;
+  ">Untuk maklumat lanjut tentang peraduan, tekan sini</a>
+  `;
+</script>

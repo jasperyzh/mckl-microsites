@@ -73,6 +73,7 @@ import SwiperTestimonial from "@components/SwiperTestimonial.vue";
 // programmes
 import * as acca from "../../programmes/acca.md";
 import * as acca_fia from "../../programmes/acca_fia.md";
+import OpenDayInvitation from "@components/OpenDayInvitation.astro";
 
 const nav__items = [
   {
@@ -226,6 +227,9 @@ const testimonials = [
               <a class="btn btn-secondary btn-lg my-3" href="#registration">
                 Enquire Now</a
               >
+              <div class="d-block">
+                <OpenDayInvitation />
+              </div>
               <figure
                 class="d-flex justify-content-center justify-content-lg-start"
               >
@@ -465,7 +469,7 @@ const testimonials = [
     <!-- <SectionPartners /> -->
 
     <SectionRegistration
-        img_src={form_photo}
+      img_src={form_photo}
       img_style="object-fit: cover; width: 100%; height: 100%; object-position: 60% 20%;"
     >
       <div slot="content">

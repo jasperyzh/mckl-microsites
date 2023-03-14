@@ -7,6 +7,8 @@ import Testimonial from "../../components/Testimonial.astro";
 import ExcellenceAwardTestimonials from "../../content/_testimonials-excellence_award_2023.json";
 import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
 
+import ScholarshipBg from "../../assets/bg/bg-scholarship-2209-scholarship.jpg";
+
 const programme_interested = {
   kl: {
     LEADCF20: {
@@ -210,48 +212,56 @@ const card_track_records = [
     {is_thank_you && <slot name="thank-you" />}
 
     <SectionMasthead
-      bg_mobile={bg_mobile}
-      bg_laptop={bg_laptop}
-      bg_desktop={bg_desktop}
-      bg_img_style="object-position: bottom left"
+      bg_mobile={ScholarshipBg}
+      bg_laptop={ScholarshipBg}
+      bg_desktop={ScholarshipBg}
+      bg_img_style="object-position: center"
     >
       <div class="container">
-        <div class="row justify-content-end align-items-center">
-          <div class="col-lg-5 offset-lg-2 mb-lg-5">
-            <div class="masthead__content text-center text-lg-start">
+        <div class="row justify-content-around align-items-center">
+          <div class="col-lg-6 mx-auto mb-lg-5 text-center">
+            <img
+              width="580"
+              src={awardscholarship2023}
+              alt="MCKL Excellence Award Scholarship 2023"
+            />
+            <div class="d-flex justify-content-center mb-3">
               <img
-                width="620"
-                src={masthead_tagline}
-                alt="Believe. Aspire. Excel."
+                class="img-fluid"
+                width="160"
+                src={limitedscholarship2023}
+                alt="MCKL Scholarship Limited Availability - Apply Today"
               />
-              <h1 class="h2 mb-2">We believe in your dreams.</h1>
-              <p class="lead fw-normal">
-                Our scholarship and financial aid are available, bringing you a
-                step closer to fulfilling your aspirations and the endless
-                possibilities of your future.
+              <img
+                class="img-fluid"
+                width="160"
+                src={scholarshipscholarship2023}
+                alt="MCKL Scholarship 100% Scholarship"
+              />
+            </div>
+            <div class="text-white">
+              <h2 class="text-secondary text-center">
+                <u>Application Deadline</u>
+              </h2>
+              <ul class="list-unstyled text-center">
+                <li class="d-none">
+                  Round 1 (January 2023 Intake) : <strong
+                    >5<sup>th</sup> DEC 2022</strong
+                  >
+                </li>
+                <li>
+                  Round 2 (June-August 2023 Intake) : <strong
+                    >1<sup>st</sup> MAY 2023</strong
+                  >
+                </li>
+              </ul>
+              <p class="my-3 text-white text-center">
+                <small><i>*Terms & Conditions Apply.</i></small>
               </p>
-              <div
-                class="btn btn-secondary btn-lg my-3 d-inline-block shadow-sm"
-                style="font-size: 1.625rem"
-              >
-                <p class="h4 mb-0">
-                  Visit MCKL
-                  <!-- <br />MCKL Registration Week -->
-                  <br />9am &ndash; 5pm (Mon &ndash; Sat)
-                  <!-- <br />9&ndash;20 January 2023 | 9am&ndash;5pm -->
-                  <br />KL Campus &bull; PG Campus
-                </p>
-                <!-- <p class="h4 mb-0">Application for January Intake 2023 Open</p> -->
-                <!-- <p class="mb-0">Visit</p>
-                <span class="d-block h2 m-0">MCKL Scholarship Week</span>
-                21 – 26 November 2022 | <span class="d-inline-block fw-normal"
-                  >9am – 5pm</span
-                > -->
-              </div>
             </div>
           </div>
 
-          <div class="col-lg-4">
+          <div class="col-lg-5">
             <div id="registration" class="registration__bg">
               <div class="px-3 pt-4">
                 <h2 class="h4">Enquire now</h2>
@@ -272,10 +282,9 @@ const card_track_records = [
       </div>
     </SectionMasthead>
 
-    <!--  <section
-      id="intro"
-      class="bg-primary py-4 text-center border-bottom border-secondary text-light text-light__heading pt-5"
-      style="border-width: 6px !important"
+    <!-- intro -->
+    <section
+      class="bg-primary py-4 text-center  text-light text-light__heading pt-5"
     >
       <div class="container">
         <div class="row justify-content-center">
@@ -287,73 +296,16 @@ const card_track_records = [
             />
             <h2>We believe in your dreams.</h2>
             <p>
-              At MCKL's Open Day, you can discover our programmes and campuses
-              and gain an insight into your college life, bringing you closer to
-              achieving your goals and future prospects.
+              Our scholarship and financial aid are available, bringing you a
+              step closer to fulfilling your aspirations and the endless
+              possibilities of your future.
             </p>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <section id="highlights" class="bg-primary pb-5 text-light">
-      <div class="scholarship2023__bg">
-        <div class="container">
-          <div class="row justify-content-center mb-4">
-            <div class="col-auto">
-              <img
-                width="580"
-                src={awardscholarship2023}
-                alt="MCKL Excellence Award Scholarship 2023"
-              />
-            </div>
-          </div>
-          <div
-            class="row justify-content-center row-cols-2"
-            style="margin-top: -4rem"
-          >
-            <div class="col-auto mb-3">
-              <img
-                class="img-fluid"
-                width="160"
-                src={limitedscholarship2023}
-                alt="MCKL Scholarship Limited Availability - Apply Today"
-              />
-            </div>
-            <div class="col-auto mb-3">
-              <img
-                class="img-fluid"
-                width="160"
-                src={scholarshipscholarship2023}
-                alt="MCKL Scholarship 100% Scholarship"
-              />
-            </div>
-          </div>
-          <div class="row justify-content-center pb-5">
-            <div class="col">
-              <h2 class="text-secondary text-center">
-                <u>Application Deadline</u>
-              </h2>
-              <ul class="list-unstyled text-center">
-                <!-- <li>
-                  Round 1 (January 2023 Intake) : <strong
-                    >5<sup>th</sup> DEC 2022</strong
-                  >
-                </li> -->
-                <li>
-                  Round 2 (June-August 2023 Intake) : <strong
-                    >1<sup>st</sup> MAY 2023</strong
-                  >
-                </li>
-              </ul>
-              <p class="my-3 text-white text-center">
-                <small><i>*Terms & Conditions Apply.</i></small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="container">
         <div class="row text-center">
           <div class="col">
@@ -560,7 +512,7 @@ const card_track_records = [
 <style lang="scss" is:global>
   @include media-breakpoint-down(lg) {
     .masthead__picture {
-      filter: contrast(0.4) brightness(1.5);
+      // filter: contrast(0.4) brightness(1.5);
       z-index: -1;
     }
   }

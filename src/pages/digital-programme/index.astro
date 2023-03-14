@@ -34,6 +34,8 @@ const programme_interested = {
 const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
+import OpenDayInvitation from "../../components/OpenDayInvitation.astro";
+
 // images
 // import bg_mobile from "@assets/bg/bg-digital-mobile.jpg";
 // // import bg_laptop from "@assets/bg/bg-openday-2212-laptop.jpg";
@@ -247,6 +249,7 @@ const testimonials = [
                 Enquire Now</a
               >
             </div>
+            <OpenDayInvitation />
           </div>
         </div>
       </div>
