@@ -1,0 +1,58 @@
+---
+const title = "Short Courses | MCKL College";
+const microsite_source = "short-courses";
+const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+  Astro.props;
+
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+
+// images
+import bg_mobile from "@assets/short-courses/homepage-background.svg";
+import bg_laptop from "@assets/short-courses/homepage-background.svg";
+import bg_desktop from "@assets/short-courses/homepage-background.svg";
+
+import { nav__items } from "../../js/short-courses.js";
+---
+
+<Layout title={title}>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+
+  <main class="main">
+    <SectionMasthead
+      bg_mobile={bg_mobile}
+      bg_laptop={bg_laptop}
+      bg_desktop={bg_desktop}
+    >
+      <!-- style="background-color: var(--bs-primary);" -->
+      <div class="container h-100">
+        <div
+          class="row h-100 justify-content-center align-items-center text-center"
+        >
+          <div class="col-lg-10">
+            <!-- <p class="text-uppercase text-secondary">
+              <small>Upcoming Intake</small>
+            </p> -->
+            <h1 class="h2 mb-2">Thank you for your submission.</h1>
+            <p class="h2">Our education counsellor will reach out to you soon.</p>
+
+            <div class="masthead__cta my-4">
+              <a
+                class="btn btn-secondary btn-lg my-2 me-md-3"
+                href="/short-courses"
+              >
+                Return to Homepage
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionMasthead>
+  </main>
+  <Footer />
+</Layout>

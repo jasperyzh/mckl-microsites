@@ -1,0 +1,46 @@
+---
+const {
+  slug,
+  title,
+  classes,
+  link = "#",
+  btn_label = "Learn More",
+} = Astro.props;
+---
+
+<div class={`card h-100 ${classes}`}>
+  <a href={link}>
+    <figure>
+      <img src={`/featured_img/${slug}.jpg`} class="card-img-top" alt={title} />
+    </figure>
+  </a>
+  <div class="card-body">
+    <h5 class="card-title"><span set:html={title} /></h5>
+  </div>
+  <div class="card-footer">
+    <a href={link} class="btn btn-primary btn-sm">{btn_label}</a>
+    <slot name="cta-2">
+      <!-- apply_now -->
+    </slot>
+  </div>
+</div>
+
+<style>
+  .card-body {
+    background: #fff;
+  }
+  .card-footer {
+    background: #fff;
+    border: 0;
+  }
+  .card figure {
+    margin: 0;
+    overflow: hidden;
+  }
+  .card img {
+    transition: scale 0.3s ease;
+  }
+  .card:hover img {
+    scale: 1.1;
+  }
+</style>

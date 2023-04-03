@@ -1,0 +1,117 @@
+---
+import agilent from "@assets/partners/idp-agilent.png";
+import DMU from "@assets/partners/DMU-logo.png";
+import fusionex from "@assets/partners/idp-fusionex.png";
+import graduan from "@assets/partners/partner-graduan.png";
+import ivt from "@assets/partners/idp-ivt.png";
+import keysight from "@assets/partners/idp-keysight.png";
+import nourish from "@assets/partners/idp-nourish-japan.png";
+import quandatics from "@assets/partners/partner-quandatics.png";
+import tekmark from "@assets/partners/partner-tekmark.png";
+import vi from "@assets/partners/idp-vi.png";
+import p10 from "@assets/partners/partner-p10.png";
+import prosple from "@assets/partners/partner-prosple.png";
+import qoala from "@assets/partners/partner-qoala.png";
+
+const partners = [
+  {
+    name: "agilent",
+    link: "https://www.agilent.com/?gclid=Cj0KCQjw--GFBhDeARIsACH_kday-aFl0Ilb9Aq1skRrLLrO4Z7FvA7GP0qn4bnQxXxE1767Hagilentj-Fh1gaAktiEALw_wcB&gclsrc=aw.ds",
+    img_src: agilent,
+  },
+  {
+    name: "DMU",
+    link: "https://www.digitalmarketinguniversity.com/",
+    img_src: DMU,
+  },
+  {
+    name: "fusionex",
+    link: "https://www.fusionex-international.com/",
+    img_src: fusionex,
+  },
+  {
+    name: "graduan",
+    link: "https://graduan.com/",
+    img_src: graduan,
+  },
+  {
+    name: "ivt",
+    link: "https://www.ivtsys.com/",
+    img_src: ivt,
+  },
+  {
+    name: "keysight",
+    link: "https://www.keysight.com/my/en/home.html",
+    img_src: keysight,
+  },
+  {
+    name: "nourish",
+    link: "http://nourishjapan.com/en/",
+    img_src: nourish,
+  },
+  {
+    name: "perfect10",
+    link: "https://p10solutions.com/ms/",
+    img_src: p10,
+  },
+  {
+    name: "prosple",
+    link: "https://mckl-careerservices.prosple.com/",
+    img_src: prosple,
+  },
+  {
+    name: "qoala",
+    link: "https://www.qoala.app/",
+    img_src: qoala,
+  },
+  {
+    name: "quandatics",
+    link: "https://academy.quandatics.com/",
+    img_src: quandatics,
+  },
+  {
+    name: "tekmark",
+    link: "https://tekmarkgroup.com/",
+    img_src: tekmark,
+  },
+  {
+    name: "vi",
+    link: "https://www.8viholdings.com/",
+    img_src: vi,
+  },
+];
+---
+
+<section id="partners" class="text-center my-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <h3>Our Industry Partners</h3>
+        <p>
+          MCKL has partnered with multiple industry-leading experts to ensure
+          students are able to obtain industrial training as part of their
+          programme of study. Through our flagship Industrial Collaboration
+          Programme (ICP), students are given the opportunity to take on
+          real-world projects which enable them to gain valuable insights and
+          working experience in the digital business, marketing and financial
+          technology industry. Students will also obtain digital literacy, specialised
+          knowledge and work skills to be future-ready for Industrial Revolution
+          4.0.
+        </p>
+      </div>
+    </div>
+    <div
+      class="row justify-content-around row-cols-2 row-cols-sm-3 row-cols-lg-5"
+    >
+      {
+        partners.map((item) => (
+          <figure class="col">
+            <a href={item.link} target="_blank">
+              <img width="180" src={item.img_src} alt={item.name} />
+            </a>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,140 @@
+---
+const { testimonials = {}, style = "default" } = Astro.props;
+---
+
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"
+></script>
+<div class="my-slider">
+  {
+    testimonials.map((item) => (
+      <>
+        <div class:list={["card border-0 mb-3", style]}>
+          <div class="row no-gutters">
+            <div
+              class="
+                    col-md-4
+                    order-md-2
+                    d-flex
+                    justify-content-center
+                  "
+            >
+              <figure class="swiper__figure">
+                <img
+                  width="320"
+                  src={item.img_src}
+                  alt={`Profile picture of ${item.name}`}
+                />
+              </figure>
+            </div>
+            <div class="col-md-8 order-md-1 ">
+              <div class="card-body py-0 py-md-3">
+                <blockquote class="blockquote">
+                  <p class="mb-0">“{item.quote}”</p>
+                  <footer class="h5 mt-2">&mdash; {item.name}</footer>
+                  <p class="card-text">
+                    {item.desc.map((note) => (
+                      <small class="d-block">{note}</small>
+                    ))}
+                  </p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    ))
+  }
+</div>
+<script is:inline type="module">
+  var slider = tns({
+    container: ".my-slider",
+    items: 1,
+    slideBy: "page",
+    autoplay: true,
+    autoplayTimeout: 6000,
+    navPosition: "bottom",
+    autoplayButtonOutput: false,
+    mouseDrag: true,
+    controlsText: [
+      `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>`,
+    ],
+    responsive: {
+      768: {
+        gutter: 50,
+        edgePadding: 50,
+      },
+    },
+  });
+</script>
+<style is:global lang="scss">
+  @import "https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css";
+  .my-slider .card {
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .my-slider .card.dark {
+    color: #fff;
+
+    footer {
+      color: var(--bs-secondary);
+    }
+    .card-text {
+      color: #fff;
+    }
+  }
+
+  .tns-outer {
+    position: relative;
+  }
+  .tns-controls {
+    position: absolute;
+    inset: 0 0 0 0;
+    margin: auto;
+    z-index: 30;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  .tns-controls > button {
+    pointer-events: initial;
+    background-color: transparent;
+    border: 0;
+    color: var(--bs-secondary);
+  }
+  .tns-nav {
+    position: absolute;
+    inset: 100% 0 0 0;
+    margin: auto;
+    z-index: 30;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .tns-nav > button {
+    --size: 1rem;
+    width: var(--size);
+    height: var(--size);
+
+    border: 0;
+    margin-inline: 1px;
+    border-radius: 50%;
+    scale: 0.55;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .tns-nav > button.tns-nav-active {
+    background-color: var(--bs-secondary);
+  }
+</style>

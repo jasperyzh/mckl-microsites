@@ -1,0 +1,115 @@
+---
+import "../styles/style.scss";
+
+import ToastAnnouncement from "@components/ToastAnnouncement.astro";
+
+export interface Props {
+  title: string;
+  toast_img_src?: string;
+  toast_href?: string;
+  toast_hide: false;
+}
+
+const {
+  title = "Welcome to MCKL",
+  toast_img_src = "/images/221215-100scholarship.png", // "/images/221205-openday-popup.png",
+  toast_href = "/scholarship",
+  toast_hide = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-127424948-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-127424948-1");
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5F9B8QD");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <div class="site-container">
+      <slot />
+      {
+        !toast_hide && toast_img_src && (
+          <ToastAnnouncement {toast_img_src} {toast_href} />
+        )
+      }
+    </div>
+
+    <script>
+      import * as bootstrap from "bootstrap";
+
+      /**
+       * navbar_collapse_onclick
+       */
+      const navbar_collapse = new bootstrap.Collapse(
+        ".navbar-collapse.collapse",
+        { toggle: false }
+      );
+      navbar_collapse._element
+        .querySelectorAll("a.nav-link")
+        .forEach((item) => {
+          item.addEventListener("click", () => {
+            navbar_collapse.hide();
+          });
+        });
+
+      /**
+       * add_margin_for_fixed_top
+       */
+      function fixed_top_margin_top(fixed_top_element, margin_top_target) {
+        // add_margin_top_according_to_fixed_top
+        margin_top_target.style.transition = "margin 100ms ease";
+        margin_top_target.style.marginTop = `${fixed_top_element.clientHeight}px`;
+
+        // create_variable_for_scroll_padding
+        // reference: https://www.youtube.com/watch?v=iGUSTyG-CYw
+        document.documentElement.style.setProperty(
+          "--scroll-padding",
+          `${fixed_top_element.clientHeight}px`
+        );
+      }
+      const header = document.querySelector("header.header");
+      const main = document.querySelector("main.main");
+      document.addEventListener("DOMContentLoaded", () => {
+        fixed_top_margin_top(header, main);
+      });
+      window.addEventListener("resize", () => {
+        fixed_top_margin_top(header, main);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+---
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import CardCourse from "@components/CardCourse.astro";
+import CardIcon from "@components/CardIcon.astro";
+
+import SectionShortcoursesCta from "@components/section-shortcourses-cta.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+import BsAccordion from "@components/BsAccordion.vue";
+
+// images
+import bg_mobile from "@assets/short-courses/homepage-background.svg";
+import bg_laptop from "@assets/short-courses/homepage-background.svg";
+import bg_desktop from "@assets/short-courses/homepage-background.svg";
+
+import hrd_claimable from "@assets/short-courses/hrd-claimable.png";
+
+export async function getStaticPaths() {
+  const courses = await Astro.glob("../../short-courses/*.md").catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+  const trainers = await Astro.glob("../../short-courses/trainers.json");
+
+  const filteredCourses = courses.reduce((acc, course) => {
+    const { tag, draft } = course.frontmatter;
+    if (tag !== "free-course") {
+      const filteredTrainers = [];
+
+      for (let i = 0; i < trainers[0].default.length; i++) {
+        const trainer = trainers[0].default[i];
+        //   console.log(trainer);
+        course.frontmatter.trainers.forEach((selected_trainer) => {
+          if (trainer.slug === selected_trainer) {
+            filteredTrainers.push(trainer);
+          }
+        });
+      }
+
+      acc.push({
+        params: { course: course.frontmatter.slug },
+        props: {
+          frontmatter: course.frontmatter,
+          title: course.frontmatter.title,
+          brochure_url: course.frontmatter.brochure_url,
+          filteredTrainers: filteredTrainers,
+        },
+      });
+    }
+    return acc;
+  }, []);
+
+  return filteredCourses;
+}
+
+const { course } = Astro.params;
+
+const {
+  title,
+  frontmatter,
+  brochure_url,
+  filteredTrainers,
+  homepage_path = "/short-courses",
+} = Astro.props;
+
+// const title = "Short Courses | MCKL College";
+// const microsite_source = "short-courses";
+// const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+// const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+//   Astro.props;
+
+import { nav__items } from "../../js/short-courses.js";
+
+import Debug from "astro/components/Debug.astro";
+---
+
+<Layout title={title}>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+
+  <main class="main">
+    <SectionMasthead
+      bg_mobile={bg_mobile}
+      bg_laptop={bg_laptop}
+      bg_desktop={bg_desktop}
+    >
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-md-6">
+            <div class="content-box mb-3">
+              <p class="text-uppercase"><small>Programme Preview</small></p>
+              <h1 class="font-weight-bold mb-2">
+                {title}
+              </h1>
+              <!-- <Debug {frontmatter} /> -->
+              {
+                frontmatter.intake && (
+                  <p class="mb-1">
+                    <b>Intake: </b>
+                    {frontmatter.intake}
+                  </p>
+                )
+              }
+              {
+                frontmatter.duration && (
+                  <p class="mb-1">
+                    <b>Duration: </b>
+                    {frontmatter.duration}
+                  </p>
+                )
+              }
+              <div class="d-flex justify-content-between align-items-center">
+                <a href="#cta" class="btn btn-secondary"> Apply Now</a>
+                <!-- :href="the_content.brochure_url" -->
+                <a
+                  class="btn btn-secondary"
+                  target="_blank"
+                  href={brochure_url}
+                  download>Download Brochure</a
+                >
+                <img width="96" src={hrd_claimable} alt="hrd_claimable" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="img-fluid"
+              src={`/featured_img/${course}.jpg`}
+              alt={title}
+              height="400px"
+            />
+          </div>
+        </div>
+      </div>
+    </SectionMasthead>
+
+    <section class="my-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            <h2>{frontmatter.info_title}</h2>
+            <p>{frontmatter.info_desc}</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col">
+            <BsAccordion
+              client:idle
+              show_first={true}
+              accordion_id={course}
+              accordion_items={frontmatter.accordion_content}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            <h2>Learn from the Expert who Walks the Talk</h2>
+            <p>
+              Meet your professional instructor to guide you on your learning
+              journey and beyond.
+            </p>
+          </div>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around my-3"
+        >
+          {
+            filteredTrainers.map((trainer) => {
+              return (
+                <div class="card card-trainer">
+                  <figure class="card-trainer__figure">
+                    <img
+                      class="card-trainer__img"
+                      width="260"
+                      height="260"
+                      src={`/trainers/${trainer.slug}.png`}
+                      alt={`Profile Picture of Trainer ${trainer.name}`}
+                    />
+                  </figure>
+                  <h3>{trainer.name}</h3>
+                  <p class="text-muted mb-2">{trainer.role}</p>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <SectionShortcoursesCta
+      preselect_interested_course={frontmatter.form_option}
+    />
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @import "bootstrap/scss/_functions";
+  .card-trainer {
+    max-width: 280px;
+    margin: 1rem auto;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+
+    &__figure {
+      display: inline-block;
+      background-image: escape-svg(
+        url('data:image/svg+xml;utf8,<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_1151_8622)"><circle cx="256.5" cy="348.5" r="252.5" fill="#033676"/></g><defs><clipPath id="clip0_1151_8622"><rect width="512" height="512" fill="white"/></clipPath></defs></svg>')
+      );
+      background-size: contain;
+      background-position: 0 50px;
+      background-repeat: no-repeat;
+    }
+
+    &__img {
+      aspect-ratio: 1/1;
+      width: 100%;
+      max-width: 260px;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+  }
+</style>

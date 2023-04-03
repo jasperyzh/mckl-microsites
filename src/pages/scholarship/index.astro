@@ -1,0 +1,532 @@
+---
+const title = "Scholarship | MCKL College";
+const microsite_source = "scholarship";
+const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+
+import Testimonial from "../../components/Testimonial.astro";
+import ExcellenceAwardTestimonials from "../../content/_testimonials-excellence_award_2023.json";
+import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
+
+import ScholarshipBg from "../../assets/bg/bg-scholarship-2209-scholarship.jpg";
+
+const programme_interested = {
+  kl: {
+    LEADCF20: {
+      title: "Pre-University",
+      options: {
+        "Cambridge A Level": "Cambridge A Level",
+        AUSMAT: "Australian Matriculation",
+      },
+    },
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        ADTP: "American Degree Transfer Program",
+        "DECE (FT)": "Diploma in Early Childhood Education",
+        "DSW (PT)": "Diploma in Social Work",
+        DCS: "Diploma in Computer Science",
+        DIT: "Diploma in Information Technology",
+        DEC: "Diploma in Digital Business",
+        DDM: "Diploma in Digital Marketing",
+        DIFT: "Diploma in Financial Technology",
+      },
+    },
+    LEADCF21: {
+      title: "Professional Accounting",
+      options: {
+        "ACCA FIA": "ACCA Foundation in Accountancy (ACCA FIA)",
+        "ACCA (FT)": "Association of Chartered Certified Accountants (ACCA)",
+      },
+    },
+  },
+  penang: {
+    LEADCF20: {
+      title: "Pre-University",
+      options: {
+        "Cambridge A Level": "Cambridge A Level",
+        AUSMAT: "Australian Matriculation",
+      },
+    },
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        "DECE (FT)": "Diploma in Early Childhood Education",
+        DCS: "Diploma in Computer Science",
+        DIT: "Diploma in Information Technology",
+        DEC: "Diploma in Digital Business",
+        DDM: "Diploma in Digital Marketing",
+      },
+    },
+  },
+};
+const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+  Astro.props;
+
+import bg_mobile from "@assets/bg/bg-scholarship-2211.jpg";
+import bg_laptop from "@assets/bg/bg-scholarship-2211.jpg";
+import bg_desktop from "@assets/bg/bg-scholarship-2211.jpg";
+
+import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
+
+import masthead_tagline from "@assets/general/tagline-believe_aspire_excel.png";
+import awardscholarship2023 from "@assets/scholarship/awardscholarship2023.png";
+import limitedscholarship2023 from "@assets/scholarship/limitedscholarship2023.png";
+import scholarshipscholarship2023 from "@assets/scholarship/scholarshipscholarship2023.png";
+
+import icon1_counselling from "@assets/icon/icon1-counselling.png";
+import icon2_scholarship from "@assets/icon/icon2-scholarship.png";
+import icon3_waiver from "@assets/icon/icon3-waiver.png";
+import icon4_career from "@assets/icon/icon4-career.png";
+import icon5_rebate from "@assets/icon/icon3-rebate.png";
+import icon_merit from "@assets/icon/mckl-merit.png";
+
+import icon_trackrecord1 from "@assets/icon/business-icon-1.png";
+import icon_trackrecord2 from "@assets/logo/logo-acca_approved_learning_partner.svg";
+import icon_trackrecord3 from "@assets/icon/business-icon-2.png";
+import icon_trackrecord4 from "@assets/icon/business-icon-3.png";
+import icon_trackrecord5 from "@assets/icon/business-icon-4.png";
+
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import CardIcon from "@components/CardIcon.astro";
+import CardProgramme from "@components/CardProgramme.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+import SectionPartners from "@components/section-partners.astro";
+import SectionAboutmckl from "@components/section-aboutmckl.astro";
+
+import BsAccordion from "@components/BsAccordion.vue";
+import ZohoWebform from "@components/ZohoWebform.vue";
+
+// programmes
+import * as cambridge_a_level from "../../programmes/cambridge_a_level.md";
+import * as ausmat from "../../programmes/ausmat.md";
+
+import * as adtp from "../../programmes/adtp.md";
+import * as dece from "../../programmes/dece.md";
+import * as dsw from "../../programmes/dsw.md";
+import * as dcs from "../../programmes/dcs.md";
+import * as dit from "../../programmes/dit.md";
+import * as ddb from "../../programmes/ddb.md";
+import * as ddm from "../../programmes/ddm.md";
+import * as dft from "../../programmes/dft.md";
+
+import * as acca_fia from "../../programmes/acca_fia.md";
+import * as acca from "../../programmes/acca.md";
+
+const nav__items = [
+  {
+    name: "Highlights",
+    href: "#highlights",
+  },
+  {
+    name: "Programmes",
+    href: "#programmes",
+  },
+  {
+    name: "About MCKL",
+    href: "#about",
+  },
+  {
+    name: "Register Today",
+    href: "#registration",
+    nav_link_class: "btn btn-danger",
+  },
+];
+const card_icons = [
+  {
+    title:
+      "<span>Up to 100% Merit Scholarship* <br> <small class='fw-normal'><i>Apply with your Trial/Forecast Result</i></small></span>",
+    img_src: icon_merit,
+  },
+  // {
+  //   title: "RM500 Rebate Voucher*",
+  //   img_src: icon5_rebate,
+  // },
+  {
+    title: "50% Tuition Fee Waiver*",
+    img_src: icon3_waiver,
+  },
+  {
+    title: "Personalised Counselling",
+    img_src: icon1_counselling,
+  },
+  {
+    title: "Scholarships & Financial Aid*",
+    img_src: icon2_scholarship,
+  },
+  {
+    title: "Complimentary MCKL Career Test",
+    img_src: icon4_career,
+  },
+];
+/* const card_icons__row2 = [
+  {
+    title: "Personalised Counselling",
+    img_src: icon1_counselling,
+  },
+  {
+    title: "Scholarships & Financial Aid*",
+    img_src: icon2_scholarship,
+  },
+  {
+    title: "Complimentary MCKL Career Test",
+    img_src: icon4_career,
+  },
+]; */
+const card_track_records = [
+  {
+    img_src: icon_trackrecord1,
+    title: "Globally Recognised",
+    desc: "Providing renowned professional pre-university and tertiary programmes.",
+  },
+  {
+    img_src: icon_trackrecord2,
+    title: "Platinum Status ACCA",
+    desc: "The most prestigious level as Approved Learning Partner with the highest standards and proven record to sustain student pass rates.",
+  },
+  {
+    img_src: icon_trackrecord3,
+    title: "Industry Revolution 4.0",
+    desc: "Operations & learning system in line with the IR 4.0 environment.",
+  },
+  {
+    img_src: icon_trackrecord4,
+    title: "Microsoft Recognition",
+    desc: "Providing flexibility with 100% blended learning via Microsoft cloud learning system.",
+  },
+  {
+    img_src: icon_trackrecord5,
+    title: "MCKL DNA",
+    desc: "Nurturing students with Character Formation and Service Learning programmes throughout their studies.",
+  },
+];
+---
+
+<Layout
+  title={title}
+  toast_img_src="/images/230309-open_day_blurb.png"
+  toast_href="/open-day"
+>
+  <Header homepage_path={homepage_path} nav__items={nav__items} />
+
+  <main class="main">
+    {is_thank_you && <slot name="thank-you" />}
+
+    <SectionMasthead
+      bg_mobile={ScholarshipBg}
+      bg_laptop={ScholarshipBg}
+      bg_desktop={ScholarshipBg}
+      bg_img_style="object-position: center"
+    >
+      <div class="container">
+        <div class="row justify-content-around align-items-center">
+          <div class="col-lg-6 mx-auto mb-lg-5 text-center">
+            <img
+              width="580"
+              src={awardscholarship2023}
+              alt="MCKL Excellence Award Scholarship 2023"
+            />
+            <div class="d-flex justify-content-center mb-3">
+              <img
+                class="img-fluid"
+                width="160"
+                src={limitedscholarship2023}
+                alt="MCKL Scholarship Limited Availability - Apply Today"
+              />
+              <img
+                class="img-fluid"
+                width="160"
+                src={scholarshipscholarship2023}
+                alt="MCKL Scholarship 100% Scholarship"
+              />
+            </div>
+            <div class="text-white">
+              <h2 class="text-secondary text-center">
+                <u>Application Deadline</u>
+              </h2>
+              <ul class="list-unstyled text-center">
+                <li class="d-none">
+                  Round 1 (January 2023 Intake) : <strong
+                    >5<sup>th</sup> DEC 2022</strong
+                  >
+                </li>
+                <li>
+                  Round 2 (June-August 2023 Intake) : <strong
+                    >1<sup>st</sup> MAY 2023</strong
+                  >
+                </li>
+              </ul>
+              <p class="my-3 text-white text-center">
+                <small><i>*Terms & Conditions Apply.</i></small>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div id="registration" class="registration__bg">
+              <div class="px-3 pt-4">
+                <h2 class="h4">Enquire now</h2>
+                <p>
+                  Our Education Counsellors will reach out to you on Scholarship
+                  details.
+                </p>
+              </div>
+              <ZohoWebform
+                client:only="vue"
+                return_url={return_url}
+                microsite_source={microsite_source}
+                programme_interested={programme_interested}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionMasthead>
+
+    <!-- intro -->
+    <section
+      class="bg-primary py-4 text-center text-light text-light__heading pt-5"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <img
+              width="420"
+              src={tagline_believe_aspire_excel}
+              alt="Believe. Aspire. Excel."
+            />
+            <h2>We believe in your dreams.</h2>
+            <p>
+              Our scholarship and financial aid are available, bringing you a
+              step closer to fulfilling your aspirations and the endless
+              possibilities of your future.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="bg-primary pb-5 text-light">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            <h2 class="text-secondary mt-3 mt-lg-5">
+              MCKL Scholarships Highlight
+            </h2>
+          </div>
+        </div>
+
+        <div
+          class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 justify-content-center mt-5 text-center"
+        >
+          {
+            card_icons.map((item) => (
+              <div class="col mb-4">
+                <CardIcon item={item} classes=" card__icon--filter-white" />
+              </div>
+            ))
+          }
+          <!--  <ul class="list-unstyled">
+            {card_icons__row2.map((item) => <li>{item.title}</li>)}
+          </ul> -->
+        </div>
+
+        <div
+          class="row justify-content-center my-4 text-center text-light__heading"
+        >
+          <div class="col-sm-10 col-lg-7">
+            <div
+              class="card bg-transparent border border-secondary border-4 rounded-0"
+            >
+              <div class="card-body px-5 py-4">
+                <h3 class="card-title h5">
+                  Scholarships & Financial Aid Available*
+                </h3>
+                <ul class="list-unstyled mb-0">
+                  <li>MCKL-Industry Scholarships</li>
+                  <li>MCKL Discounts/Bursaries</li>
+                  <li>MCKL Special Scholarships & Financial Aid</li>
+                  <li>Methodist Affiliated Scholarships</li>
+                  <li>External Scholarships</li>
+                  <li>MCKL Merit Scholarships</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-10">
+            <a
+              href={`${homepage_path}#masthead`}
+              class="btn btn-secondary"
+              style="position:relative; z-index: 10"
+              >Open for Application. Enquire Now!</a
+            >
+          </div>
+
+          <p class="my-4"><small>*Terms & Conditions Apply.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- programmes-offered -->
+    <section id="programmes" class="py-5">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-3">
+          <div class="col-auto">
+            <h2>Programmes Offered in MCKL</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <BsAccordion
+              client:idle
+              show_first={true}
+              accordion_id="programme"
+              accordion_items={[
+                { title: "Pre-University" },
+                { title: "Undergraduate Programme" },
+                { title: "Professional Accounting" },
+              ]}
+            >
+              <div slot="content-0">
+                <CardProgramme content={cambridge_a_level.frontmatter} />
+                <CardProgramme content={ausmat.frontmatter} />
+              </div>
+              <div slot="content-1">
+                <CardProgramme content={adtp.frontmatter} />
+                <CardProgramme content={dece.frontmatter} />
+                <CardProgramme content={dsw.frontmatter} />
+                <CardProgramme
+                  content={dcs.frontmatter}
+                  compiledContent={dcs.compiledContent()}
+                />
+                <CardProgramme
+                  content={dit.frontmatter}
+                  compiledContent={dit.compiledContent()}
+                />
+                <CardProgramme
+                  content={ddb.frontmatter}
+                  compiledContent={ddb.compiledContent()}
+                />
+                <CardProgramme content={ddm.frontmatter} />
+                <CardProgramme content={dft.frontmatter} />
+              </div>
+              <div slot="content-2">
+                <CardProgramme content={acca_fia.frontmatter} />
+                <CardProgramme content={acca.frontmatter} />
+              </div>
+            </BsAccordion>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- partners -->
+    <SectionPartners />
+
+    <!-- about -->
+    <SectionAboutmckl />
+
+    <!-- track_record -->
+    <section id="track_record" class="py-5 text-center">
+      <div class="container">
+        <div class="row row-cols-1 justify-content-center text-center">
+          <h3 class="h4">Over 40 years of Proven Track Record</h3>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center my-4"
+        >
+          {
+            card_track_records.map((item) => (
+              <div class="col mb-4">
+                <CardIcon item={item} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="testimonial-excellence_award_2023"
+      class="pb-5 scholarship2023__bg"
+    >
+      <div class="container-lg">
+        <div class="row text-center">
+          <img
+            width=""
+            src={testimonial_heading}
+            alt="MCKL Excellence Award 2023 - Congratulations to Our Scholars!"
+            style="
+    width: clamp(260px, 50vw, 360px);
+    margin-inline: auto;
+    margin-block: 2rem;"
+          />
+        </div>
+        <div class="row">
+          <Testimonial
+            testimonials={ExcellenceAwardTestimonials}
+            style="dark"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- secure_spot -->
+    <section
+      id="secure-spot"
+      class="secure_spot__bg py-5 text-light text-center"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <h2 class="text-light">
+              Scholarship for 2023 Open for Applications
+            </h2>
+            <p>
+              Drop your enquiry now. Our Education Counsellors will reach out to
+              you on Scholarship details.
+            </p>
+            <a href={`${homepage_path}#registration`} class="btn btn-secondary"
+              >Enquire Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  .secure_spot__bg {
+    background-image: url("../../assets/bg/bg-scholarship-2112-cta.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .scholarship2023__bg {
+    background-image: url("../../assets/bg/bg-scholarship-2209-scholarship.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .registration__bg {
+    background-color: #fff9;
+    margin: 3rem auto;
+  }
+</style>
+<style lang="scss" is:global>
+  @include media-breakpoint-down(lg) {
+    .masthead__picture {
+      // filter: contrast(0.4) brightness(1.5);
+      z-index: -1;
+    }
+  }
+</style>

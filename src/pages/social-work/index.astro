@@ -1,0 +1,665 @@
+---
+const title = "Social Work | MCKL College";
+const microsite_source = "social-work";
+const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
+const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
+  Astro.props;
+
+const programme_interested = {
+  kl: {
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        "DSW (PT)": "Diploma in Social Work",
+      },
+    },
+  },
+  /*  penang: {
+    LEADCF20: {
+      title: "Pre-University",
+      options: {
+        "Cambridge A Level": "Cambridge A Level",
+        AUSMAT: "Australian Matriculation",
+      },
+    },
+    LEADCF19: {
+      title: "Undergraduate Programme",
+      options: {
+        "DECE (FT)": "Diploma in Early Childhood Education",
+        DCS: "Diploma in Computer Science",
+        DIT: "Diploma in Information Technology",
+        DEC: "Diploma in Digital Business",
+        DDM: "Diploma in Digital Marketing",
+      },
+    },
+  }, */
+};
+
+// images
+import bg_mobile from "@assets/bg/bg-social-mobile.jpg";
+// import bg_laptop f "@ "@assets/bg/bg-social-laptop.jpg";
+import bg_desktop from "@assets/bg/bg-social-desktop.jpg";
+
+import form_support from "@assets/social-work/form_support.jpg";
+
+import icon_trackrecord1 from "@assets/icon/business-icon-1.png";
+import icon_trackrecord3 from "@assets/icon/business-icon-2.png";
+import icon_trackrecord4 from "@assets/icon/business-icon-3.png";
+import icon_trackrecord5 from "@assets/icon/business-icon-4.png";
+import icon_holdhand from "@assets/icon/icon-holdhand.svg";
+
+import icon_idea_generator from "@assets/icon/icon-idea_generator.svg";
+import icon_class_excellence from "@assets/icon/icon-class_excellence.svg";
+import logo_masw from "@assets/logo/logo-masw.png";
+import icon_briefcase from "@assets/icon/icon-briefcase.svg";
+import article01 from "@assets/social-work/articles/news_1.jpg";
+import article02 from "@assets/social-work/articles/news_2.jpg";
+import article03 from "@assets/social-work/articles/news_3.jpg";
+import article04 from "@assets/social-work/articles/bernama.jpg";
+import article05 from "@assets/social-work/articles/cj.jpg";
+import article06 from "@assets/social-work/articles/focus-malaysia.jpg";
+import article07 from "@assets/social-work/articles/news_7.jpg";
+import article08 from "@assets/social-work/articles/news_8.jpg";
+import article09 from "@assets/social-work/articles/news-socialworkteaevent.jpg";
+import article10 from "@assets/social-work/articles/dsw-article10.jpg";
+// import article11 from "";
+
+import article01_modal from "@assets/social-work/articles/news_1-info.jpg";
+import article02_modal from "@assets/social-work/articles/news_2-info.jpg";
+import article03_modal from "@assets/social-work/articles/news_3-info.jpg";
+import article07_modal from "@assets/social-work/articles/news_7-info.jpg";
+import testimonial_jacqualine_yap_siew_peng from "@assets/social-work/testimonial/jacqualine_yap_siew_peng.jpg";
+import testimonial_rizuan_tempek from "@assets/social-work/testimonial/rizuan_tempek.jpg";
+import testimonial_angelia_gan_lee_fan from "@assets/social-work/testimonial/angelia_gan_lee_fan.jpg";
+import testimonial_vijayan_ramasami from "@assets/social-work/testimonial/vijayan_ramasami.jpg";
+import testimonial_elsie_lee from "@assets/social-work/testimonial/elsie_lee.jpg";
+import testimonial_denison_jayasooria from "@assets/social-work/testimonial/denison_jayasooria.jpg";
+import testimonial_elliot_tan from "@assets/social-work/testimonial/elliot_tan.jpg";
+
+// components
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import SectionMasthead from "@components/section-masthead.astro";
+import SectionAboutmckl from "@components/section-aboutmckl.astro";
+import SectionRegistration from "@components/section-registration.astro";
+
+import CardIcon from "@components/CardIcon.astro";
+import CardArticle from "@components/CardArticle.astro";
+import BsModal from "@components/BsModal.astro";
+
+import ZohoWebform from "@components/ZohoWebform.vue";
+import SwiperTestimonial from "@components/SwiperTestimonial.vue";
+
+import * as dsw from "../../programmes/dsw.md";
+
+const nav__items = [
+  {
+    name: "About",
+    href: "#about",
+  },
+  {
+    name: "Register Today",
+    href: "#registration",
+    nav_link_class: "btn btn-danger",
+  },
+];
+
+const card_socials = [
+  {
+    img_src: icon_idea_generator,
+    title: "Experiential Learning",
+    desc: "Two 16-week field placement sessions with various organisations such as Malaysian Care, Yayasan Chow Kit, Pink Triangle and many more to equip students with first-hand learning experience.",
+  },
+  {
+    img_src: icon_class_excellence,
+    title: "Professional Academics",
+    desc: "Learn from a combination of both experienced and enthusiastic lecturers in the industry for over 20 years.",
+  },
+  {
+    img_src: logo_masw,
+    title: "Acquire Membership with MASW",
+    desc: "Enable professional membership with the Malaysian Association of Social Workers.",
+  },
+  {
+    img_src: icon_briefcase,
+    title: "Industry Relevant Curriculum",
+    desc: "A competency-based educational programme designed in reference to the National Competency Standards for Social Work Practice (2010).",
+  },
+];
+
+const dsw_articles = [
+  {
+    img_src: "/images/social-work/article11.jpg",
+    title: "A glocal perspective on social work education",
+    link: "https://mckl.edu.my/2023/02/17/a-glocal-perspective-on-social-work-education/",
+    btn_label: "Read more",
+  },
+  {
+    img_src: article10,
+    title: "Equipping for Holistic Social Work Competency",
+    link: "https://mckl.edu.my/2022/10/03/equipping-for-holistic-social-work-competency/",
+    btn_label: "Read more",
+  },
+  {
+    img_src: article01,
+    title: "Making a career from doing good",
+    desc: "The Star News",
+    link: "https://mckl.edu.my/2022/02/11/a-partnership-to-empower-future-accountants/",
+    btn_label: "View image",
+    modal: {
+      img_src: article01_modal,
+    },
+  },
+  {
+    img_src: article02,
+    title: "MCKL - First batch of social work students graduated",
+    desc: "Sin Chew News",
+    link: "https://mckl.edu.my/2022/02/11/a-partnership-to-empower-future-accountants/",
+    btn_label: "View image",
+    modal: {
+      img_src: article02_modal,
+    },
+  },
+  {
+    img_src: article03,
+    title: "First Graduating Cohort from MCKL 2021",
+    desc: "Graduating Picture",
+    link: "https://mckl.edu.my/2022/02/11/a-partnership-to-empower-future-accountants/",
+    btn_label: "View image",
+    modal: {
+      img_src: article03_modal,
+    },
+  },
+  {
+    img_src: article04,
+    title: "MCKL Holds Inaugural Social Work Virtual Forum 2021",
+    desc: "Bernama Press",
+    link: "https://www.bernama.com/en/press/news.php?id=1979039",
+    btn_label: "Read more",
+  },
+  {
+    img_src: article05,
+    title: "MCKL holds inaugural social work virtual forum",
+    desc: "Citizen Journal",
+    link: "https://cj.my/119887/mckl-holds-inaugural-social-work-virtual-forum/",
+    btn_label: "Read more",
+  },
+  {
+    img_src: article06,
+    title: "Social workers: The “uncelebrated” professionals among us",
+    desc: "Focus Malaysia",
+    link: "https://focusmalaysia.my/social-workers-the-uncelebrated-professionals-among-us/",
+    btn_label: "Read more",
+  },
+  {
+    img_src: article07,
+    title:
+      "Knowledge and Skills are Essential for being a Professional Social Worker",
+    desc: "Sin Chew News",
+    link: "https://mckl.edu.my/2022/02/11/a-partnership-to-empower-future-accountants/",
+    btn_label: "View image",
+    modal: {
+      img_src: article07_modal,
+    },
+  },
+  {
+    img_src: article08,
+    title: "Social Work Can Be A Profession And Not Just A Side Gig",
+    desc: "Wiki Impact",
+    link: "https://www.wikiimpact.com/social-work-can-be-a-profession-and-not-just-a-side-gig/",
+    btn_label: "Read more",
+  },
+  {
+    img_src: article09,
+    title: "Social Work High Tea Event",
+    link: "https://mckl.edu.my/2022/03/25/mckl-social-work-high-tea/",
+    btn_label: "Read more",
+  },
+];
+
+const card_track_records = [
+  {
+    img_src: icon_trackrecord1,
+    title: "Globally Recognised",
+    desc: "Providing renowned professional pre-university and tertiary programmes.",
+  },
+  {
+    img_src: icon_briefcase,
+    title: "Internship & Career Opportunities",
+    desc: "Strong connection with industry partners to provide real-life working experience and seamless transition to employment.",
+  },
+  {
+    img_src: icon_trackrecord3,
+    title: "Industry Revolution 4.0",
+    desc: "Operations & learning system in line with the IR 4.0 environment.",
+  },
+  {
+    img_src: icon_trackrecord4,
+    title: "Microsoft Recognition",
+    desc: "Providing flexibility with 100% blended learning via Microsoft cloud learning system.",
+  },
+  {
+    img_src: icon_trackrecord5,
+    title: "MCKL DNA",
+    desc: "Nurturing students with Character Formation and Service Learning programmes throughout their studies.",
+  },
+  {
+    img_src: icon_holdhand,
+    title: "Nationally Accredited",
+    desc: "With recognition from the Ministry of Women, Family, and Community Development for contribution in social work industry.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Elliot Tan",
+    desc: ["Diploma in Social Work, MCKL"],
+    quote:
+      "MCKL's Diploma in Social Work is very relevant to my work in helping the poor and needy and also provides me with accreditation for the future. My cohort started with just five people! It was a very small class, but it made our time with our lecturers intimate and in-depth. Most of all, I was happy to receive the Tan Sri Dato' Tan Chee Khoon Award. It's a reminder that my dedication and patience have been seen and rewarded. For future students in DSW, plan your time well and embrace what you learn wholeheartedly. In this profession, the real learning takes place on the job, so go out confidently!",
+    img_src: testimonial_elliot_tan,
+  },
+  {
+    name: "Jacqualine Yap Siew Peng",
+    desc: [
+      "Diploma in Social Work, MCKL",
+      "Strategy Coordinator/ Social Worker, STAMP BHD",
+    ],
+    quote:
+      "The whole academic and practicum of this course has been carefully crafted to give a holistic insight into the social work worldview. It covers as many subjects as possible to give us an overall core of what social work is all about. The two internship exposures were tremendously priceless as well. It is not only about getting more knowledge, values and skills, but also the ability to translate what we learned into our workplace.",
+    img_src: testimonial_jacqualine_yap_siew_peng,
+  },
+  {
+    name: "Rizuan Tempek",
+    desc: [
+      "Diploma in Social Work",
+      "Social Worker, Jaringan Kampung Orang Asli Semenanjung Malaysia (JKOASM)",
+    ],
+    quote:
+      "When I received the news that MCKL is offering Diploma in Social Work, I looked at the syllabus and timetable and it was well-rounded. It covered most aspects of social work; psychology, sociology, law and policy and working with the target community (internships). It also fit my criteria of not having to take a break off my work commitment because the classes were during the weekends.",
+    img_src: testimonial_rizuan_tempek,
+  },
+  {
+    name: "Angelia Gan Lee Fan",
+    desc: ["Diploma in Social Work, MCKL"],
+    quote:
+      "I always wanted to help in social work but at times I feel incapable because I do not know what the right approaches are. After joining DSW@MCKL, it helped me to be professional when doing social work, non-judgmental, more competent and respectful at the same time.",
+    img_src: testimonial_angelia_gan_lee_fan,
+  },
+  {
+    name: "Vijayan Ramasami",
+    desc: ["Diploma in Social Work, MCKL [2020]"],
+    quote:
+      "MCKL's programme has helped me look at social work from a wider perspective. Prior to this, I solely depended on my limited experience and basic internal training skill. The course has given me the ability to improve my practice at every level, right from initial contact, assessment, case planning, residential care, community-based recovery and beyond.",
+    img_src: testimonial_vijayan_ramasami,
+  },
+  {
+    name: "Ms Elsie Lee",
+    desc: ["Senior Course Advisor, MCKL"],
+    quote:
+      "Students that join MCKL Diploma Social Work Programme, come from a wide age range of 19 - 55 years old, hence anybody can take up social work. The important thing is to get the right kind of knowledge, information and skills to work professionally, logically and rationally without getting burned out, It is important for young people to come in the proper way, through a certified programme.",
+    img_src: testimonial_elsie_lee,
+  },
+  {
+    name: "Datuk Dr. Denison Jayasooria",
+    desc: ["Co-Founder of DSW programme at MCKL"],
+    quote:
+      "The social needs and issues in Malaysia require workers who have clear understanding of human and community needs, social work and counselling skills, in-depth knowledge on abuse and addressing needs. There have been cases where the volunteers role has resulted in further psychological damage on victims or the volunteers have physically and sexually abused victims. Therefore, there is a need for better equipping the volunteers and potential full time staff with knowledge, skills or competencies and values including a commitment to ethical practices.",
+    img_src: testimonial_denison_jayasooria,
+  },
+];
+
+import partner_ykpm from "@assets/social-work/idp-ykpm.png";
+import partner_dumc from "@assets/social-work/idp-dumc.png";
+import partner_histeam from "@assets/social-work/idp-histeam.png";
+import partner_ppppskm from "@assets/social-work/idp-ppppskm.png";
+import OpenDayInvitation from "@components/OpenDayInvitation.astro";
+
+const dws_partners = [
+  {
+    img_src: logo_masw,
+    title: "partner_masw",
+  },
+  {
+    img_src: partner_ykpm,
+    title: "partner_ykpm",
+  },
+  {
+    img_src: partner_dumc,
+    title: "partner_dumc",
+  },
+  {
+    img_src: partner_histeam,
+    title: "partner_histeam",
+  },
+  {
+    img_src: partner_ppppskm,
+    title: "partner_ppppskm",
+  },
+];
+---
+
+<Layout title={title}>
+  <Header
+    mckl_logo_only={true}
+    homepage_path={homepage_path}
+    nav__items={nav__items}
+  />
+
+  <main class="main">
+    {is_thank_you && <slot name="thank-you" />}
+
+    <SectionMasthead
+      bg_mobile={bg_mobile}
+      bg_laptop={bg_desktop}
+      bg_desktop={bg_desktop}
+    >
+      <style lang="scss" is:global>
+        @include media-breakpoint-down(lg) {
+          .masthead__picture {
+            object-position: center;
+            opacity: 0.6;
+            z-index: -1;
+          }
+        }
+      </style>
+      <div class="container-lg">
+        <div
+          class="row justify-content-center justify-content-md-start align-items-center"
+        >
+          <div class="col-10 col-md-7 col-lg-6 mb-lg-5">
+            <div class="masthead__content text-center text-lg-start ps-lg-3">
+              <h1 class="font-weight-bold">
+                Empowering individuals, strengthening communities, fostering
+                positive change through social work.
+              </h1>
+              <!-- <h1 class="font-weight-bold">
+                Make a Positive Impact Through Social Work
+              </h1> -->
+              <p class="h4">
+                Join MCKL, the Pioneer Provider of Diploma in Social Work in
+                Malaysia
+              </p>
+              <a class="btn btn-secondary btn-lg my-3" href="#registration">
+                Explore Now</a
+              >
+            </div>
+            <OpenDayInvitation>
+              <span slot="campus">KL Campus</span>
+            </OpenDayInvitation>
+          </div>
+        </div>
+      </div>
+    </SectionMasthead>
+
+    <!-- intro -->
+    <section
+      class="bg-primary py-4 text-center border-bottom border-secondary text-light text-light__heading"
+      style="border-width: 6px !important"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <h2>About MCKL's Social Work Programme</h2>
+            <p class="mb-2"><small>{dsw.frontmatter.code_kl}</small></p>
+            <!-- <p class="mb-2 h5">Intake: {dsw.frontmatter.intake}</p> -->
+            <p class="mb-2 h5">Intake: 25 August 2023</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <SectionAboutmckl>
+      <section slot="content" class="pt-5 pb-3 text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <h3 class="mb-4">Why Be a Certified Social Worker?</h3>
+              <p>
+                Across the world, social work practice and social work education
+                are global endeavours. Social work is an international
+                discipline, practiced in these areas: child and family welfare;
+                health care; mental health services; substance addiction
+                rehabilitation; offending and prison services; anti-violence and
+                abuse; advocacy for human rights and social justice; social
+                planning and policy; and social research and education.
+              </p>
+              <p>
+                In Malaysia, the social work profession bill is in the final
+                stage of drafting. With the bill passed it will be mandatory for
+                Social Workers to be qualified before serving.
+              </p>
+            </div>
+          </div>
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center my-4"
+          >
+            {
+              card_socials.map((item) => (
+                <div class="col mb-3">
+                  <CardIcon item={item} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </SectionAboutmckl>
+
+    <section id="webinar" class="text-center">
+      <div class="container">
+        <div class="row pt-3 pb-3 justify-content-center">
+          <div class="col">
+            <h3>MCKL Social Work Forum &amp; Webinar</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <iframe
+              class="w-100"
+              style="aspect-ratio: 16 / 9"
+              src="https://www.youtube.com/embed/N2neqzuzYN4"></iframe>
+            <h3 class="h5">Stop The Stigma Against Social Work</h3>
+          </div>
+          <div class="col-lg-6">
+            <iframe
+              class="w-100"
+              style="aspect-ratio: 16 / 9"
+              src="https://www.youtube.com/embed/5e5YpGN9j1g"></iframe>
+            <h3 class="h5">
+              Rewarding Career Opportunities as a Qualified Social Worker
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- articles -->
+    <section id="news_event" class="my-5 pt-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col text-center">
+            <h2>News & Highlights</h2>
+          </div>
+        </div>
+
+        <div
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 my-3"
+        >
+          {
+            dsw_articles.map((item, index) => (
+              <div class="col mb-3">
+                <CardArticle
+                  classes="h-100"
+                  id={`dsw_article-${index}`}
+                  img_src={item.img_src}
+                  title={item.title}
+                  desc={item.desc}
+                  link={item.desc}
+                  btn_label={item.btn_label}
+                  img_style="aspect-ratio: 4/3; object-fit: cover"
+                >
+                  {item.modal ? (
+                    <div slot="button">
+                      <BsModal
+                        id={`dsw_article-${index}--modal`}
+                        title={item.title}
+                        btn_classes="btn btn-secondary btn-sm"
+                        btn_label={item.btn_label}
+                      >
+                        <img src={item.modal.img_src} alt={item.title} />
+                      </BsModal>
+                    </div>
+                  ) : (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      class="btn btn-secondary btn-sm"
+                    >
+                      {item.btn_label}
+                    </a>
+                  )}
+                </CardArticle>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- testimonial -->
+    <section id="testimonial" class="my-5">
+      <div class="container-lg">
+        <div class="row text-center">
+          <div class="col mb-3">
+            <h2>Testimonial</h2>
+            <p>Hear from our graduates</p>
+          </div>
+        </div>
+        <div class="row">
+          <SwiperTestimonial client:only="vue" content={testimonials} />
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="my-5 pt-3 text-center">
+      <div class="container">
+        <div class="row pt-3 pb-3 justify-content-center">
+          <div class="col-md-8 align-items-center order-2 order-md-1">
+            <div class="scholarships__intro">
+              <h3>Our Co-Founders Vision for Social Work</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <iframe
+              class="w-100"
+              style="aspect-ratio: 16/9"
+              src="https://www.youtube.com/embed/bFJRFBFLdKg"></iframe>
+            <h4 class="h5">Heartfelt Words from a Social Worker</h4>
+            <p class="text-muted">Datuk Dr. Denison Jayasooria</p>
+          </div>
+          <div class="col-lg-4">
+            <iframe
+              class="w-100"
+              style="aspect-ratio: 16/9"
+              src="https://www.youtube.com/embed/0KNzeApCkZA"></iframe>
+            <h4 class="h5">Heartfelt Words from A Social Worker</h4>
+            <p class="text-muted">Mdm. Elsie Lee</p>
+          </div>
+          <div class="col-lg-4">
+            <iframe
+              class="w-100"
+              style="aspect-ratio: 16/9"
+              src="https://www.youtube.com/embed/jN3r2RWWR28"></iframe>
+            <h4 class="h5">The Impact of Social Work</h4>
+            <p class="text-muted">Prof. Datuk Dr. Denison Jayasooria</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- industry partners -->
+    <section id="dws_partners" class="my-5">
+      <div class="container">
+        <div class="row pt-3 pb-1 justify-content-center">
+          <div
+            class="col-md-8 text-center text-md-center align-items-center order-2 order-md-1"
+          >
+            <div class="scholarships__intro">
+              <h3>Our Industry Partners</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 order-1 order-md-2">
+            <div class="d-flex flex-wrap flex-md-nowrap text-center">
+              {
+                dws_partners.map((item) => (
+                  <figure class="p-4 w-100">
+                    <img src={item.img_src} alt={item.title} />
+                  </figure>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <SectionAboutmckl dark_mode={true} />
+
+    <!-- track_record -->
+    <section id="track_record" class="py-5 text-center">
+      <div class="container">
+        <div class="row row-cols-1 justify-content-center text-center">
+          <h3 class="h4">Over 40 years of Proven Track Record</h3>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center my-4"
+        >
+          {
+            card_track_records.map((item) => (
+              <div class="col mb-4">
+                <CardIcon item={item} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <SectionRegistration
+      img_src={form_support}
+      img_style="object-fit: cover; width: 100%; height: 100%; object-position: 45% 20%;"
+    >
+      <div slot="content">
+        <h2 class="h4">Enquire for personal education advice</h2>
+        <p>Explore the right education programme that best fits you.</p>
+        <ul>
+          <!-- <li>Top Up 1 Year to complete your degree in Australia & Ireland*</li>
+          <li>RM500 Rebate Voucher*</li> -->
+          <li>Internship & Career Opportunities</li>
+          <li>Scholarships & Financial Aid*</li>
+          <li>Personalised Counselling</li>
+          <li>Complimentary MCKL Career Test</li>
+          <li>Campus Tour</li>
+          <li class="list-unstyled">
+            <small>*Terms & Conditions apply.</small>
+          </li>
+        </ul>
+        <ZohoWebform
+          client:only="vue"
+          return_url={return_url}
+          microsite_source={microsite_source}
+          disable_penang={true}
+          programme_interested={programme_interested}
+        />
+      </div>
+    </SectionRegistration>
+  </main>
+
+  <Footer />
+</Layout>

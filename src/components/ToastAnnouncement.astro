@@ -1,0 +1,82 @@
+---
+// 230309 - add props and defaults
+// 221205 - hardcoded img_src and hyperlink
+const { toast_img_src, toast_href } = Astro.props;
+---
+
+<div
+  class="toast__announcement toast-container position-fixed bottom-0 end-0 p-3"
+>
+  <div
+    id="liveToast"
+    class="toast"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="toast-header">
+      <button
+        type="button"
+        class="btn-close rounded-circle"
+        data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {
+        (() => {
+          if (toast_href) {
+            return (
+              <a href={toast_href} target="_blank">
+                <img
+                  width="320"
+                  src={toast_img_src}
+                  alt=""
+                  style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
+                />
+              </a>
+            );
+          } else {
+            return (
+              <img
+                width="320"
+                src={toast_img_src}
+                alt=""
+                style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
+              />
+            );
+          }
+        })()
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  import { Toast } from "bootstrap";
+
+  const toastLiveExample = document.getElementById("liveToast");
+  if (toastLiveExample) {
+    const toast = new Toast(toastLiveExample, {
+      autohide: false,
+    });
+    toast.show();
+  }
+</script>
+
+<style lang="scss">
+  .toast__announcement {
+    .toast {
+      --bs-toast-box-shadow: transparent;
+      --bs-toast-bg: transparent;
+      --bs-toast-header-bg: transparent;
+      --bs-toast-border-width: 0;
+    }
+    .toast-header {
+      justify-content: flex-end;
+    }
+    .btn-close {
+      background-color: #fff;
+      padding: 0.5rem;
+    }
+  }
+</style>

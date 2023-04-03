@@ -1,0 +1,227 @@
+---
+import Debug from "astro/components/Debug.astro";
+import { getCollection } from "astro:content";
+// import { Image } from "astro:assets";
+
+import CourseTemplate from "./_course-template.astro";
+
+import SectionShortcoursesCta from "@components/section-shortcourses-cta.astro";
+
+import hrd_claimable from "../../assets/short-courses/hrd-claimable.png";
+import hrd_training from "../../assets/short-courses/logo-hrd-training_provider.png";
+
+// interface Props {
+//     post: CollectionEntry<"course">;
+// }
+
+// // `post` will match your 'blog' collection schema type
+// const { post } = Astro.props;
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+    const allCourses = await getCollection("course", ({ data }) => {
+        return data.isDraft === false;
+    });
+
+    return allCourses.map((entry) => ({
+        params: { slug: `${entry.slug}` },
+        props: { entry },
+    }));
+}
+const { entry } = Astro.props;
+
+const {
+    title,
+    intake,
+    duration,
+    brochure_url,
+    trainers = [],
+    cert_logos = [],
+    form_option,
+} = entry.data;
+
+const { Content } = await entry.render();
+
+import trainers_data from "../../short-courses/trainers.json";
+
+const filtered_trainers = trainers_data.filter((trainer) => {
+    return trainers.includes(trainer.slug);
+});
+
+---
+
+<CourseTemplate>
+    <section
+        id="masthead"
+        class="tw-max-w-full tw-aspect-square md:tw-aspect-[16/9] lg:tw-aspect-[2/1] 2xl:tw-aspect-[3/1] tw-inline-flex tw-w-full tw-flex-col tw-items-center tw-justify-center tw-relative"
+    >
+        <!-- <div class="tw-absolute tw-top-0 tw-left-0">
+            <span class="tw-text-white tw-font-bold tw-text-6xl md:tw-text-xl"
+                >1:1</span
+            >
+            <span
+                class="tw-text-white tw-font-bold tw-text-xl md:tw-text-6xl lg:tw-text-xl"
+                >16:9</span
+            >
+            <span
+                class="tw-text-white tw-font-bold tw-text-xl lg:tw-text-6xl 2xl:tw-text-xl"
+                >2:1</span
+            >
+            <span class="tw-text-white tw-font-bold tw-text-xl 2xl:tw-text-6xl"
+                >3:1</span
+            >
+        </div> -->
+
+        <div class="container tw-py-6">
+            <div class="row align-items-center gx-5">
+                <div class="col-md-6">
+                    <div class="content-box mb-3">
+                        <p class="text-uppercase">
+                            <small>Programme Preview</small>
+                        </p>
+                        <h1 class="font-weight-bold mb-2" set:html={title} />
+                        {
+                            intake && (
+                                <p class="mb-1">
+                                    <b>Intake: </b>
+                                    {intake}
+                                </p>
+                            )
+                        }
+                        {
+                            duration && (
+                                <p class="mb-1">
+                                    <b>Duration: </b>
+                                    {duration}
+                                </p>
+                            )
+                        }
+                        <div class="tw-flex tw-gap-3 tw-items-center">
+                            <a href="#cta" class="my-4 btn btn-secondary">
+                                Apply Now</a
+                            >
+                            {
+                                brochure_url && (
+                                    <a
+                                        href={brochure_url}
+                                        class="my-4 btn btn-secondary"
+                                        target="_blank"
+                                        download
+                                    >
+                                        Download Brochure
+                                    </a>
+                                )
+                            }
+
+                            <div class="tw-ml-auto">
+                                {
+                                    cert_logos.includes("hrd_claimable") ? (
+                                        <img
+                                            width="92"
+                                            src={hrd_claimable}
+                                            alt="HRD Claimable"
+                                        />
+                                    ) : null
+                                }
+                                {
+                                    cert_logos.includes("hrd_training") ? (
+                                        <img
+                                            width="92"
+                                            src={hrd_training}
+                                            alt="HRD Training"
+                                        />
+                                    ) : null
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img
+                        class="img-fluid"
+                        src={`/featured_img/${entry.slug}.jpg`}
+                        alt={title}
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="col-lg-8 mx-auto my-5">
+        <Content />
+    </div>
+    {
+        filtered_trainers.length > 0 && (
+            <section class="my-5">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col">
+                            <h2>Learn from the Expert who Walks the Talk</h2>
+                            <p>
+                                Meet your professional instructor to guide you
+                                on your learning journey and beyond.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-around my-3">
+                        {filtered_trainers.map((trainer) => {
+                            return (
+                                <div class="card card-trainer">
+                                    <figure class="card-trainer__figure">
+                                        <img
+                                            class="card-trainer__img"
+                                            width="260"
+                                            height="260"
+                                            src={`/images/trainers/${trainer.slug}.png`}
+                                            alt={`Profile Picture of Trainer ${trainer.name}`}
+                                        />
+                                    </figure>
+                                    <h3>{trainer.name}</h3>
+                                    <p class="text-muted mb-2">
+                                        {trainer.role}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    <SectionShortcoursesCta preselect_interested_course={form_option} />
+</CourseTemplate>
+
+<style is:global>
+    #masthead {
+        background-image: url("http://localhost:3001/src/assets/short-courses/homepage-background.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .accordion-header button > span {
+        @apply tw-text-xl tw-font-bold tw-text-white tw-mb-0;
+    }
+
+    .card-trainer {
+        max-width: 280px;
+        margin: 1rem auto;
+        border: 0;
+        background-color: transparent;
+        text-align: center;
+    }
+    .card-trainer__figure {
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg width='512' height='512' viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1151_8622)'%3E%3Ccircle cx='256.5' cy='348.5' r='252.5' fill='%23033676'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1151_8622'%3E%3Crect width='512' height='512' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+        background-size: contain;
+        background-position: 0 50px;
+        background-repeat: no-repeat;
+    }
+    .card-trainer__img {
+        aspect-ratio: 1/1;
+        width: 100%;
+        max-width: 260px;
+        object-fit: contain;
+        object-position: bottom center;
+    }
+</style>

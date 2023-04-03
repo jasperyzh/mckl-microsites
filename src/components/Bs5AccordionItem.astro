@@ -1,0 +1,58 @@
+---
+interface Props {
+  accordion_id: string;
+  classes: string;
+  // items?: {
+  //   title: string;
+  //   content: string;
+  //   button?: {
+  //     href: string;
+  //     label?: string;
+  //   }[];
+  // }[];
+}
+const {
+  accordion_id = "accordionExample",
+  index = 0,
+  classes = "",
+  /* items = [
+    {
+      title: "title1",
+      content: "<b>content here1</b>",
+    },
+    {
+      title: "title2",
+      content: "<b>content here2</b>",
+    },
+    {
+      title: "title2",
+      content: "<b>content here2</b>",
+    },
+  ], */
+} = Astro.props as Props;
+---
+
+<div class="accordion-item">
+  <h2 class="accordion-header" id={`${accordion_id}-heading__${index}`}>
+    <button
+      class:list={["accordion-button", index >= 1 ? "collapsed" : ""]}
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target={`#${accordion_id}-collapse__${index}`}
+      aria-expanded={index <= 0 ? "true" : "false"}
+      aria-controls={`${accordion_id}-collapse__${index}`}
+    >
+      <slot>[title_here]</slot>
+    </button>
+  </h2>
+  <div
+    id={`${accordion_id}-collapse__${index}`}
+    class:list={["accordion-collapse collapse", index <= 0 ? "show" : ""]}
+    aria-labelledby={`${accordion_id}-heading__${index}`}
+    data-bs-parent={`#${accordion_id}`}
+  >
+    <div class="accordion-body">
+      <slot name="content">[content_here]</slot>
+    </div>
+  </div>
+</div>

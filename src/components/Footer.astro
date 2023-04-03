@@ -1,0 +1,140 @@
+---
+import logo_mckl from "@assets/logo/mckl-horizontal-logo-motto.svg";
+import logo_pykett from "@assets/logo/pykett-horizontal-logo-motto.svg";
+import logo_iso from "@assets/general/footer-iso.png";
+
+const get_year = new Date().getFullYear();
+---
+
+<footer id="footer" class="footer py-5 bg-primary text-light">
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-md-4 text-center text-md-left">
+        <a target="_blank" href="https://mckl.edu.my/">
+          <img
+            src={logo_mckl}
+            width="220"
+            alt="Logo of MCKL"
+            style="filter: brightness(100)"
+            class="mb-3"
+          />
+        </a>
+        <a target="_blank" href="https://mckl.edu.my/pykett">
+          <img
+            src={logo_pykett}
+            width="220"
+            alt="Logo of MCKL Pykett"
+            style="filter: brightness(100)"
+            class="mb-3"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 order-2 order-md-1 text-center">
+        <a
+          class="h5 d-none d-md-block mb-3"
+          target="_blank"
+          href="https://mckl.edu.my/"
+        >
+          Visit MCKL
+        </a>
+        <ul class="nav justify-content-center mb-3">
+          <li class="nav-item">
+            <a
+              class="nav-link p-1 mx-3"
+              target="_blank"
+              href="https://www.facebook.com/MethodistCollegeKL/"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-1 mx-3"
+              target="_blank"
+              href="https://www.youtube.com/channel/UCnICekQMcPBPo24KylfP1AQ/featured"
+            >
+              <i class="bi bi-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-1 mx-3"
+              target="_blank"
+              href="https://www.instagram.com/methodistcollegekl/"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-1 mx-3"
+              target="_blank"
+              href="https://www.linkedin.com/school/methodist-college-kuala-lumpur/"
+            >
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 order-1 order-md-2 text-center text-md-end">
+        <p class="mb-0"><small>Main Campus</small></p>
+        <h2 class="h6 d-none d-md-block">Methodist College Kuala Lumpur</h2>
+        <p class="text-uppercase mb-1" style="line-height: 1.1">
+          Off Jalan Tun Sambanthan 4, Brickfields, <br />50470 Kuala Lumpur,
+          Malaysia
+        </p>
+        <p class="mb-1">+603 - 2300 0998</p>
+        <p class="mb-1">admission@mckl.edu.my</p>
+
+        <hr />
+        <p class="mb-0"><small>Branch Campus</small></p>
+        <h2 class="h6 d-none d-md-block">
+          MCKL College (Penang, Pykett Campus)
+        </h2>
+        <p class="text-uppercase mb-1" style="line-height: 1.1">
+          Lebuhraya Pykett Georgetown
+          <br />10400 Pulau Pinang, Malaysia.
+        </p>
+        <p class="mb-1">+604 217 5088</p>
+        <p class="mb-1">admission.pg@mckl.edu.my</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <p class="my-4 text-uppercase">
+          <small
+            >&copy; {get_year} Methodist College Kuala Lumpur (DK144(W)) All Rights
+            Reserved. |
+            <a
+              href="https://mckl.edu.my/legal-policies-and-notices/"
+              target="_blank">Legal Policies and Notices</a
+            >
+            | Wesleyan Education Services Sdn Bhd (200101005044 / 540800-U)</small
+          >
+        </p>
+        <figure class="mb-0">
+          <img
+            src={logo_iso}
+            width="128"
+            alt="ISO 9001:2015 - Bureau Veritas Certification - UKAS Management Systems"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  .bi {
+    color: $light;
+    font-size: 1.5rem;
+    &:hover,
+    &:active {
+      color: $secondary;
+    }
+  }
+  small {
+    font-size: 80%;
+    font-weight: 400;
+  }
+</style>

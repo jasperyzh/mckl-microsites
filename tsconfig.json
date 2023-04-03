@@ -1,0 +1,17 @@
+{
+  "extends": "astro/tsconfigs/base",
+
+  "compilerOptions": {
+    // https://docs.astro.build/en/guides/content-collections/#setting-up-typescript
+    "strictNullChecks": true,
+    "allowJs": true,
+    // https://docs.astro.build/en/guides/aliases/
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"]
+    }
+  }
+}
