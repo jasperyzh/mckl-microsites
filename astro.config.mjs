@@ -7,8 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-<<<<<<< HEAD
-  
+
   /* experimental: {
     assets: true
    }, */
@@ -28,11 +27,6 @@ export default defineConfig({
     // `gfm` overridden to `false`
     // gfm: false,
   }), tailwind()],
-=======
-  integrations: [vue(),
-  /* purgecss(), */
-  mdx(), tailwind()],
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
   base: "/",
   vite: {
     css: {

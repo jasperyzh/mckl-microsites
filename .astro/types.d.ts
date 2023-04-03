@@ -1,7 +1,45 @@
 declare module 'astro:content' {
+	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
+		'.md': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
 	export { z } from 'astro/zod';
 	export type CollectionEntry<C extends keyof typeof entryMap> =
-		(typeof entryMap)[C][keyof (typeof entryMap)[C]] & Render;
+		(typeof entryMap)[C][keyof (typeof entryMap)[C]];
+
+	// This needs to be in sync with ImageMetadata
+	export const image: () => import('astro/zod').ZodObject<{
+		src: import('astro/zod').ZodString;
+		width: import('astro/zod').ZodNumber;
+		height: import('astro/zod').ZodNumber;
+		format: import('astro/zod').ZodUnion<
+			[
+				import('astro/zod').ZodLiteral<'png'>,
+				import('astro/zod').ZodLiteral<'jpg'>,
+				import('astro/zod').ZodLiteral<'jpeg'>,
+				import('astro/zod').ZodLiteral<'tiff'>,
+				import('astro/zod').ZodLiteral<'webp'>,
+				import('astro/zod').ZodLiteral<'gif'>,
+				import('astro/zod').ZodLiteral<'svg'>
+			]
+		>;
+	}>;
 
 	type BaseSchemaWithoutEffects =
 		| import('astro/zod').AnyZodObject
@@ -57,54 +95,97 @@ declare module 'astro:content' {
 		Required<ContentConfig['collections'][C]>['schema']
 	>;
 
-	type Render = {
-		render(): Promise<{
-			Content: import('astro').MarkdownInstance<{}>['Content'];
-			headings: import('astro').MarkdownHeading[];
-			remarkPluginFrontmatter: Record<string, any>;
-		}>;
-	};
-
 	const entryMap: {
-		"courses": {
+		"course": {
+"cambridge-international-certificate-in-teaching-learning.mdx": {
+  id: "cambridge-international-certificate-in-teaching-learning.mdx",
+  slug: "cambridge-international-certificate-in-teaching-learning",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+"cambridge-international-diploma-in-teaching-learning.mdx": {
+  id: "cambridge-international-diploma-in-teaching-learning.mdx",
+  slug: "cambridge-international-diploma-in-teaching-learning",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+"effective-lesson-design-and-planning.mdx": {
+  id: "effective-lesson-design-and-planning.mdx",
+  slug: "effective-lesson-design-and-planning",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+"embracing-autism-understanding-supporting-learners-with-autism.mdx": {
+  id: "embracing-autism-understanding-supporting-learners-with-autism.mdx",
+  slug: "embracing-autism-understanding-supporting-learners-with-autism",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+"essential-strategies-to-teaching-learners-with-special-needs.mdx": {
+  id: "essential-strategies-to-teaching-learners-with-special-needs.mdx",
+  slug: "essential-strategies-to-teaching-learners-with-special-needs",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+"fasa-towards-effective-assessment-in-teaching-and-learning.mdx": {
+  id: "fasa-towards-effective-assessment-in-teaching-and-learning.mdx",
+  slug: "fasa-towards-effective-assessment-in-teaching-and-learning",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+"teaching-an-effective-active-learning-class-active-learning.mdx": {
+  id: "teaching-an-effective-active-learning-class-active-learning.mdx",
+  slug: "teaching-an-effective-active-learning-class-active-learning",
+  body: string,
+  collection: "course",
+  data: InferEntrySchema<"course">
+} & { render(): Render[".mdx"] },
+},
+"courses": {
 "effective-lesson-design-and-planning.md": {
   id: "effective-lesson-design-and-planning.md",
   slug: "effective-lesson-design-and-planning",
   body: string,
   collection: "courses",
   data: any
-},
+} & { render(): Render[".md"] },
 "embracing-autism-understanding-supporting-learners-with-autism.md": {
   id: "embracing-autism-understanding-supporting-learners-with-autism.md",
   slug: "embracing-autism-understanding-supporting-learners-with-autism",
   body: string,
   collection: "courses",
   data: any
-},
+} & { render(): Render[".md"] },
 "essential-strategies-to-teaching-learners-with-special-needs.md": {
   id: "essential-strategies-to-teaching-learners-with-special-needs.md",
   slug: "essential-strategies-to-teaching-learners-with-special-needs",
   body: string,
   collection: "courses",
   data: any
-},
+} & { render(): Render[".md"] },
 "fasa-towards-effective-assessment-in-teaching-and-learning.md": {
   id: "fasa-towards-effective-assessment-in-teaching-and-learning.md",
   slug: "fasa-towards-effective-assessment-in-teaching-and-learning",
   body: string,
   collection: "courses",
   data: any
-},
+} & { render(): Render[".md"] },
 "teaching-an-effective-active-learning-class-active-learning.md": {
   id: "teaching-an-effective-active-learning-class-active-learning.md",
   slug: "teaching-an-effective-active-learning-class-active-learning",
   body: string,
   collection: "courses",
   data: any
-},
+} & { render(): Render[".md"] },
 },
 
 	};
 
-	type ContentConfig = never;
+	type ContentConfig = typeof import("../src/content/config");
 }

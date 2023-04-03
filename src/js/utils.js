@@ -18,19 +18,11 @@ export function slugify(text) {
 }
 
 /* export function formatDate(date) {
-<<<<<<< HEAD
 return new Date(date).toLocaleDateString("en-US", {
 timeZone: "UTC+8",
 });
 }
 */
-=======
-  return new Date(date).toLocaleDateString("en-US", {
-    timeZone: "UTC+8",
-  });
-}
- */
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
 export function formatDate(date) {
   return new Date(date).toLocaleString("en-US", {
     timeZone: "UTC+8",

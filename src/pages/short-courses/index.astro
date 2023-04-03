@@ -54,8 +54,8 @@ const why_mckl_cpd = [
   },
 ];
 
-<<<<<<< HEAD
 import { getCollection } from "astro:content";
+import Debug from "astro/components/Debug.astro";
 
 interface Props {
   post: CollectionEntry<"course">;
@@ -69,8 +69,6 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
   );
 });
 
-=======
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
 const courses = await Astro.glob("../../short-courses/*.md");
 ---
 
@@ -104,15 +102,6 @@ const courses = await Astro.glob("../../short-courses/*.md");
               >
                 Learn More
               </a>
-<<<<<<< HEAD
-=======
-              <!--  <a
-                class="btn btn-outline-secondary btn-lg my-2 me-md-3"
-                href="#cta"
-              >
-                Apply Now
-              </a> -->
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
             </div>
           </div>
         </div>
@@ -139,26 +128,6 @@ const courses = await Astro.glob("../../short-courses/*.md");
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {
-            courses.map(({ frontmatter }) => {
-              if (
-                frontmatter.tag.includes("education_development") &&
-                !frontmatter.draft
-              ) {
-                return (
-                  <div class="col mb-3">
-                    <CardCourse
-                      classes="card__course"
-                      slug={frontmatter.slug}
-                      title={frontmatter.title}
-                      link={`/short-courses/${frontmatter.slug}`}
-                    />
-                  </div>
-                );
-              }
-            })
-          }
-<<<<<<< HEAD
-          {
             courses_teaching_learning.map((item) => (
               <div class="col mb-3">
                 <CardCourse
@@ -170,8 +139,6 @@ const courses = await Astro.glob("../../short-courses/*.md");
               </div>
             ))
           }
-=======
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
         </div>
       </div>
     </section>

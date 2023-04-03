@@ -60,20 +60,12 @@ export async function getStaticPaths() {
 
 const { course } = Astro.params;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
 const {
   title,
   frontmatter,
   brochure_url,
   filteredTrainers,
   homepage_path = "/short-courses",
-<<<<<<< HEAD
-=======
-  
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
 } = Astro.props;
 
 // const title = "Short Courses | MCKL College";
@@ -204,13 +196,9 @@ import Debug from "astro/components/Debug.astro";
       </div>
     </section>
 
-<<<<<<< HEAD
     <SectionShortcoursesCta
       preselect_interested_course={frontmatter.form_option}
     />
-=======
-    <SectionShortcoursesCta preselect_interested_course={frontmatter.form_option} />
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
   </main>
   <Footer />
 </Layout>

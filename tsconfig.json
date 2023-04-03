@@ -2,12 +2,9 @@
   "extends": "astro/tsconfigs/base",
 
   "compilerOptions": {
-<<<<<<< HEAD
     // https://docs.astro.build/en/guides/content-collections/#setting-up-typescript
     "strictNullChecks": true,
     "allowJs": true,
-=======
->>>>>>> b45e34675236cff28997450b7adc2db0dbd63791
     // https://docs.astro.build/en/guides/aliases/
     "baseUrl": ".",
     "paths": {
