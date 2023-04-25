@@ -1,13 +1,13 @@
 # MCKL Microsites
 
 ## list of microsites
-http://stagingmckl.fishermen-analytics.com/open-day/
-http://stagingmckl.fishermen-analytics.com/scholarship/
-http://stagingmckl.fishermen-analytics.com/social-work/
-http://stagingmckl.fishermen-analytics.com/acca/
-http://stagingmckl.fishermen-analytics.com/digital-programme/
-http://stagingmckl.fishermen-analytics.com/business-programme/
-http://stagingmckl.fishermen-analytics.com/short-courses/
+- http://stagingmckl.fishermen-analytics.com/open-day/
+- http://stagingmckl.fishermen-analytics.com/scholarship/
+- http://stagingmckl.fishermen-analytics.com/social-work/
+- http://stagingmckl.fishermen-analytics.com/acca/
+- http://stagingmckl.fishermen-analytics.com/digital-programme/
+- http://stagingmckl.fishermen-analytics.com/business-programme/
+- http://stagingmckl.fishermen-analytics.com/short-courses/
 
 ## log
 230212
