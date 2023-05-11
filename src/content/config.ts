@@ -5,6 +5,9 @@ import { z, defineCollection } from 'astro:content';
 const courseSchema = z.object({
     title: z.string(),
     description: z.string(),
+    // featured_img: image().refine((img) => img.width >= 220, {
+    //     message: "Featured image must be at least 220 pixels wide!",
+    // }),
     tags: z.array(z.string()),
     isDraft: z.boolean(),
     duration: z.string(),

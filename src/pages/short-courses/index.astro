@@ -72,7 +72,11 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
 const courses = await Astro.glob("../../short-courses/*.md");
 ---
 
-<Layout title={title}>
+<Layout
+  title={title}
+  toast_img_src="/images/230418-blurb-registration_week.png"
+  toast_href="/open-day"
+>
   <Header homepage_path={homepage_path} nav__items={nav__items} />
 
   <main class="main">
@@ -91,7 +95,8 @@ const courses = await Astro.glob("../../short-courses/*.md");
               <small>Upcoming Intake</small>
             </p> -->
             <h1 class="font-weight-bold mb-2">
-              Unleash Your Greatness With MCKL’s CPD
+              Unleash Your Greatness With MCKL's Centre for Professional
+              Development (CPD)
             </h1>
             <!-- <p>March 2023 Intake in progress</p> -->
 
