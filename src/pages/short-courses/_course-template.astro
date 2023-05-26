@@ -11,7 +11,7 @@ import Footer from "@components/Footer.astro";
 import { nav__items } from "../../js/short-courses.js";
 ---
 
-<Layout title="MCKL Short Courses">
+<Layout title="MCKL Short Courses" toast_hide={true}>
     <Header homepage_path="/short-courses" nav__items={nav__items} />
     <main class="main">
         <slot />
