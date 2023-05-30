@@ -9,7 +9,7 @@ const { toast_img_src, toast_href } = Astro.props;
 >
   <div
     id="liveToast"
-    class="toast"
+    class="toast w-100"
     role="alert"
     aria-live="assertive"
     aria-atomic="true"
@@ -28,7 +28,7 @@ const { toast_img_src, toast_href } = Astro.props;
             return (
               <a href={toast_href} target="_blank">
                 <img
-                  width="320"
+                  width="180"
                   src={toast_img_src}
                   alt=""
                   style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
@@ -38,7 +38,7 @@ const { toast_img_src, toast_href } = Astro.props;
           } else {
             return (
               <img
-                width="320"
+                width="180"
                 src={toast_img_src}
                 alt=""
                 style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"

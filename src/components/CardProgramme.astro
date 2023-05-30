@@ -4,7 +4,7 @@ const { content, style, compiledContent } = Astro.props;
 
 <div class="card__programme" style={style}>
   <h4>
-    {content.title}
+    <span set:html={content.title}></span>
     {content.new_programme && <sup class="new">NEW</sup>}
   </h4>
   {content.after_title && <div set:html={content.after_title} />}

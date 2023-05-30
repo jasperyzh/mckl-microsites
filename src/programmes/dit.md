@@ -8,5 +8,5 @@ note:
 new_programme: true
 ---
 
-<i>Internet of Things Focused</i>
+<b><i>Internet of Things Focused</i></b>
 <p>Top Up 1 Year to complete your degree in Australia <small>(T&C apply)</small></p>

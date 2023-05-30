@@ -14,14 +14,6 @@ after_title: |
   <li>
   <p class="h5">Information Technology</p>
   </li>
-  <li>
-  <p class="h5">Programming with Python</p>
-  <p class="my-1"><small>Intake: 10 Apr <span class="badge bg-primary">Course duration &ndash; 6 Weeks</span></small></p>
-  </li>
-  <li>
-  <p class="h5">Fundamentals of Innovation and Entrepreneurship</p>
-  <p class="my-1"><small>Intake: 10 Apr <span class="badge bg-primary">Course duration &ndash; 6 Weeks</span></small></p>
-  </li>
   </ul>
 category: professional-development
 code_kl:
