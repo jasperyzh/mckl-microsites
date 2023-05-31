@@ -9,4 +9,4 @@ new_programme: true
 ---
 
 <b><i>Data Science Focused</i></b>
-<p>Top Up 1 Year to complete your degree in Australia <small>(T&C apply)</small></p>
+<!-- <p>Top Up 1 Year to complete your degree in Australia <small>(T&C apply)</small></p> -->

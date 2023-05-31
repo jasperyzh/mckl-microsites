@@ -410,35 +410,28 @@ const props = defineProps({
               CICTL:
                 "Cambridge International Certificate in Teaching & Learning",
               CIDTL: "Cambridge International Diploma in Teaching & Learning",
-              // "International Certification of Digital Literacy":
-              // "International Certification of Digital Literacy",
+              "Effective Lesson Design and Planning":
+                "Effective Lesson Design and Planning",
+              "Embracing Autism&#x3a; Understanding &amp; Supporting Learners with Autism":
+                "Embracing Autism: Understanding & Supporting Learners with Autism",
+              "Essential Strategies to Teaching Learners with Special Needs":
+                "Thriving with Attention Deficit Hyperactivity Disorder (ADHD) in the Classroom",
+              "Formative Assessment &amp; Summative Assessment &#x28;FASA&#x29;&#x3a; Towards Effective Assessment in Teaching and Learning":
+                "FA-SA: Formative Assessment and Summative Assessment",
+              "Teaching an Effective Active Learning Class&#x3a; Active Learning&#x3a; Getting active with 21st Century Learners":
+                "Teaching an Effective Active Learning Class",
               "Micro-Credentials in Social Work":
                 "Micro-credentials in Social Work",
               "Micro-Credentials in Early Childhood Education":
                 "Micro-credentials in Early Childhood Education",
+              "Micro-Credentials in Digital Business":
+                "Micro-credentials in Digital Business",
+              "Micro-credentials in Digital Marketing":
+                "Micro-credentials in Digital Marketing",
               "Micro-credentials in Computer Science":
                 "Micro-credentials in Computer Science",
               "Micro-credentials in Information Technology":
                 "Micro-credentials in Information Technology",
-              // "Micro-credentials in Fundamentals of Innovation and Entrepreneurship": "Micro-credentials in Fundamentals of Innovation and Entrepreneurship",
-              // "Micro-credentials in Programming with Python": "Micro-credentials in Programming with Python"
-              // "Educational Management and Leadership for Private Education":
-              // "Educational Management and Leadership for Private Education",
-              // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":
-              // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
-              // "Micro-Cred Computing &amp; Business":
-              // "Micro-credentials in Computing &amp; Business",
-              // "AWS Academy": "AWS Academy",
-              "Effective Lesson Design and Planning":
-                "Effective Lesson Design and Planning",
-              "Embracing Autism&#x3a; Understanding &amp; Supporting Learners with Autism":
-                "Embracing Autism&#58; Understanding &amp; Supporting Learners with Autism",
-              "Essential Strategies to Teaching Learners with Special Needs":
-                "Essential Strategies to Teaching Learners with Special Needs",
-              "Formative Assessment &amp; Summative Assessment &#x28;FASA&#x29;&#x3a; Towards Effective Assessment in Teaching and Learning":
-                "Formative Assessment & Summative Assessment (FASA)&#58; Towards Effective Assessment in Teaching and Learning",
-              "Teaching an Effective Active Learning Class&#x3a; Active Learning&#x3a; Getting active with 21st Century Learners":
-                "Teaching an Effective Active Learning Class&#58; Active Learning&#58; Getting active with 21st Century Learners",
             },
           },
         },
@@ -475,9 +468,6 @@ const props = defineProps({
               CICTL:
                 "Cambridge International Certificate in Teaching & Learning",
               CIDTL: "Cambridge International Diploma in Teaching & Learning",
-              // "International Certification of Digital Literacy":
-              // "International Certification of Digital Literacy",
-
               "Effective Lesson Design and Planning":
                 "Effective Lesson Design and Planning",
               "Embracing Autism&#x3a; Understanding &amp; Supporting Learners with Autism":
@@ -500,15 +490,6 @@ const props = defineProps({
                 "Micro-credentials in Computer Science",
               "Micro-credentials in Information Technology":
                 "Micro-credentials in Information Technology",
-              // "Micro-credentials in Fundamentals of Innovation and Entrepreneurship": "Micro-credentials in Fundamentals of Innovation and Entrepreneurship",
-              // "Micro-credentials in Programming with Python": "Micro-credentials in Programming with Python"
-              // "Educational Management and Leadership for Private Education":
-              // "Educational Management and Leadership for Private Education",
-              // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop":
-              // "Teaching &amp; Learning and Education Related Short Courses &amp; Workshop",
-              // "Micro-Cred Computing &amp; Business":
-              // "Micro-credentials in Computing &amp; Business",
-              // "AWS Academy": "AWS Academy",
             },
           },
         },
