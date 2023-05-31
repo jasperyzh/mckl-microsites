@@ -1,4 +1,6 @@
 ---
+// 230532 - consider centralize conditions on Layout.astro
+
 // 230309 - add props and defaults
 // 221205 - hardcoded img_src and hyperlink
 const { toast_img_src, toast_href } = Astro.props;
@@ -28,7 +30,7 @@ const { toast_img_src, toast_href } = Astro.props;
             return (
               <a href={toast_href} target="_blank">
                 <img
-                  width="180"
+                  width="240"
                   src={toast_img_src}
                   alt=""
                   style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
@@ -38,7 +40,7 @@ const { toast_img_src, toast_href } = Astro.props;
           } else {
             return (
               <img
-                width="180"
+                width="240"
                 src={toast_img_src}
                 alt=""
                 style="filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));"
