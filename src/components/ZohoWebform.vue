@@ -380,7 +380,7 @@ const props = defineProps({
             },
           },
           LEADCF19: {
-            title: "Diploma & Degree",
+            title: "Undergraduate Programme",
             options: {
               ADTP: "American Degree Transfer Program",
               "DECE (FT)": "Diploma in Early Childhood Education",
@@ -397,11 +397,11 @@ const props = defineProps({
             options: {
               "ACCA FIA": "ACCA Foundation in Accountancy (FIA)",
               "ACCA (FT)": "ACCA Qualification",
-              SBL: "Short courses in Strategic Business Leader (SBL)",
-              SBR: "Short courses in Strategic Business Reporting (SBR)",
-              AFM: "Short courses in Advanced Financial Management (AFM)",
-              ATX: "Short courses in Advanced Taxation (ATX)",
-              AAA: "Short courses in Advanced Audit and Assurance (AAA)",
+              SBL: "Short course in Strategic Business Leader (SBL)",
+              SBR: "Short course in Strategic Business Reporting (SBR)",
+              AFM: "Short course in Advanced Financial Management (AFM)",
+              ATX: "Short course in Advanced Taxation (ATX)",
+              AAA: "Short course in Advanced Audit and Assurance (AAA)",
             },
           },
           LEADCF22: {
@@ -443,13 +443,13 @@ const props = defineProps({
           },
         },
         penang: {
-          LEADCF7: {
+          /* LEADCF7: {
             title: "Preparatory Programmes",
             options: {
               PREPCAL: "PREPCAL",
               // "PREPAUSMAT": "PREPAUSMAT",
             },
-          },
+          }, */
           LEADCF20: {
             title: "Pre-U / Foundation",
             options: {
@@ -460,7 +460,7 @@ const props = defineProps({
             },
           },
           LEADCF19: {
-            title: "Diploma & Degree",
+            title: "Undergraduate Programme",
             options: {
               "DECE (FT)": "Diploma in Early Childhood Education",
               DCS: "Diploma in Computer Science - NEW",
@@ -477,10 +477,25 @@ const props = defineProps({
               CIDTL: "Cambridge International Diploma in Teaching & Learning",
               // "International Certification of Digital Literacy":
               // "International Certification of Digital Literacy",
+
+              "Effective Lesson Design and Planning":
+                "Effective Lesson Design and Planning",
+              "Embracing Autism&#x3a; Understanding &amp; Supporting Learners with Autism":
+                "Embracing Autism: Understanding & Supporting Learners with Autism",
+              "Essential Strategies to Teaching Learners with Special Needs":
+                "Thriving with Attention Deficit Hyperactivity Disorder (ADHD) in the Classroom",
+              "Formative Assessment &amp; Summative Assessment &#x28;FASA&#x29;&#x3a; Towards Effective Assessment in Teaching and Learning":
+                "FA-SA: Formative Assessment and Summative Assessment",
+              "Teaching an Effective Active Learning Class&#x3a; Active Learning&#x3a; Getting active with 21st Century Learners":
+                "Teaching an Effective Active Learning Class",
               "Micro-Credentials in Social Work":
                 "Micro-credentials in Social Work",
               "Micro-Credentials in Early Childhood Education":
                 "Micro-credentials in Early Childhood Education",
+              "Micro-Credentials in Digital Business":
+                "Micro-credentials in Digital Business",
+              "Micro-credentials in Digital Marketing":
+                "Micro-credentials in Digital Marketing",
               "Micro-credentials in Computer Science":
                 "Micro-credentials in Computer Science",
               "Micro-credentials in Information Technology":
@@ -494,16 +509,6 @@ const props = defineProps({
               // "Micro-Cred Computing &amp; Business":
               // "Micro-credentials in Computing &amp; Business",
               // "AWS Academy": "AWS Academy",
-              "Effective Lesson Design and Planning":
-                "Effective Lesson Design and Planning",
-              "Embracing Autism&#x3a; Understanding &amp; Supporting Learners with Autism":
-                "Embracing Autism&#58; Understanding &amp; Supporting Learners with Autism",
-              "Essential Strategies to Teaching Learners with Special Needs":
-                "Essential Strategies to Teaching Learners with Special Needs",
-              "Formative Assessment &amp; Summative Assessment &#x28;FASA&#x29;&#x3a; Towards Effective Assessment in Teaching and Learning":
-                "Formative Assessment & Summative Assessment (FASA)&#58; Towards Effective Assessment in Teaching and Learning",
-              "Teaching an Effective Active Learning Class&#x3a; Active Learning&#x3a; Getting active with 21st Century Learners":
-                "Teaching an Effective Active Learning Class&#58; Active Learning&#58; Getting active with 21st Century Learners",
             },
           },
         },

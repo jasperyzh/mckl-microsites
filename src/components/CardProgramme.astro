@@ -4,7 +4,7 @@ const { content, style, compiledContent } = Astro.props;
 
 <div class="card__programme" style={style}>
   <h4>
-    <span set:html={content.title}></span>
+    <span set:html={content.title} />
     {content.new_programme && <sup class="new">NEW</sup>}
   </h4>
   {content.after_title && <div set:html={content.after_title} />}
@@ -26,7 +26,7 @@ const { content, style, compiledContent } = Astro.props;
   </ul>
 
   <!-- discontinue content.note; go with <slot /> -->
-  {content.note && <p set:html={content.note}></p>}
+  {content.note && <p set:html={content.note} />}
 
   {compiledContent && <div set:html={compiledContent} />}
 
@@ -41,6 +41,8 @@ const { content, style, compiledContent } = Astro.props;
     }
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
+
+  <slot name="beforeend" />
 </div>
 
 <style lang="scss">

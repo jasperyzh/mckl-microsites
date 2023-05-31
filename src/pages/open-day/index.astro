@@ -129,7 +129,7 @@ const card_icons = [
     img_src: icon_merit,
   },
   {
-    title: "50% Tuition Fee Waiver*",
+    title: "50% Tuition Fee Waiver For Diploma Programmes*",
     img_src: icon_bursary,
   },
   {
@@ -137,8 +137,7 @@ const card_icons = [
     img_src: icon_merit,
   },
   {
-    title:
-      "Top Up 1 year to complete your degree in Ireland & United Kingdom*",
+    title: "Top Up 1 year to complete your degree in Ireland & United Kingdom*",
     img_src: icon_ireland_uk,
   },
   {
@@ -398,22 +397,22 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
             show_first={true}
             accordion_id="programme"
             accordion_items={[
-              { title: "Preparatory Course" },
+              // { title: "Preparatory Course" },
               { title: "Pre-University" },
               { title: "Undergraduate Programme" },
               { title: "Professional Accounting" },
               { title: "Professional Development" },
             ]}
           >
-            <div slot="content-0">
+            <!-- <div slot="content-0">
               <CardProgramme content={cambridge_a_level_prepcal.frontmatter} />
-              <!-- <CardProgramme content={prepausmat.frontmatter} /> -->
-            </div>
-            <div slot="content-1">
+              
+            </div> -->
+            <div slot="content-0">
               <CardProgramme content={cambridge_a_level.frontmatter} />
               <CardProgramme content={ausmat.frontmatter} />
             </div>
-            <div slot="content-2">
+            <div slot="content-1">
               <CardProgramme content={adtp.frontmatter} />
               <CardProgramme content={dece.frontmatter} />
               <CardProgramme content={dsw.frontmatter} />
@@ -432,34 +431,42 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
               <CardProgramme content={ddm.frontmatter} />
               <CardProgramme content={dft.frontmatter} />
             </div>
-            <div slot="content-3">
+            <div slot="content-2">
               <CardProgramme content={acca_fia.frontmatter} />
               <CardProgramme content={acca.frontmatter} />
-
-              {
-                [
-                  "Short course in Strategic Business Leader (SBL)",
-                  "Short course in Strategic Business Reporting (SBR)",
-                  "Short course in Advanced Financial Management (AFM)",
-                  "Short course in Advanced Taxation (ATX)",
-                  "Short course in Advanced Audit and Assurance (AAA)",
-                ].map((title) => (
-                  <CardProgramme
-                    content={{ title: title, new_programme: true }}
-                  />
-                ))
-              }
+              <CardProgramme
+                content={{ title: "ACCA Short Courses", new_programme: true }}
+              >
+                <ul slot="beforeend">
+                  {
+                    [
+                      "Strategic Business Leader (SBL)",
+                      "Strategic Business Reporting (SBR)",
+                      "Advanced Financial Management (AFM)",
+                      "Advanced Taxation (ATX)",
+                      "Advanced Audit and Assurance (AAA)",
+                    ].map((title) => (
+                      <li>
+                        <p class="h5">{title}</p>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </CardProgramme>
             </div>
-            <div slot="content-4">
+            <div slot="content-3">
               <CardProgramme
                 content={cictl.frontmatter}
                 style="border-bottom: 0"
               />
-              <CardProgramme content={cidtl.frontmatter} />
-              <!-- <CardProgramme content={icdl.frontmatter} /> -->
-              <CardProgramme content={micro_credential.frontmatter} />
-              <!-- <CardProgramme content={education_management.frontmatter} /> -->
-              <!-- <CardProgramme content={teaching_learning.frontmatter} /> -->
+              <CardProgramme content={cidtl.frontmatter}>
+                <p slot="beforeend">
+                  Designed to help teachers develop critical engagement with key
+                  education theories and concepts to enhance the quality of
+                  their students' learning and complementing personal
+                  development as a reflective practitioner.
+                </p>
+              </CardProgramme>
 
               {
                 courses_teaching_learning.map((item) => (
@@ -472,6 +479,10 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
                   </>
                 ))
               }
+              <!-- <CardProgramme content={icdl.frontmatter} /> -->
+              <CardProgramme content={micro_credential.frontmatter} />
+              <!-- <CardProgramme content={education_management.frontmatter} /> -->
+              <!-- <CardProgramme content={teaching_learning.frontmatter} /> -->
             </div>
           </BsAccordion>
         </div>
@@ -543,16 +554,14 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
       <p>Explore the right education programme that best fits you.</p>
       <ul>
         <li>
-          Top Up 1 year to complete your degree in Ireland & United
-          Kingdom*
+          Top Up 1 year to complete your degree in Ireland & United Kingdom*
         </li>
-        <li>RM500 Rebate Voucher*</li>
-        <li>50% Tuition Fee Waiver*</li>
         <li>100% Merit Scholarship Available*</li>
-        <li>Internship & Career Opportunities</li>
+        <li>50% Tuition Fee Waiver*</li>
+        <li>RM500 Rebate Voucher*</li>
         <li>Scholarships & Financial Aid*</li>
+        <li>Internship & Career Opportunities</li>
         <li>Personalised Counselling</li>
-        <!-- <li>Complimentary MCKL Career Test</li> -->
         <li>Campus Tour</li>
         <li class="list-unstyled">
           <small>*Terms & Conditions apply.</small>
