@@ -291,7 +291,7 @@ onMounted(() => {
       form_data.programme_interested
     );
     // LEADCF7 - "Preparatory Programmes"
-    // LEADCF20 - "Pre-U / Foundation"
+    // LEADCF20 - "Pre-University"
     // LEADCF19 - "Diploma & Degree"
     // LEADCF21 - "Professional Accounting"
     // LEADCF22 - "Professional Development"
@@ -371,7 +371,7 @@ const props = defineProps({
           //   },
           // },
           LEADCF20: {
-            title: "Pre-U / Foundation",
+            title: "Pre-University",
             options: {
               "Cambridge A Level": "Cambridge A Level",
               "Cambridge A Level (German Pathway)":
@@ -444,7 +444,7 @@ const props = defineProps({
             },
           }, */
           LEADCF20: {
-            title: "Pre-U / Foundation",
+            title: "Pre-University",
             options: {
               "Cambridge A Level": "Cambridge A Level",
               "Cambridge A Level (German Pathway)":

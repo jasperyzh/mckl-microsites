@@ -6,6 +6,9 @@ after_title: |
   <p class="h5">Early Childhood Education</p>
   </li>
   <li>
+  <p class="h5">Social Work</p>
+  </li>
+  <li>
   <p class="h5">Digital Business</p>
   </li>
   <li>
