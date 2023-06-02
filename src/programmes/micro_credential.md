@@ -15,6 +15,9 @@ after_title: |
   <p class="h5">Digital Marketing</p>
   </li>
   <li>
+  <p class="h5">Financial Technology</p>
+  </li>
+  <li>
   <p class="h5">Computer Science</p>
   </li>
   <li>

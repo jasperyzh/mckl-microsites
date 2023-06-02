@@ -428,6 +428,8 @@ const props = defineProps({
                 "Micro-credentials in Digital Business",
               "Micro-credentials in Digital Marketing":
                 "Micro-credentials in Digital Marketing",
+              "Micro-credentials in Financial Technology":
+                "Micro-credentials in Financial Technology",
               "Micro-credentials in Computer Science":
                 "Micro-credentials in Computer Science",
               "Micro-credentials in Information Technology":
@@ -486,6 +488,8 @@ const props = defineProps({
                 "Micro-credentials in Digital Business",
               "Micro-credentials in Digital Marketing":
                 "Micro-credentials in Digital Marketing",
+              "Micro-credentials in Financial Technology":
+                "Micro-credentials in Financial Technology",
               "Micro-credentials in Computer Science":
                 "Micro-credentials in Computer Science",
               "Micro-credentials in Information Technology":
