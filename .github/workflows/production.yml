@@ -28,24 +28,48 @@ jobs:
         with:
           name: dist
           path: dist
+
+
   deploy_sftp:
     name: deploy_sftp
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@main
-        with:
-          name: dist
-          path: dist
-      - name: Sync files to production server
-        uses: goblinfactory/konfig@v14
-        with:
-          command: |
-            sftp -i ${{ secrets.MCKL_FTP_PASSWORD }} -P 22 mckledumy@128.199.233.104 <<EOF
-            put -r dist/* /home/mckledumy/public_html/
-            bye
-            EOF
+        # To use this repository's private action, you must check out the repository
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: deploy file to server
+          uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+          with:
+              username: 'mckledumy'
+              server: '128.199.233.104'
+              # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+              password: ${{ secrets.MCKL_FTP_PASSWORD }}
+              local_path: './dist/*'
+              remote_path: '/home/mckledumy/public_html'
+              sftpArgs: '-o ConnectTimeout=5'
+
+#           server: 128.199.233.104
+#           username: mckledumy
+#           password: ${{ secrets.MCKL_FTP_PASSWORD }}
+#           server-dir: /home/mckledumy/public_html/
+#           local-dir: dist/
+
+
+      # - name: Download artifact
+      #   uses: actions/download-artifact@main
+      #   with:
+      #     name: dist
+      #     path: dist
+      # - name: Sync files to production server
+      #   uses: goblinfactory/konfig@v14
+      #   with:
+      #     command: |
+      #       sftp -i ${{ secrets.MCKL_FTP_PASSWORD }} -P 22 mckledumy@128.199.233.104 <<EOF
+      #       put -r dist/* /home/mckledumy/public_html/
+      #       bye
+      #       EOF
 
 
 # name: Deploy to production via FTP
