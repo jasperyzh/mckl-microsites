@@ -44,5 +44,5 @@ jobs:
           server: 128.199.233.104
           username: mckledumy
           password: ${{ secrets.MCKL_FTP_PASSWORD }}
-          server-dir: /home/mckledumy/public_html
+          server-dir: /home/mckledumy/public_html/
           local-dir: dist/
