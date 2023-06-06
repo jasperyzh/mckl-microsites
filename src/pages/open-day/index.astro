@@ -1,4 +1,13 @@
 ---
+// get consts.js
+/* 
+open_day = {
+  title: "Open day",
+  description: "meta description",
+  slug: "open-day",
+}
+*/
+
 const title = "Open Day | MCKL College";
 const microsite_source = "open-day";
 const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
@@ -7,26 +16,10 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
 
 import SectionOpendayJuneEvent from "./_SectionOpendayJuneEvent.astro";
 
-import Testimonial from "../../components/Testimonial.astro";
-import ExcellenceAwardTestimonials from "../../content/_testimonials-excellence_award_2023.json";
-import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
-
 // images
 const bg_mobile = "/images/bg/230530-openday-bg-mobile.jpg";
 const bg_laptop = "/images/bg/230530-openday-bg-mobile.jpg";
 const bg_desktop = "/images/bg/230530-openday-bg-desktop.jpg";
-// const bg_mobile = "/images/bg/230404-open_day-bg-mobile.jpg";
-// const bg_laptop = "/images/bg/230404-open_day-bg-mobile.jpg";
-// const bg_desktop = "/images/bg/230404-open_day-bg-desktop.jpg";
-// import bg_mobile from "@assets/open-day/openday-bg-mobile.jpg";
-// import bg_laptop from "@assets/open-day/openday-bg-mobile.jpg";
-// import bg_desktop from "@assets/open-day/openday-bg-desktop.jpg";
-// import bg_mobile from "@assets/open-day/230106-bg-openday-mobile.jpg";
-// import bg_laptop from "@assets/open-day/230106-bg-openday-laptop.jpg";
-// import bg_desktop from "@assets/open-day/230106-bg-openday-desktop.jpg";
-// import bg_mobile from "@assets/bg/221205-bg-openday-mobile.jpg";
-// import bg_laptop from "@assets/bg/221205-bg-openday-laptop.jpg";
-// import bg_desktop from "@assets/bg/221205-bg-openday-desktop.jpg";
 
 import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
 import form_support from "@assets/open-day/form_support168337539_l.jpg";
@@ -56,8 +49,8 @@ import testimonial_ranimah from "@assets/testimonial/open-day/testimonial-ranima
 
 // components
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
 
 import SectionMasthead from "@components/section-masthead.astro";
 import SectionPartners from "@components/section-partners.astro";
@@ -97,26 +90,6 @@ import * as icdl from "../../programmes/icdl.md";
 import * as micro_credential from "../../programmes/micro_credential.md";
 import * as education_management from "../../programmes/education_management.md";
 import * as teaching_learning from "../../programmes/teaching_learning.md";
-
-const nav__items = [
-  {
-    name: "About MCKL",
-    href: "#about",
-  },
-  {
-    name: "Highlights",
-    href: "#highlights",
-  },
-  {
-    name: "Programmes",
-    href: "#programmes",
-  },
-  {
-    name: "Register Today",
-    href: "#registration",
-    nav_link_class: "btn btn-danger",
-  },
-];
 
 const card_icons = [
   // {
@@ -274,6 +247,8 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
     !excludeTitles.includes(data.title)
   );
 });
+
+import Link from "@components/Link.astro";
 ---
 
 <Layout
@@ -282,7 +257,14 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
   toast_href="/scholarship"
   toast_hide={false}
 >
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
+  <Header homepage_path={homepage_path}>
+    <Link href="#about" class="nav-link">About MCKL</Link>
+    <Link href="#highlights" class="nav-link">Highlights</Link>
+    <Link href="#programmes" class="nav-link">Programmes</Link>
+    <Link href="#registration" class="nav-link btn btn-danger">
+      Register Today
+    </Link>
+  </Header>
 
   <main class="main">
     {is_thank_you && <slot name="thank-you" />}
@@ -525,26 +507,6 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
     </div>
   </section>
 
-  <!-- <section
-      id="testimonial-excellence_award_2023"
-      class="pb-5 scholarship2023__bg"
-    >
-      <div class="container-lg">
-        <div class="row text-center">
-          <img
-            src={testimonial_heading}
-            alt="MCKL Excellence Award 2023 - Congratulations to Our Scholars!"
-          />
-        </div>
-        <div class="row">
-          <Testimonial
-            testimonials={ExcellenceAwardTestimonials}
-            style="dark"
-          />
-        </div>
-      </div>
-    </section> -->
-
   <SectionRegistration
     img_src={form_support}
     img_style="object-fit: cover; width: 100%; height: 100%; object-position: 75% 20%;"
@@ -574,31 +536,30 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
       />
     </div>
   </SectionRegistration>
-</Layout>
 
-<Footer />
+  <Footer />
 
-<script>
-  let test = {
-    controlsText: [
-      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>',
-      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>',
-    ],
-  };
-</script>
-<style>
-  .scholarship2023__bg {
-    background-image: url("../../assets/bg/bg-scholarship-2209-scholarship.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-</style>
+  <script>
+    let test = {
+      controlsText: [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>',
+      ],
+    };
+  </script>
+  <style>
+    .scholarship2023__bg {
+      background-image: url("../../assets/bg/bg-scholarship-2209-scholarship.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 
-<script>
-  document.querySelector(
-    "#page > div.main > div.container.beforeShakeContent > p.beforeShakeContent-small"
-  ).inser`
+  <script>
+    document.querySelector(
+      "#page > div.main > div.container.beforeShakeContent > p.beforeShakeContent-small"
+    ).inser`
   <br> <a class="text-white text-underline" href="/whats-new/" style="
       margin-top: 10px;
       display: block;
@@ -606,4 +567,5 @@ const courses_teaching_learning = await getCollection("course", ({ data }) => {
       color: #fff;
   ">Untuk maklumat lanjut tentang peraduan, tekan sini</a>
   `;
-</script>
+  </script>
+</Layout>

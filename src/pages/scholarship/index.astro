@@ -3,8 +3,10 @@ const title = "Scholarship | MCKL College";
 const microsite_source = "scholarship";
 const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
 
+import Link from "@components/Link.astro";
+
 import Testimonial from "../../components/Testimonial.astro";
-import ExcellenceAwardTestimonials from "../../content/_testimonials-excellence_award_2023.json";
+import ExcellenceAwardTestimonials from "./_testimonials-excellence_award_2023.json";
 import testimonial_heading from "../../assets/scholarship/excellence_award_2023-congratulation.png";
 
 import ScholarshipBg from "../../assets/bg/bg-scholarship-2209-scholarship.jpg";
@@ -88,8 +90,8 @@ import icon_trackrecord5 from "@assets/icon/business-icon-4.png";
 
 // components
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
 import CardIcon from "@components/CardIcon.astro";
 import CardProgramme from "@components/CardProgramme.astro";
 
@@ -116,25 +118,6 @@ import * as dft from "../../programmes/dft.md";
 import * as acca_fia from "../../programmes/acca_fia.md";
 import * as acca from "../../programmes/acca.md";
 
-const nav__items = [
-  {
-    name: "Highlights",
-    href: "#highlights",
-  },
-  {
-    name: "Programmes",
-    href: "#programmes",
-  },
-  {
-    name: "About MCKL",
-    href: "#about",
-  },
-  {
-    name: "Register Today",
-    href: "#registration",
-    nav_link_class: "btn btn-danger",
-  },
-];
 const card_icons = [
   {
     title:
@@ -203,6 +186,8 @@ const card_track_records = [
     desc: "Nurturing students with Character Formation and Service Learning programmes throughout their studies.",
   },
 ];
+
+
 ---
 
 <Layout
@@ -210,7 +195,14 @@ const card_track_records = [
   toast_img_src="/images/230525-blurb-openday.png"
   toast_href="/open-day"
 >
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
+  <Header homepage_path={homepage_path}>
+    <Link href="#highlights" class="nav-link">Highlights</Link>
+    <Link href="#programmes" class="nav-link">Programmes</Link>
+    <Link href="#about" class="nav-link">About MCKL</Link>
+    <Link href="#registration" class="nav-link btn btn-danger">
+      Register Today
+    </Link>
+  </Header>
 
   <main class="main">
     {is_thank_you && <slot name="thank-you" />}

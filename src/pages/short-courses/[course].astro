@@ -1,8 +1,8 @@
 ---
 // components
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
 
 import CardCourse from "@components/CardCourse.astro";
 import CardIcon from "@components/CardIcon.astro";
@@ -68,19 +68,13 @@ const {
   homepage_path = "/short-courses",
 } = Astro.props;
 
-// const title = "Short Courses | MCKL College";
-// const microsite_source = "short-courses";
-// const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
-// const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
-//   Astro.props;
-
-import { nav__items } from "../../js/short-courses.js";
-
-import Debug from "astro/components/Debug.astro";
+import ShortcoursesNavPrimary from "./_short-courses-nav-primary.astro";
 ---
 
 <Layout title={title} toast_hide={true}>
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
+  <Header homepage_path="/short-courses">
+    <ShortcoursesNavPrimary />
+  </Header>
 
   <main class="main">
     <SectionMasthead

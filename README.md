@@ -9,6 +9,15 @@
 - http://stagingmckl.fishermen-analytics.com/business-programme/
 - http://stagingmckl.fishermen-analytics.com/short-courses/
 
+- http://localhost:3000/open-day/
+- http://localhost:3000/scholarship/
+- http://localhost:3000/social-work/
+- http://localhost:3000/acca/
+- http://localhost:3000/digital-programme/
+- http://localhost:3000/business-programme/
+- http://localhost:3000/short-courses/
+- http://localhost:3000/short-courses/free-courses
+
 ## log
 230212
 - gh_actions Deploy /dist/ via FTP to stagingmckl.fishermen-analytics.com

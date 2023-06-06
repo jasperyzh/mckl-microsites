@@ -70,8 +70,8 @@ import testimonial_sivananthan_lee from "@assets/testimonial/sivananthan_lee.jpg
 
 // components
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
 
 import SectionMasthead from "@components/section-masthead.astro";
 import SectionPartners from "@components/section-partners.astro";
@@ -87,21 +87,6 @@ import ZohoWebform from "@components/ZohoWebform.vue";
 import * as dcs from "../../programmes/dcs.md";
 import * as dit from "../../programmes/dit.md";
 
-const nav__items = [
-  {
-    name: "About",
-    href: "#about_digital",
-  },
-  {
-    name: "Programmes",
-    href: "#programmes",
-  },
-  {
-    name: "Register Today",
-    href: "#registration",
-    nav_link_class: "btn btn-danger",
-  },
-];
 
 const card_icons = [
   // {
@@ -214,10 +199,18 @@ const testimonials = [
     img_src: testimonial_sivananthan_lee,
   },
 ];
+
+import Link from "@components/Link.astro";
 ---
 
 <Layout title={title}>
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
+  <Header homepage_path={homepage_path}>
+    <Link href="#about_digital" class="nav-link">About</Link>
+    <Link href="#programmes" class="nav-link">Programmes</Link>
+    <Link href="#registration" class="nav-link btn btn-danger">
+      Register Today
+    </Link>
+  </Header>
 
   <main class="main">
     {is_thank_you && <slot name="thank-you" />}

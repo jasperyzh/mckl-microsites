@@ -1,0 +1,50 @@
+---
+import Link from "@components/Link.astro";
+---
+
+<li class="nav-item dropdown">
+    <Link
+        class="nav-link dropdown-toggle"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+    >
+        Topic
+    </Link>
+    <ul class="dropdown-menu">
+        <li>
+            <Link
+                class="dropdown-item"
+                href="/short-courses#education_development"
+            >
+                Teaching, Learning & Education Development Courses
+            </Link>
+        </li>
+        <!--  <li>
+          <Link class="dropdown-item" href="/short-courses#digital_skills">
+            The Digital Skills
+          </Link>
+        </li>
+        <li>
+          <Link class="dropdown-item" href="#edu_manage_leadership">
+            Education Management & Leadership
+          </Link>
+        </li> -->
+    </ul>
+</li>
+<li class="nav-item">
+    <Link class="nav-link" href="/short-courses/free-courses">
+        Free Courses
+    </Link>
+</li>
+<li class="nav-item">
+    <Link class="nav-link" href="/short-courses#why_mckl_cpd">
+        About MCKL CPD
+    </Link>
+</li>
+<li class="nav-item">
+    <Link class="nav-link" href="#cta" class="nav-link btn btn-danger">
+        Apply Now
+    </Link>
+</li>

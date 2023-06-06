@@ -7,8 +7,8 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
 
 // components
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
 
 import CardCourse from "@components/CardCourse.astro";
 import CardIcon from "@components/CardIcon.astro";
@@ -23,8 +23,6 @@ import bg_laptop from "@assets/short-courses/homepage-background.svg";
 import bg_desktop from "@assets/short-courses/homepage-background.svg";
 
 import home_banner from "@assets/free-courses/home-banner.jpg";
-
-import { nav__items } from "../../js/short-courses.js";
 
 import why_cpd1 from "@assets/short-courses/why-cpd1.svg";
 import why_cpd2 from "@assets/short-courses/why-cpd2.svg";
@@ -84,12 +82,15 @@ const benefits_card = [
   },
 ];
 
-const courses = await Astro.glob("../../short-courses/*.md");
+import ShortcoursesNavPrimary from "../_short-courses-nav-primary.astro";
+
+const courses = await Astro.glob("../../../short-courses/*.md");
 ---
 
 <Layout title={title}>
-  <Header homepage_path={homepage_path} nav__items={nav__items} />
-
+  <Header homepage_path={homepage_path}>
+    <ShortcoursesNavPrimary />
+  </Header>
   <main class="main">
     <section
       id="masthead"

@@ -1,9 +1,10 @@
 ---
-import campus_logo from "@assets/logo/mckl-campuses-logo.png";
-import mckl_logo from "@assets/logo/mckl-logo.png";
+// import campus_logo from "@assets/logo/mckl-campuses-logo.png";
+// import mckl_logo from "@assets/logo/mckl-logo.png";
+
 import anniversary_logo from "@assets/logo/mckl-40anniversary_masthead-rgb.png";
 
-const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
+const { mckl_logo_only = false, homepage_path } = Astro.props;
 ---
 
 <header class="header fixed-top shadow bg-primary">
@@ -57,7 +58,7 @@ const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
                 alt="Logo of Methodist College Kuala Lumpur"
                 width="180"
               />
-              <div class="tw-hidden md:tw-block tw-border tw-border-r-0 tw-mx-2 tw-border-gray-300 tw-border-solid tw-w-[1px] tw-h-full"></div>
+              <div class="tw-hidden md:tw-block tw-border tw-border-r-0 tw-mx-2 tw-border-gray-300 tw-border-solid tw-w-[1px] tw-h-full" />
               <img
                 class="tw-hidden md:tw-block tw-max-w-[217px]"
                 src="/logo/mckl-pykett-logo.png"
@@ -82,50 +83,7 @@ const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
 
       <div class="collapse navbar-collapse" id="navbar__primary">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          {
-            nav__items.map((item) => {
-              if (!item.children) {
-                return (
-                  <li
-                    class={`nav-item ${
-                      item.nav_item_class ? item.nav_item_class : ""
-                    }`}
-                  >
-                    <a
-                      class={`nav-link ${
-                        item.nav_link_class ? item.nav_link_class : ""
-                      }`}
-                      href={item.href}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                );
-              } else {
-                return (
-                  <li class="nav-item dropdown">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      {item.name}
-                    </a>
-                    <ul class="dropdown-menu">
-                      {item.children.map((submenu_item) => (
-                        <li>
-                          <a class="dropdown-item" href={submenu_item.href}>
-                            {submenu_item.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                );
-              }
-            })
-          }
+          <slot />
         </ul>
       </div>
     </div>
@@ -133,32 +91,15 @@ const { mckl_logo_only = false, homepage_path, nav__items } = Astro.props;
 </header>
 
 <style>
-  .navbar-brand tw-py-0 img {
+  .navbar-brand img {
     max-width: clamp(270px, 50vw, 417px);
   }
   .btn.btn-danger {
     font-weight: bold;
   }
 
-  .navbar-brand tw-py-0 {
+  .navbar-brand {
     display: flex;
     align-items: center;
   }
-
-  /* .anniversary_line {
-    position: relative;
-    padding: 0 0.5rem;
-    margin-left: 0.4rem;
-    margin-bottom: 0;
-  }
-  .anniversary_line:after {
-    content: "";
-    display: block;
-    height: 60%;
-    inset: 0 auto 0 0;
-    position: absolute;
-    background-color: #fff;
-    width: 1px;
-    margin: auto;
-  } */
 </style>

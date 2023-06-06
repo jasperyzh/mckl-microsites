@@ -162,43 +162,6 @@ declare module 'astro:content' {
   data: InferEntrySchema<"course">
 } & { render(): Render[".mdx"] },
 },
-"courses": {
-"effective-lesson-design-and-planning.md": {
-  id: "effective-lesson-design-and-planning.md",
-  slug: "effective-lesson-design-and-planning",
-  body: string,
-  collection: "courses",
-  data: any
-} & { render(): Render[".md"] },
-"embracing-autism-understanding-supporting-learners-with-autism.md": {
-  id: "embracing-autism-understanding-supporting-learners-with-autism.md",
-  slug: "embracing-autism-understanding-supporting-learners-with-autism",
-  body: string,
-  collection: "courses",
-  data: any
-} & { render(): Render[".md"] },
-"essential-strategies-to-teaching-learners-with-special-needs.md": {
-  id: "essential-strategies-to-teaching-learners-with-special-needs.md",
-  slug: "essential-strategies-to-teaching-learners-with-special-needs",
-  body: string,
-  collection: "courses",
-  data: any
-} & { render(): Render[".md"] },
-"fasa-towards-effective-assessment-in-teaching-and-learning.md": {
-  id: "fasa-towards-effective-assessment-in-teaching-and-learning.md",
-  slug: "fasa-towards-effective-assessment-in-teaching-and-learning",
-  body: string,
-  collection: "courses",
-  data: any
-} & { render(): Render[".md"] },
-"teaching-an-effective-active-learning-class-active-learning.md": {
-  id: "teaching-an-effective-active-learning-class-active-learning.md",
-  slug: "teaching-an-effective-active-learning-class-active-learning",
-  body: string,
-  collection: "courses",
-  data: any
-} & { render(): Render[".md"] },
-},
 
 	};
 
