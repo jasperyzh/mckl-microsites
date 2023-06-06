@@ -50,6 +50,9 @@ jobs:
               remote_path: '/home/mckledumy/public_html'
               sftpArgs: '-o ConnectTimeout=5'
 
+
+# - [ ] for sync actions - https://github.com/marketplace/actions/ftp-sftp-file-deployer
+
 #           server: 128.199.233.104
 #           username: mckledumy
 #           password: ${{ secrets.MCKL_FTP_PASSWORD }}
