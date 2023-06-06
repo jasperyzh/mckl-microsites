@@ -41,8 +41,8 @@ jobs:
       - name: Sync files to production server
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ftp.your-production-server.com
-          username: your_production_username
-          password: ${{ secrets.PRODUCTION_FTP_PASSWORD }}
-          server-dir: /public_html/production/
+          server: 128.199.233.104
+          username: mckledumy
+          password: ${{ secrets.MCKL_FTP_PASSWORD }}
+          server-dir: /home/mckledumy/public_html
           local-dir: dist/
