@@ -66,7 +66,7 @@ import SwiperTestimonial from "@components/SwiperTestimonial.vue";
 
 // programmes
 import * as cambridge_a_level_prepcal from "../../programmes/cambridge_a_level_prepcal.md";
-// import * as prepausmat from "../../programmes/prepausmat.md";
+import * as cambridge_a_level_prepcal_pg from "../../programmes/cambridge_a_level_prepcal_pg.md";
 
 import * as cambridge_a_level from "../../programmes/cambridge_a_level.md";
 import * as ausmat from "../../programmes/ausmat.md";
@@ -386,15 +386,15 @@ import Link from "@components/Link.astro";
               { title: "Professional Development" },
             ]}
           >
-            <!-- <div slot="content-0">
-              <CardProgramme content={cambridge_a_level_prepcal.frontmatter} />
-              
-            </div> -->
             <div slot="content-0">
+              <CardProgramme content={cambridge_a_level_prepcal.frontmatter} />
+              <CardProgramme content={cambridge_a_level_prepcal_pg.frontmatter} />
+            </div>
+            <div slot="content-1">
               <CardProgramme content={cambridge_a_level.frontmatter} />
               <CardProgramme content={ausmat.frontmatter} />
             </div>
-            <div slot="content-1">
+            <div slot="content-2">
               <CardProgramme content={adtp.frontmatter} />
               <CardProgramme content={dece.frontmatter} />
               <CardProgramme content={dsw.frontmatter} />
@@ -413,7 +413,7 @@ import Link from "@components/Link.astro";
               <CardProgramme content={ddm.frontmatter} />
               <CardProgramme content={dft.frontmatter} />
             </div>
-            <div slot="content-2">
+            <div slot="content-3">
               <CardProgramme content={acca_fia.frontmatter} />
               <CardProgramme content={acca.frontmatter} />
               <CardProgramme
@@ -436,7 +436,7 @@ import Link from "@components/Link.astro";
                 </ul>
               </CardProgramme>
             </div>
-            <div slot="content-3">
+            <div slot="content-4">
               <CardProgramme
                 content={cictl.frontmatter}
                 style="border-bottom: 0"

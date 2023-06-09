@@ -1,9 +1,9 @@
 ---
-title: Cambridge A Level Preparatory (PREPCAL) Programme
+title: Cambridge A Level Preparatory (PREPCAL) Plus Programme (KL Campus)
 category: preparatory-course
 code_kl:
 code_pg:
-intake: 7 Sept
-course_duration: 7 Weeks
+intake: 18 Sept
+course_duration:
 note:
 ---
