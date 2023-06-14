@@ -366,7 +366,7 @@ const props = defineProps({
           LEADCF7: {
             title: "Preparatory Programmes",
             options: {
-              PREPCAL: "Cambridge A Level Preparatory (PREPCAL) Plus Programme",
+              PREPCAL: "Cambridge A Level Preparatory (PREPCAL Plus) Programme",
               // "PREPAUSMAT": "PREPAUSMAT",
             },
           },

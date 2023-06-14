@@ -1,5 +1,7 @@
 ---
 const { content, style, compiledContent } = Astro.props;
+
+const intake = content.category == "preparatory-course" ? `Next Start Date: ${content.intake}` : `Intake: ${content.intake}`;
 ---
 
 <div class="card__programme" style={style}>
@@ -31,7 +33,8 @@ const { content, style, compiledContent } = Astro.props;
   {compiledContent && <div set:html={compiledContent} />}
 
   <p class="text-primary tw-text-sm tw-font-bold">
-    {content.intake && <span>Intake: {content.intake}</span>}
+    
+    {intake && <span>{intake}</span>}
     {
       content.course_duration && (
         <span class="badge bg-primary">

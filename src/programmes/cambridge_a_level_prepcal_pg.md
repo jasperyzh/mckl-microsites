@@ -1,5 +1,5 @@
 ---
-title: Cambridge A Level Preparatory (PREPCAL) Programme (Pykett Campus, Penang)
+title: Cambridge A Level Preparatory (PREPCAL) Programme<br>(Only available at Pykett Campus, Penang)
 category: preparatory-course
 code_kl:
 code_pg:
