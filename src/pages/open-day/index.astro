@@ -17,9 +17,9 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
 import SectionOpendayJuneEvent from "./_SectionOpendayJuneEvent.astro";
 
 // images
-const bg_mobile = "/images/bg/230626-openday-bg-mobile.jpg";
-const bg_laptop = "/images/bg/230626-openday-bg-mobile.jpg";
-const bg_desktop = "/images/bg/230626-openday-bg-desktop.jpg";
+const bg_mobile = "/images/bg/230628-openday-bg-mobile.jpg";
+const bg_laptop = "/images/bg/230628-openday-bg-mobile.jpg";
+const bg_desktop = "/images/bg/230628-openday-bg-desktop.jpg";
 
 import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
 import form_support from "@assets/open-day/form_support168337539_l.jpg";
@@ -315,6 +315,7 @@ import Link from "@components/Link.astro";
             gain an insight into your college life, bringing you closer to
             achieving your goals and future prospects.
           </p>
+          <img width="320" src="images/230628-openday-blurb.png" style="filter: drop-shadow(2px 4px 11px rgba(0,0,0,.2));" alt="Meet our Cambridge A Level (CAL) Senior Academic Team Last call July 2023 Intake">
         </div>
       </div>
     </div>
@@ -388,10 +389,22 @@ import Link from "@components/Link.astro";
           >
             <div slot="content-0">
               <CardProgramme content={cambridge_a_level_prepcal.frontmatter} />
-              <CardProgramme content={cambridge_a_level_prepcal_pg.frontmatter} />
+              <CardProgramme
+                content={cambridge_a_level_prepcal_pg.frontmatter}
+              />
             </div>
             <div slot="content-1">
-              <CardProgramme content={cambridge_a_level.frontmatter} />
+              <CardProgramme
+                content={cambridge_a_level.frontmatter}
+                style="position: relative"
+              >
+                <figure
+                  slot="beforeend"
+                  style="position: absolute; top: 0; right: 0;"
+                >
+                  <img width="160" src="images/230628-openday-blurb.png" style="filter: drop-shadow(2px 4px 11px rgba(0,0,0,.2));" alt="Meet our Cambridge A Level (CAL) Senior Academic Team Last call July 2023 Intake">
+                </figure>
+              </CardProgramme>
               <CardProgramme content={ausmat.frontmatter} />
             </div>
             <div slot="content-2">
