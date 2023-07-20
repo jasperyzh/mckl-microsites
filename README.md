@@ -19,16 +19,21 @@
 - http://stagingmckl.fishermen-analytics.com/business-programme/
 - http://stagingmckl.fishermen-analytics.com/short-courses/
 
-- http://localhost:3000/open-day/
-- http://localhost:3000/scholarship/
-- http://localhost:3000/social-work/
-- http://localhost:3000/acca/
-- http://localhost:3000/digital-programme/
-- http://localhost:3000/business-programme/
-- http://localhost:3000/short-courses/
-- http://localhost:3000/short-courses/free-courses
+- http://localhost:3001/open-day/
+- http://localhost:3001/scholarship/
+- http://localhost:3001/social-work/
+- http://localhost:3001/acca/
+- http://localhost:3001/digital-programme/
+- http://localhost:3001/business-programme/
+- http://localhost:3001/short-courses/
+- http://localhost:3001/short-courses/free-courses
 
 ## log
+230717 - new zoho setup for form data; after issue with the zoho' webform
+- [ ] Data Backup - formdata to send to both zohocrm and client's own googlesheet as backup
+- [ ] Automated Test Submissions - a test submission whenever microsites are updated
+- [x] Regular Audits - scheduled to send a leads report to relevant party
+
 230212
 - gh_actions Deploy /dist/ via FTP to stagingmckl.fishermen-analytics.com
 - added tailwindcss to dev
