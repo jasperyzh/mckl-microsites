@@ -401,7 +401,12 @@ import Link from "@components/Link.astro";
                   slot="beforeend"
                   style="position: absolute; top: 0; right: 0;"
                 >
-                  <img width="160" src="/images/230628-openday-blurb.png" style="filter: drop-shadow(2px 4px 11px rgba(0,0,0,.2));" alt="Meet our Cambridge A Level (CAL) Senior Academic Team Last call July 2023 Intake">
+                  <img
+                    width="160"
+                    src="/images/230628-openday-blurb.png"
+                    style="filter: drop-shadow(2px 4px 11px rgba(0,0,0,.2));"
+                    alt="Meet our Cambridge A Level (CAL) Senior Academic Team Last call July 2023 Intake"
+                  />
                 </figure>
               </CardProgramme>
               <CardProgramme content={ausmat.frontmatter} />
@@ -551,33 +556,4 @@ import Link from "@components/Link.astro";
 
   <Footer />
 
-  <script>
-    let test = {
-      controlsText: [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>',
-        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>',
-      ],
-    };
-  </script>
-  <style>
-    .scholarship2023__bg {
-      background-image: url("../../assets/bg/bg-scholarship-2209-scholarship.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  </style>
-
-  <script>
-    document.querySelector(
-      "#page > div.main > div.container.beforeShakeContent > p.beforeShakeContent-small"
-    ).inser`
-  <br> <a class="text-white text-underline" href="/whats-new/" style="
-      margin-top: 10px;
-      display: block;
-      text-decoration: underline;
-      color: #fff;
-  ">Untuk maklumat lanjut tentang peraduan, tekan sini</a>
-  `;
-  </script>
 </Layout>

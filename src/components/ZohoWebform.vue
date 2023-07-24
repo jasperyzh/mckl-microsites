@@ -252,16 +252,87 @@ const LOG_FORMDATA = false;
 const THE_FORM = ref("null");
 
 function onsubmit_form(e) {
-  if (DEBUG) e.preventDefault();
+  // if (DEBUG) e.preventDefault();
+
+
+  e.preventDefault();
+
+  // 1. Capture and modify form data
+  let formData = new FormData(e.target);
 
   // check formdata
   if (LOG_FORMDATA) {
-    const formData = new FormData(e.target);
+    // const formData = new FormData(e.target);
     const entries = formData.entries();
     for (var input of entries) {
       console.log(input[0] + ": " + input[1]);
     }
   }
+
+  // ... Modify formData as necessary ...
+  formData.set(
+    "xnQsjsdp",
+    "4d9f4e6fae5a20e0cd8c2a36a070b76984439065bac62cc4cea2c71c2a1d58fb"
+  );
+  formData.set("zc_gad", "");
+  formData.set("actionType", "TGVhZHM=");
+  formData.set(
+    "xmIwtLD",
+    "3df8513a44e8ee0dc6e36209ffd3db2439ef2cc150b37c8431e58c9fcba68bbe"
+  );
+  formData.set("returnURL", form_data.return_url);
+
+  formData.set("Last Name", form_data.last_name);
+  formData.set("Email", form_data.email);
+  formData.set("Mobile", String(form_data.mobile));
+
+  formData.set("LEADCF23", form_data.campus);
+  formData.set(
+    form_data.programme_interested_LEADCFID,
+    form_data.programme_interested
+  );
+  // LEADCF7 - "Preparatory Programmes"
+  // LEADCF20 - "Pre-University"
+  // LEADCF19 - "Diploma & Degree"
+  // LEADCF21 - "Professional Accounting"
+  // LEADCF22 - "Professional Development"
+  formData.set("LEADCF5", form_data.latest_academic_qualification);
+  formData.set("LEADCF10", form_data.microsite_interest);
+
+  formData.set("LEADCF11", form_data.remarks);
+  formData.set("LEADCF1", form_data.lead_source);
+  formData.set("LEADCF9", form_data.microsite_source);
+
+  formData.set("returnURL", form_data.return_url);
+
+
+  // 2. Submit a copy of the form data to Google Sheets
+
+  const web_app_url =
+    "https://script.google.com/macros/s/AKfycbwLXW-h7ZYEJPwqLSs_gMY_mrtTRYmNEbgX27WT7jFMOhSHWytgVLvMoHPv6AZgRwGN0w/exec";
+
+  var url = web_app_url;
+
+  var data = Object.fromEntries(formData);
+
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.error("Error:", error);
+    });
+
+  // 3. Submit the form to Zoho CRM
+  e.target.submit();
 }
 
 onMounted(() => {
