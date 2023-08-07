@@ -14,12 +14,13 @@ const return_url = `https://mckl.edu.my/${microsite_source}/thank-you`;
 const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
   Astro.props;
 
-import SectionOpendayJuneEvent from "./_SectionOpendayJuneEvent.astro";
+// import SectionOpendayJuneEvent from "./_SectionOpendayJuneEvent.astro";
+import SectionOpendayAugustEvent from "./_SectionOpendayAugustEvent.astro";
 
 // images
-const bg_mobile = "/images/bg/230727-openday-bg-mobile.jpg";
-const bg_laptop = "/images/bg/230727-openday-bg-mobile.jpg";
-const bg_desktop = "/images/bg/230727-openday-bg-desktop.jpg";
+const bg_mobile = "/images/bg/230807-openday-bg-mobile.jpg";
+const bg_laptop = "/images/bg/230807-openday-bg-mobile.jpg";
+const bg_desktop = "/images/bg/230807-openday-bg-desktop.jpg";
 
 import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
 import form_support from "@assets/open-day/form_support168337539_l.jpg";
@@ -363,6 +364,7 @@ import Link from "@components/Link.astro";
   <SectionPartners />
 
   <!-- <SectionOpendayJuneEvent /> -->
+  <SectionOpendayAugustEvent />
 
   <!-- programmes-offered -->
   <section id="programmes" class="py-5">
@@ -397,7 +399,7 @@ import Link from "@components/Link.astro";
                 content={cambridge_a_level.frontmatter}
                 style="position: relative"
               >
-                <figure
+                <!-- <figure
                   slot="beforeend"
                   style="position: absolute; top: 0; right: 0;"
                 >
@@ -407,7 +409,7 @@ import Link from "@components/Link.astro";
                     style="filter: drop-shadow(2px 4px 11px rgba(0,0,0,.2));"
                     alt="Meet our Cambridge A Level (CAL) Senior Academic Team Last call July 2023 Intake"
                   />
-                </figure>
+                </figure> -->
               </CardProgramme>
               <CardProgramme content={ausmat.frontmatter} />
             </div>
@@ -535,13 +537,18 @@ import Link from "@components/Link.astro";
         <li>
           Top Up 1 year to complete your degree in Ireland & United Kingdom*
         </li>
-        <li>100% Merit Scholarship Available*</li>
-        <li>50% Tuition Fee Waiver*</li>
-        <li>RM500 Rebate Voucher*</li>
-        <li>Scholarships & Financial Aid*</li>
-        <li>Internship & Career Opportunities</li>
-        <li>Personalised Counselling</li>
-        <li>Campus Tour</li>
+        <li>50% Special Bursary for Diplomas*</li>
+        <li>100% MCKL Merit Scholarship*</li>
+        <li>Personalised consultation with university placement specialist</li>
+        <li>Complimentary Career Test (KL Campus)</li>
+        <li>Other scholarships and financial aids available</li>
+        <!-- <li>100% Merit Scholarship Available*</li> -->
+        <!-- <li>50% Tuition Fee Waiver*</li> -->
+        <!-- <li>RM500 Rebate Voucher*</li> -->
+        <!-- <li>Scholarships & Financial Aid*</li> -->
+        <!-- <li>Internship & Career Opportunities</li> -->
+        <!-- <li>Personalised Counselling</li> -->
+        <!-- <li>Campus Tour</li> -->
         <li class="list-unstyled">
           <small>*Terms & Conditions apply.</small>
         </li>
