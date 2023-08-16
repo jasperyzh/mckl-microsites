@@ -254,7 +254,6 @@ const THE_FORM = ref("null");
 function onsubmit_form(e) {
   // if (DEBUG) e.preventDefault();
 
-
   e.preventDefault();
 
   // 1. Capture and modify form data
@@ -304,7 +303,6 @@ function onsubmit_form(e) {
   formData.set("LEADCF9", form_data.microsite_source);
 
   formData.set("returnURL", form_data.return_url);
-
 
   // 2. Submit a copy of the form data to Google Sheets
 
@@ -491,6 +489,22 @@ const props = defineProps({
                 "FA-SA: Formative Assessment and Summative Assessment",
               "Teaching an Effective Active Learning Class&#x3a; Active Learning&#x3a; Getting active with 21st Century Learners":
                 "Teaching an Effective Active Learning Class",
+              "Micro-credentials in Programming with Python":
+                "Micro-credentials in Jumpstart Programming with Python",
+              "Micro-credentials in Fundamentals of Innovation and Entrepreneurship":
+                "Micro-credentials in Fundamentals of Innovation and Entrepreneurship",
+              "Micro-credentials in Information System":
+                "Micro-credentials in Information System",
+              "Micro-credentials in Creative Expressions through Music and Movement":
+                "Micro-credentials in Creative Expressions through Music and Movement",
+              "Micro-credentials in Play in Early Childhood Education":
+                "Micro-credentials in Play in Early Childhood Education",
+              "Micro-credentials in Drug and Alcohol Addiction":
+                "Micro-credentials in Drug and Alcohol Addiction",
+              "Micro-credentials in Introduction to Professional Social Work":
+                "Micro-credentials in Introduction to Professional Social Work",
+              "Micro-credentials in Working with Domestic Violence Concerns":
+                "Micro-credentials in Working with Domestic Violence Concerns",
               "Micro-Credentials in Social Work":
                 "Micro-credentials in Social Work",
               "Micro-Credentials in Early Childhood Education":
