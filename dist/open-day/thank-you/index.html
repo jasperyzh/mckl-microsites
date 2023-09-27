@@ -561,7 +561,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
       </div>
       <div class="row justify-content-center astro-FXVQCVDD">
         <div class="col-md-10 astro-FXVQCVDD">
-          <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="1aUp0b" component-url="/_astro/BsAccordion.a852bf96.js" component-export="default" renderer-url="/_astro/client.5711806e.js" props="{&quot;show_first&quot;:[0,true],&quot;accordion_id&quot;:[0,&quot;programme&quot;],&quot;accordion_items&quot;:[1,&quot;[[0,{\&quot;title\&quot;:[0,\&quot;Preparatory Course\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Pre-University\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Undergraduate Programme\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Professional Accounting\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Professional Development\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-FXVQCVDD&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;BsAccordion&quot;,&quot;value&quot;:true}" await-children=""><div class="accordion astro-FXVQCVDD" id="programme"><!--[--><div class="accordion-item"><h2 class="accordion-header" id="`${accordion_id}-${index}`"><button class="accordion-button fw-bold fs-5 m-0 false" type="button" data-bs-toggle="collapse" data-bs-target="#programme-collapse0" aria-expanded="true" aria-controls="programme-collapse0">Preparatory Course</button></h2><div id="programme-collapse0" class="accordion-collapse collapse show" aria-labelledby="programme-0" data-bs-parent="#programme"><div class="accordion-body"><!--[--><astro-slot name="content-0"><div class="astro-FXVQCVDD">
+          <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="1OO2Wo" component-url="/_astro/BsAccordion.a852bf96.js" component-export="default" renderer-url="/_astro/client.5711806e.js" props="{&quot;show_first&quot;:[0,true],&quot;accordion_id&quot;:[0,&quot;programme&quot;],&quot;accordion_items&quot;:[1,&quot;[[0,{\&quot;title\&quot;:[0,\&quot;Preparatory Course\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Pre-University\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Undergraduate Programme\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Professional Accounting\&quot;]}],[0,{\&quot;title\&quot;:[0,\&quot;Professional Development\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-FXVQCVDD&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;BsAccordion&quot;,&quot;value&quot;:true}" await-children=""><div class="accordion astro-FXVQCVDD" id="programme"><!--[--><div class="accordion-item"><h2 class="accordion-header" id="`${accordion_id}-${index}`"><button class="accordion-button fw-bold fs-5 m-0 false" type="button" data-bs-toggle="collapse" data-bs-target="#programme-collapse0" aria-expanded="true" aria-controls="programme-collapse0">Preparatory Course</button></h2><div id="programme-collapse0" class="accordion-collapse collapse show" aria-labelledby="programme-0" data-bs-parent="#programme"><div class="accordion-body"><!--[--><astro-slot name="content-0"><div class="astro-FXVQCVDD">
               <div class="card__programme astro-YC3ATFLR">
   <h4 class="astro-YC3ATFLR">
     <span class="astro-YC3ATFLR">Cambridge A Level Preparatory (PREPCAL PLUS) Programme<br>(Only available at KL Campus)</span>
@@ -632,7 +632,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 10 Jul</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan &amp; 15 Jul</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -660,7 +660,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 19 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -687,7 +687,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 26 May &amp; 18 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 31 May &amp; 19 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -715,7 +715,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -741,7 +741,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 25 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 30 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -770,7 +770,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
 <!-- <p>Top Up 1 Year to complete your degree in Australia <small>(T&C apply)</small></p> --></div>
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -799,7 +799,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
 <!-- <p>Top Up 1 Year to complete your degree in Australia <small>(T&C apply)</small></p> --></div>
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -827,7 +827,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   <div class="astro-YC3ATFLR"><!-- <p>Top Up 1 Year to complete your degree in United Kingdom <small>(T&C apply)</small></p> --></div>
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -855,7 +855,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -881,7 +881,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 15 Jun &amp; 24 Aug</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -908,7 +908,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 10 Jul</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan &amp; 19 Jul</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
@@ -934,7 +934,7 @@ document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
   
 
   <p class="text-primary tw-text-sm tw-font-bold astro-YC3ATFLR">
-    <span class="astro-YC3ATFLR">Intake: 10 Jul</span>
+    <span class="astro-YC3ATFLR">Intake: 19 Jan, 14 Jun &amp; 23 Aug</span>
     
   </p>
   <!-- {content.intake && <p class="intake">Intake: {content.intake}</p>} -->
