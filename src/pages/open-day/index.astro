@@ -16,11 +16,12 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
 
 // import SectionOpendayJuneEvent from "./_SectionOpendayJuneEvent.astro";
 // import SectionOpendayAugustEvent from "./_SectionOpendayAugustEvent.astro";
+import SectionOpendayDecemberEvent from "./_SectionOpendayDecemberEvent.astro";
 
 // images
-const bg_mobile = "/images/bg/231128-openday-bg-mobile.jpg";
-const bg_laptop = "/images/bg/231128-openday-bg-mobile.jpg";
-const bg_desktop = "/images/bg/231128-openday-bg-desktop.jpg";
+const bg_mobile = "/images/bg/231129-openday-bg-mobile.jpg";
+const bg_laptop = "/images/bg/231129-openday-bg-mobile.jpg";
+const bg_desktop = "/images/bg/231129-openday-bg-desktop.jpg";
 
 import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
 import form_support from "@assets/open-day/form_support168337539_l.jpg";
@@ -308,9 +309,14 @@ import Link from "@components/Link.astro";
         <div class="col-md-10">
           <img
             width="420"
+            src="/images/aspire_excel.png"
+            alt="Aspire to Excel"
+          />
+          <!-- <img
+            width="420"
             src={tagline_believe_aspire_excel}
             alt="Believe. Aspire. Excel."
-          />
+          /> -->
           <h2>We believe in your dreams.</h2>
           <p>
             At MCKL's Open Day, you can discover our programmes and campuses and
@@ -362,10 +368,29 @@ import Link from "@components/Link.astro";
     </section>
   </SectionAboutmckl>
 
-  <SectionPartners />
 
   <!-- <SectionOpendayJuneEvent /> -->
   <!-- <SectionOpendayAugustEvent /> -->
+  <SectionOpendayDecemberEvent />
+
+
+  <section id="achiver" class="text-center my-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col">
+          <h3 class="mb-4">MCKL’s High Achievers</h3>
+        </div>
+      </div>
+      <div class="row justify-content-center row-cols-1 row-cols-lg-2">
+        <div class="col">
+          <img src="/images/thumbnail/231129-CAIE_OCLA-a.jpg">
+        </div>
+        <div class="col">
+          <img src="/images/thumbnail/231129-CAIE_OCLA-b.jpg">
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- programmes-offered -->
   <section id="programmes" class="py-5">
@@ -382,20 +407,20 @@ import Link from "@components/Link.astro";
             show_first={true}
             accordion_id="programme"
             accordion_items={[
-              { title: "Preparatory Course" },
+              // { title: "Preparatory Course" },
               { title: "Pre-University" },
               { title: "Undergraduate Programme" },
               { title: "Professional Accounting" },
               { title: "Professional Development" },
             ]}
           >
-            <div slot="content-0">
+            <!-- <div slot="content-0">
               <CardProgramme content={cambridge_a_level_prepcal.frontmatter} />
               <CardProgramme
                 content={cambridge_a_level_prepcal_pg.frontmatter}
               />
-            </div>
-            <div slot="content-1">
+            </div> -->
+            <div slot="content-0">
               <CardProgramme
                 content={cambridge_a_level.frontmatter}
                 style="position: relative"
@@ -414,7 +439,7 @@ import Link from "@components/Link.astro";
               </CardProgramme>
               <CardProgramme content={ausmat.frontmatter} />
             </div>
-            <div slot="content-2">
+            <div slot="content-1">
               <CardProgramme content={adtp.frontmatter} />
               <CardProgramme content={dece.frontmatter} />
               <CardProgramme content={dsw.frontmatter} />
@@ -433,7 +458,7 @@ import Link from "@components/Link.astro";
               <CardProgramme content={ddm.frontmatter} />
               <CardProgramme content={dft.frontmatter} />
             </div>
-            <div slot="content-3">
+            <div slot="content-2">
               <CardProgramme content={acca_fia.frontmatter} />
               <CardProgramme content={acca.frontmatter} />
               <CardProgramme
@@ -456,7 +481,7 @@ import Link from "@components/Link.astro";
                 </ul>
               </CardProgramme>
             </div>
-            <div slot="content-4">
+            <div slot="content-3">
               <CardProgramme
                 content={cictl.frontmatter}
                 style="border-bottom: 0"
@@ -512,6 +537,8 @@ import Link from "@components/Link.astro";
     </div>
   </section>
 
+  <SectionPartners />
+
   <!-- testimonial -->
   <section id="testimonial" class="my-5">
     <div class="container-lg">
@@ -537,6 +564,7 @@ import Link from "@components/Link.astro";
       <ul>
         <li>Top Up 1 Year to complete your degree in Ireland & United Kingdom*</li>
         <!-- <li>Sign up now for January 2024 intake and enjoy 2023 tuition fees (by 30<sup>th</sup> Nov 2023)</li> -->
+        <li>Up to 50% Special Bursary for Diplomas*</li>
         <li>100% MCKL Merit Scholarship*</li>
         <li>RM500 Rebate Voucher*</li>
         <li>Personalised consultation available</li>
