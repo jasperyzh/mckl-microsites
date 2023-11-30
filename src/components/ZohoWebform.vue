@@ -432,13 +432,13 @@ const props = defineProps({
       return {
         kl: {
           // 220620 - options pulled from zoho-webform
-          LEADCF7: {
+          /* LEADCF7: {
             title: "Preparatory Programmes",
             options: {
               PREPCAL: "Cambridge A Level Preparatory (PREPCAL Plus) Programme",
               // "PREPAUSMAT": "PREPAUSMAT",
             },
-          },
+          }, */
           LEADCF20: {
             title: "Pre-University",
             options: {
@@ -523,13 +523,13 @@ const props = defineProps({
           },
         },
         penang: {
-          LEADCF7: {
+          /* LEADCF7: {
             title: "Preparatory Programmes",
             options: {
               PREPCAL: "Cambridge A Level Preparatory (PREPCAL) Programme",
               // "PREPAUSMAT": "PREPAUSMAT",
             },
-          },
+          }, */
           LEADCF20: {
             title: "Pre-University",
             options: {
