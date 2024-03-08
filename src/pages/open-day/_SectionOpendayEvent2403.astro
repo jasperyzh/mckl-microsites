@@ -1,0 +1,373 @@
+---
+import EventCard from "../../components/EventCard.astro";
+
+const march_events = [
+  {
+    date: "240309",
+    campus: "Penang Campus",
+    type: "Talk",
+    thumbnail_path: "/images/2403-event-thumbnail/Jan 2024 events & webinar copy_page-0001.jpg",
+    title: "Study in Germany – What does it really cost",
+    time: "10.30AM – 11.30AM (1 Hour)",
+    // registerUrl: "",
+    hrefUrl:
+      "https://www.germaneducare.edu.my/study-in-germany-sharing-session/",
+  },
+  {
+    date: "240316",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/KL Guten Tag! Workshop 16 March.png",
+    title: "German Educare Workshop: Guten Tag! A German Exploration Workshop",
+    time: "10AM – 2PM (4 Hours)",
+    // registerUrl: "",
+    hrefUrl: "https://gutentagklgermanworkshop.peatix.com/",
+  },
+  {
+    date: "240316",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/ADTP job opportunities v2 KL web_Thumbnail 200x200.jpg",
+    title:
+      "ADTP Workshop: How to Enhance your Profile for American Job Opportunities",
+    time: "1PM – 3PM (2 Hours)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUQzhFUDNKQTBTMDZSMEdSSVJBSTZHSTJSUS4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240316",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/ACCA power BI v1 KL web_Thumbnail 200x200.jpg",
+    title:
+      "Power BI for Accountants: Transforming Data into Financial Insights",
+    time: "1PM – 3PM (2 Hours)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUMFUyUUsxN00wMjBDMUdZWlg0M0ZQT1M0MC4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240316",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/ECE robotics v1 KL web_Thumbnail 200x200.jpg",
+    title:
+      "Innovate and Educate: Pioneering the Future of Early Childhood Education through Robotics",
+    time: "10AM – 11AM (1 Hour)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUQzlKRk44M0RJVUpaNlpGOVBRVDczQkQ3OS4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240316",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/DSW orang asli v1 KL web_Thumbnail 200x200.jpg",
+    title:
+      "Celebrating Diversity: Honouring Orang Asli in Malaysia on World Social Work Day",
+    time: "10AM – 12PM (2 Hours)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUODRUWDgyM1IyUVRGV0ZTSkRNVTMxV0RZUS4u",
+    // hrefUrl: ""
+  },
+  // penang
+  {
+    date: "240316",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Maths v1 PG web_Thumbnail 200x200.jpg",
+    title: "Pre-U Workshop: Unleash the Mathematician in You!",
+    time: "9AM – 10.30AM (1.5 Hours)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUMTFPWlU1UVk0RUxSR0dZNDhGMzUyUFpJTy4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240316",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/ECE Play v1 PG web_Thumbnail 200x200.jpg",
+    title:
+      "Early Childhood Education Workshop: From Scratch to Play: A Journey into Early Childhood Education",
+    time: "10AM – 11AM (1 Hour)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUNFY5T1AzNjcwUU1aSUNBNFhWUFlSTVpHWi4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240316",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Stress Free v1 PG web_Thumbnail 200x200.jpg",
+    title:
+      "General Workshop: Navigating the Academic Journey: Strategies for a Stress-Free Higher Education",
+    time: "2PM – 3PM (1 Hour)",
+    registerUrl:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBURDZMU0VHQkNKTEZIQ01BSjRSMFQxS0lNUC4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240316",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Jan 2024 events & webinar_page-0001.jpg",
+    title: "German Educare Workshop: Guten Tag! A German Exploration Workshop",
+    time: "9AM – 3PM (6 Hours)",
+    // registerUrl: "",
+    hrefUrl: "https://gutentagpykettgermanworkshop.peatix.com/",
+  },
+  {
+    date: "240323",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Financial Planning v1 KL web_Thumbnail 200x200.jpg",
+    title: "Financial Planning Workshop",
+    time: "10AM – 12PM (2 Hours)",
+    registerUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBURFJJUVVXWUtLTUs4TE5UV1NVTDJDOU85VS4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240323",
+    campus: "KL Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Arduino v1 KL web_Thumbnail 200x200.jpg",
+    title: "Build The Future: Arduino-Powered Smart Home Security Workshop",
+    time: "1PM – 4PM (3 Hours)",
+    registerUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBURjQ2T05VTTE2MTQ0U1U0SjBGWllVV0pYQi4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240323",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Computer vision v1 PG web_Thumbnail 200x200.jpg",
+    title: "Computer Vision and Artificial Intelligence (AI) Workshop",
+    time: "9AM – 10.30AM (1.5 Hours)",
+    registerUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBURFdOQ0RUNlhNNFZHRzI2S0wyOFJJU1kwQy4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240323",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Physics v1 PG web_Thumbnail 200x200.jpg",
+    title: "Get Your Physics on with the Motion Master",
+    time: "2PM– 3PM (1 Hour)",
+    registerUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUMllOMEs2SlRSVFpVS1k4VEVUSlVFWEZZRC4u",
+    // hrefUrl: ""
+  },
+  {
+    date: "240323",
+    campus: "Penang Campus",
+    type: "Workshop",
+    thumbnail_path: "/images/2403-event-thumbnail/Digital business v1 PG web_Thumbnail 200x200.jpg",
+    title: "The Digital Career",
+    time: "10.30AM – 11.30AM (1 Hour)",
+    registerUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUQlBLVkpLSlA5NzBHNVMwMFhSWDJEQ0ZWNi4u&embed=true",
+    // hrefUrl: ""
+  },
+  {
+    date: "240323",
+    campus: "Penang Campus",
+    type: "Talk",
+    thumbnail_path: "/images/2403-event-thumbnail/Economics v2 PG web_Thumbnail 200x200.jpg",
+    title: "Economics: Where will this take me?",
+    time: "9.30AM– 10.30AM (1 Hour)",
+    registerUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=Av12b9hpQEKD_MC8aRM5wnPRd_nYSnNBnZSRrEhUicBUMExVVktYWjhEQkcwUzdXSVRRTTZQMFdBQS4u&embed=true",
+    // hrefUrl: ""
+  },
+];
+---
+
+<section class="my-5">
+  <div class="container">
+    <div class="row mx-auto">
+      <h2 class="mb-5 tw-text-center">Event Highlights</h2>
+      <h3>9 March 2024 (Sat)</h3>
+
+      <div class="row">
+        <div class="col-xl-6">
+          {
+            march_events.map((event, index) => {
+              if (event.date === "240309") {
+                return (
+                  <EventCard
+                    key={`${event.date}-${index}`}
+                    campus={event.campus}
+                    type={event.type}
+                    title={event.title}
+                    thumbnail_path={event.thumbnail_path}
+                    time={event.time}
+                    registerUrl={event.registerUrl}
+                    hrefUrl={event.hrefUrl}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+      </div>
+
+      <h3>16 March 2024 (Sat)</h3>
+      <div class="row">
+        <div class="col-xl-6">
+          {
+            march_events.map((event, index) => {
+              if (event.date === "240316" && event.campus === "KL Campus") {
+                return (
+                  <EventCard
+                    key={`${event.date}-${index}`}
+                    campus={event.campus}
+                    type={event.type}
+                    title={event.title}
+                    thumbnail_path={event.thumbnail_path}
+                    time={event.time}
+                    registerUrl={event.registerUrl}
+                    hrefUrl={event.hrefUrl}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+        <div class="col">
+          {
+            march_events.map((event, index) => {
+              if (event.date === "240316" && event.campus === "Penang Campus") {
+                return (
+                  <EventCard
+                    key={`${event.date}-${index}`}
+                    campus={event.campus}
+                    type={event.type}
+                    title={event.title}
+                    thumbnail_path={event.thumbnail_path}
+                    time={event.time}
+                    registerUrl={event.registerUrl}
+                    hrefUrl={event.hrefUrl}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+      </div>
+
+      <h3>23 March 2024 (Sat)</h3>
+      <div class="row">
+        <div class="col-xl-6">
+          {
+            march_events.map((event, index) => {
+              if (event.date === "240323" && event.campus === "KL Campus") {
+                return (
+                  <EventCard
+                    key={`${event.date}-${index}`}
+                    campus={event.campus}
+                    type={event.type}
+                    title={event.title}
+                    thumbnail_path={event.thumbnail_path}
+                    time={event.time}
+                    registerUrl={event.registerUrl}
+                    hrefUrl={event.hrefUrl}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+        <div class="col">
+          {
+            march_events.map((event, index) => {
+              if (event.date === "240323" && event.campus === "Penang Campus") {
+                return (
+                  <EventCard
+                    key={`${event.date}-${index}`}
+                    campus={event.campus}
+                    type={event.type}
+                    title={event.title}
+                    thumbnail_path={event.thumbnail_path}
+                    time={event.time}
+                    registerUrl={event.registerUrl}
+                    hrefUrl={event.hrefUrl}
+                  />
+                );
+              }
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="formModal"
+  tabindex="-1"
+  aria-labelledby="formModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="min-height: 600px;">
+        <!-- Google Form Embed -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+          >Close</button
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('[data-bs-toggle="modal"]').forEach((item) => {
+    item.addEventListener("click", (event) => {
+      // Get the form URL from the data-formUrl attribute of the clicked button
+      var formUrl = event.currentTarget.getAttribute("data-formUrl");
+
+      // Create the iframe element
+      var iframe = document.createElement("iframe");
+      iframe.src = formUrl;
+      iframe.width = "100%";
+      iframe.height = "800px";
+      iframe.frameBorder = "0";
+      iframe.style.border = "none";
+      iframe.style.maxWidth = "100%";
+      iframe.style.maxHeight = "100vh";
+      iframe.allowFullscreen = true;
+
+      // Get the modal body
+      var modalBody = document.querySelector("#formModal .modal-body");
+
+      // Remove any existing iframe from the modal body
+      while (modalBody.firstChild) {
+        modalBody.firstChild.remove();
+      }
+
+      // Append the new iframe to the modal body
+      modalBody.appendChild(iframe);
+    });
+  });
+</script>
+<style>
+  .badge {
+    margin-right: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .badge.bg-primary {
+    font-size: 1rem;
+  }
+  span.badge.bg-primary.penang {
+    background-color: #0e53aa !important;
+  }
+</style>
