@@ -1,0 +1,77 @@
+---
+// insert card easier for EventHighlight
+
+// images
+// campus: kl, penang
+
+const {
+  thumbnail_path = "/logo/logo-mckl.svg",
+  title = "Trading Simulation Game: Basics of Trading Forex and More",
+  time = "10AM – 12PM (2 hours)​",
+  campus = "KL Campus",
+  type = "Talk",
+  hrefUrl,
+  registerUrl,
+} = Astro.props;
+---
+
+<article class="card mb-3">
+  <div class="row g-0">
+    <div class="col-sm-3">
+      <!-- thumbnail -->
+      <img src={thumbnail_path} />
+    </div>
+    <div class="col-sm-9">
+      <div class="card-body">
+        <span class="badge bg-primary">{campus}</span>
+        <span class="badge bg-secondary">{type}</span>
+        <h5 class="card-title">{title}</h5>
+        <p class="card-text">Time: {time}</p>
+
+        <!-- iframe, popup, registration form -->
+        {
+          registerUrl && (
+            <a
+              data-bs-toggle="modal"
+              data-bs-target="#formModal"
+              data-formUrl={registerUrl}
+              class="btn btn-primary btn-sm"
+            >
+              Register Here
+            </a>
+          )
+        }
+
+        <!-- just href -->
+        {
+          hrefUrl && (
+            <a href={hrefUrl} target="_blank" class="btn btn-primary btn-sm">
+              Register Here
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</article>
+<style>
+  .card > .row > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .card img {
+    display: block;
+    margin: auto;
+  }
+
+  @media screen and (min-width: 1320px) {
+    .card {
+      max-width: 620px;
+      min-height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>

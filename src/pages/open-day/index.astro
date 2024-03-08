@@ -16,12 +16,19 @@ const { homepage_path = `/${microsite_source}`, is_thank_you = false } =
 
 // import SectionOpendayJuneEvent from "./_SectionOpendayJuneEvent.astro";
 // import SectionOpendayAugustEvent from "./_SectionOpendayAugustEvent.astro";
-import SectionOpendayDecemberEvent from "./_SectionOpendayDecemberEvent.astro";
+// import SectionOpendayDecemberEvent from "./_SectionOpendayDecemberEvent.astro";
+import SectionOpendayEvent2403 from "./_SectionOpendayEvent2403.astro";
 
 // images
+<<<<<<< HEAD
 const bg_mobile = "/images/bg/231221-openday-bg-mobile.jpg";
 const bg_laptop = "/images/bg/231221-openday-bg-mobile.jpg";
 const bg_desktop = "/images/bg/231221-openday-bg-desktop.jpg";
+=======
+const bg_mobile = "/images/bg/240308-openday-bg-mobile.jpg";
+const bg_laptop = "/images/bg/240308-openday-bg-mobile.jpg";
+const bg_desktop = "/images/bg/240308-openday-bg-desktop.jpg";
+>>>>>>> 11ad822 (240308-openday; event highlights for march 2024)
 
 import tagline_believe_aspire_excel from "@assets/general/tagline-believe_aspire_excel.png";
 import form_support from "@assets/open-day/form_support168337539_l.jpg";
@@ -94,10 +101,8 @@ import * as education_management from "../../programmes/education_management.md"
 import * as teaching_learning from "../../programmes/teaching_learning.md";
 
 const card_icons = [
- 
   {
-    title:
-      "<span>Up to 100% Merit Scholarship*<br /><small><i>On-The-Spot Confirmation</i></small></span>",
+    title: "<span>Up to 100% Merit Scholarship*<br /></span>",
     img_src: icon_merit,
   },
   // {
@@ -368,11 +373,14 @@ import Link from "@components/Link.astro";
     </section>
   </SectionAboutmckl>
 
-
   <!-- <SectionOpendayJuneEvent /> -->
   <!-- <SectionOpendayAugustEvent /> -->
   <!-- <SectionOpendayDecemberEvent /> -->
+<<<<<<< HEAD
 
+=======
+  <SectionOpendayEvent2403 />
+>>>>>>> 11ad822 (240308-openday; event highlights for march 2024)
 
   <section id="achiver" class="text-center my-5">
     <div class="container">
@@ -383,10 +391,10 @@ import Link from "@components/Link.astro";
       </div>
       <div class="row justify-content-center row-cols-1 row-cols-lg-2">
         <div class="col">
-          <img src="/images/thumbnail/231129-CAIE_OCLA-a.jpg">
+          <img src="/images/thumbnail/231129-CAIE_OCLA-a.jpg" />
         </div>
         <div class="col">
-          <img src="/images/thumbnail/231129-CAIE_OCLA-b.jpg">
+          <img src="/images/thumbnail/231129-CAIE_OCLA-b.jpg" />
         </div>
       </div>
     </div>
@@ -562,6 +570,7 @@ import Link from "@components/Link.astro";
       <h2 class="h4">Enquire for personal education advice</h2>
       <p>Explore the right education programme that best fits you.</p>
       <ul>
+<<<<<<< HEAD
         <li>Top Up 1 Year to complete your degree in Ireland & United Kingdom*</li>
         <li>Up to 100% MCKL Merit Scholarship*</li>
         <li>Up to 50% Special Bursary for selected Diplomas*</li>
@@ -570,6 +579,32 @@ import Link from "@components/Link.astro";
         <li>Other scholarships and financial aids available</li>
         <li class="list-unstyled">
           <small>*Terms & Conditions apply</small>
+=======
+        <li>Up to 100% MCKL Merit Scholarship*</li>
+        <li>Up to 50% Special Bursary for selected Diplomas*</li>
+        <li>Up to RM5,000 Tuition Fee Waiver for Pre-U Programmes**</li>
+        <li>RM500 Rebate Voucher*</li>
+        <li>Scholarship, financial aids & PTPTN loan available*</li>
+        <!-- <li>Top Up 1 Year to complete your degree in Ireland & United Kingdom*</li> -->
+        <!-- <li>Sign up now for January 2024 intake and enjoy 2023 tuition fees (by 30<sup>th</sup> Nov 2023)</li> -->
+        <!-- <li>Up to 50% Special Bursary for Diplomas*</li>
+        <li>100% MCKL Merit Scholarship*</li>
+        <li>RM500 Rebate Voucher*</li>
+        <li>Personalised consultation available</li>
+        <li>Other scholarships and financial aids available</li> -->
+        <!-- <li>Personalised consultation with university placement specialist</li> -->
+        <!-- <li>Complimentary Career Test (KL Campus)</li> -->
+        <!-- <li>50% Special Bursary for Diplomas*</li> -->
+        <!-- <li>100% Merit Scholarship Available*</li> -->
+        <!-- <li>50% Tuition Fee Waiver*</li> -->
+        <!-- <li>Scholarships & Financial Aid*</li> -->
+        <!-- <li>Internship & Career Opportunities</li> -->
+        <!-- <li>Personalised Counselling</li> -->
+        <!-- <li>Campus Tour</li> -->
+        <li class="list-unstyled">
+          <small>*Terms & Conditions apply.</small>
+          <br />
+>>>>>>> 11ad822 (240308-openday; event highlights for march 2024)
           <small>**Exclusive for MCKL Pykett Campus ONLY</small>
         </li>
       </ul>
@@ -582,5 +617,4 @@ import Link from "@components/Link.astro";
   </SectionRegistration>
 
   <Footer />
-
 </Layout>
