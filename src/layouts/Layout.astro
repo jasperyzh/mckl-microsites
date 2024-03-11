@@ -20,6 +20,7 @@ const {
   toast_href = "/scholarship",
   toast_hide = false,
   toast_hide_on_thank_you_page = Astro.url.pathname.includes("thank-you"),
+  toast_disable = true,
 } = Astro.props;
 ---
 
@@ -68,7 +69,7 @@ const {
     <div class="site-container">
       <slot />
       {
-        !toast_hide && toast_img_src && !toast_hide_on_thank_you_page && (
+        !toast_disable && !toast_hide && toast_img_src && !toast_hide_on_thank_you_page && (
           <ToastAnnouncement {toast_img_src} {toast_href} />
         )
       }

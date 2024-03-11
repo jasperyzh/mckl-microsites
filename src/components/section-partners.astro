@@ -12,8 +12,15 @@ import vi from "@assets/partners/idp-vi.png";
 import p10 from "@assets/partners/partner-p10.png";
 import prosple from "@assets/partners/partner-prosple.png";
 import qoala from "@assets/partners/partner-qoala.png";
+import accio from "@assets/partners/partner-accio.png";
+import redtone from "@assets/partners/partner-redtone.png";
 
 const partners = [
+  {
+    name: "accio",
+    link: "",
+    img_src: accio,
+  },
   {
     name: "agilent",
     link: "https://www.agilent.com/?gclid=Cj0KCQjw--GFBhDeARIsACH_kday-aFl0Ilb9Aq1skRrLLrO4Z7FvA7GP0qn4bnQxXxE1767Hagilentj-Fh1gaAktiEALw_wcB&gclsrc=aw.ds",
@@ -65,6 +72,11 @@ const partners = [
     img_src: qoala,
   },
   {
+    name: "redtone",
+    link: "",
+    img_src: redtone,
+  },
+  {
     name: "quandatics",
     link: "https://academy.quandatics.com/",
     img_src: quandatics,
@@ -94,21 +106,25 @@ const partners = [
           Programme (ICP), students are given the opportunity to take on
           real-world projects which enable them to gain valuable insights and
           working experience in the digital business, marketing and financial
-          technology industry. Students will also obtain digital literacy, specialised
-          knowledge and work skills to be future-ready for Industrial Revolution
-          4.0.
+          technology industry. Students will also obtain digital literacy,
+          specialised knowledge and work skills to be future-ready for
+          Industrial Revolution 4.0.
         </p>
       </div>
     </div>
     <div
-      class="row justify-content-around row-cols-2 row-cols-sm-3 row-cols-lg-5"
+      class="row justify-content-around row-cols-2 row-cols-sm-3 row-cols-lg-6"
     >
       {
         partners.map((item) => (
           <figure class="col">
-            <a href={item.link} target="_blank">
+            {item.link ? (
+              <a href={item.link} target="_blank">
+                <img width="180" src={item.img_src} alt={item.name} />
+              </a>
+            ) : (
               <img width="180" src={item.img_src} alt={item.name} />
-            </a>
+            )}
           </figure>
         ))
       }
